@@ -1,0 +1,267 @@
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { Wind, Leaf, Droplets, Sun, Search, ChevronDown } from 'lucide-react'
+import { windmills } from '@/data/windmills'
+import { cn } from '@/lib/utils'
+
+type Filter = 'all' | 'red' | 'blue' | 'yellow'
+
+export default function Windmills() {
+  const [filter, setFilter] = useState<Filter>('all')
+  const [query, setQuery] = useState('')
+  const [sortKey, setSortKey] = useState<'default' | 'sellAsc' | 'sellDesc'>('default')
+  const [expanded, setExpanded] = useState<Set<string>>(() => new Set())
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({})
+  const [activeWindmill, setActiveWindmill] = useState<Filter>('red')
+
+  const visible = useMemo(() => {
+    const wmFiltered = filter === 'all' ? windmills : windmills.filter((w) => w.id === filter)
+    const q = query.trim().toLowerCase()
+    if (!q) return wmFiltered
+    return wmFiltered
+      .map((wm) => {
+        const sections = wm.sections
+          .map((sec) => {
+            const items = sec.items.filter((it) => {
+              const hay = [
+                wm.name,
+                sec.title,
+                it.name,
+                it.info,
+                it.sellPrice,
+                it.processTime,
+                it.harvestTime,
+                ...(it.recipe ?? []),
+              ]
+                .filter(Boolean)
+                .join(' ')
+                .toLowerCase()
+              return hay.includes(q)
+            })
+            return { ...sec, items }
+          })
+          .filter((s) => s.items.length > 0)
+        return { ...wm, sections }
+      })
+      .filter((wm) => wm.sections.length > 0)
+  }, [filter, query])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+        const first = visibleEntries[0]
+        if (first) {
+          const id = first.target.getAttribute('data-windmill-id') as Filter | null
+          if (id) setActiveWindmill(id)
+        }
+      },
+      { root: null, rootMargin: '-25% 0px -65% 0px', threshold: [0, 0.25, 0.5, 1] },
+    )
+    const nodes = Object.values(sectionRefs.current).filter(Boolean) as HTMLElement[]
+    nodes.forEach((n) => observer.observe(n))
+    return () => observer.disconnect()
+  }, [visible])
+
+  function toggleSection(wmId: string, secId: string) {
+    const key = `${wmId}:${secId}`
+    setExpanded((prev) => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
+    })
+  }
+
+  return (
+    <div className="px-4 md:px-6 py-8">
+      <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <div className="flex items-center gap-3">
+          <div className="h-11 w-11 inline-flex items-center justify-center rounded-xl border bg-background">
+            <Wind className="h-5 w-5" />
+          </div>
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">Windmills</h1>
+            <p className="text-sm text-muted-foreground">Recipes, upgrades, and more</p>
+          </div>
+        </div>
+        <div className="flex-1" />
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search across all windmills..."
+              className="w-[260px] md:w-[340px] pl-9 pr-3 py-2 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+            <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          </div>
+          <div>
+            <select
+              value={sortKey}
+              onChange={(e) => setSortKey(e.target.value as any)}
+              className="px-3 py-2 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring text-sm"
+              aria-label="Sort items"
+            >
+              <option value="default">Default order</option>
+              <option value="sellDesc">Sell price: High → Low</option>
+              <option value="sellAsc">Sell price: Low → High</option>
+            </select>
+          </div>
+          <div className="inline-flex rounded-full border bg-secondary p-1">
+            {filters.map((f) => (
+              <button
+                key={f.id}
+                onClick={() => setFilter(f.id)}
+                className={cn(
+                  'px-3 py-1.5 rounded-full text-sm transition flex items-center gap-2',
+                  filter === f.id ? 'bg-background shadow-sm' : 'hover:bg-accent/60',
+                )}
+              >
+                {f.icon}
+                <span className="hidden sm:inline">{f.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </header>
+
+      <div className="sticky top-14 z-20 bg-background/80 backdrop-blur border-b">
+        <div className="px-1 py-2 text-sm text-muted-foreground">
+          Viewing: <span className="font-medium text-foreground">{titleFor(activeWindmill)}</span>
+        </div>
+      </div>
+
+      <div className="space-y-8 mt-4">
+        {visible.map((wm) => (
+          <section
+            key={wm.id}
+            data-windmill-id={wm.id}
+            ref={(el) => {
+              sectionRefs.current[wm.id] = el
+            }}
+            className="rounded-2xl border bg-card/70 backdrop-blur p-6"
+          >
+            <div className="mb-4 flex items-start justify-between gap-4">
+              <div>
+                <h2 className="text-xl font-semibold tracking-tight">{wm.name}</h2>
+                {wm.description && (
+                  <p className="text-sm text-muted-foreground mt-1 max-w-2xl">{wm.description}</p>
+                )}
+              </div>
+              <div className={cn('h-8 w-24 rounded-full bg-gradient-to-r', wm.accentClass)} />
+            </div>
+
+            <div className="grid grid-cols-1 gap-6">
+              {wm.sections.map((section) => (
+                <div key={section.id} className="rounded-xl border bg-background/60 overflow-hidden">
+                  <button
+                    onClick={() => toggleSection(wm.id, section.id)}
+                    className="w-full px-4 py-3 border-b flex items-center justify-between text-left hover:bg-accent/40"
+                    aria-expanded={expanded.has(`${wm.id}:${section.id}`) || !!query}
+                  >
+                    <h3 className="text-sm font-medium">{section.title}</h3>
+                    <ChevronDown
+                      className={cn(
+                        'h-4 w-4 transition-transform',
+                        expanded.has(`${wm.id}:${section.id}`) || !!query ? 'rotate-180' : '',
+                      )}
+                    />
+                  </button>
+                  {(expanded.has(`${wm.id}:${section.id}`) || !!query) && (
+                    <div className="p-4">
+                      <ul className="space-y-4">
+                        {sortedBy(section.items, sortKey).map((item) => (
+                          <li key={item.name} className="rounded-lg border bg-card p-4">
+                            <div className="flex flex-wrap items-start gap-3 justify-between">
+                              <div>
+                                <div className="flex items-center gap-2">
+                                  <span className="font-medium">{item.name}</span>
+                                  {item.unique && (
+                                    <span className="text-[11px] rounded px-1.5 py-0.5 bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/30">Unique</span>
+                                  )}
+                                </div>
+                                {item.info && (
+                                  <div className="text-xs text-muted-foreground mt-1 max-w-xl">{item.info}</div>
+                                )}
+                              </div>
+                              <div className="text-xs grid grid-cols-2 gap-x-6 gap-y-1 text-right">
+                                {item.sellPrice && (
+                                  <>
+                                    <span className="text-muted-foreground">Sell Price</span>
+                                    <span className="font-medium">{item.sellPrice}</span>
+                                  </>
+                                )}
+                                {item.processTime && (
+                                  <>
+                                    <span className="text-muted-foreground">Process Time</span>
+                                    <span className="font-medium">{item.processTime}</span>
+                                  </>
+                                )}
+                                {item.harvestTime && (
+                                  <>
+                                    <span className="text-muted-foreground">Harvest Time</span>
+                                    <span className="font-medium">{item.harvestTime}</span>
+                                  </>
+                                )}
+                              </div>
+                            </div>
+                            {item.recipe && item.recipe.length > 0 && (
+                              <div className="mt-3 text-[13px]">
+                                <span className="text-muted-foreground">Recipe:</span>{' '}
+                                <span>{item.recipe.join(' • ')}</span>
+                              </div>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const filters: Array<{ id: Filter; label: string; icon: ReactNode }> = [
+  { id: 'all', label: 'All', icon: <Leaf className="h-4 w-4" /> },
+  { id: 'red', label: 'Red', icon: <Sun className="h-4 w-4" /> },
+  { id: 'blue', label: 'Blue', icon: <Droplets className="h-4 w-4" /> },
+  { id: 'yellow', label: 'Yellow', icon: <Wind className="h-4 w-4" /> },
+]
+
+function titleFor(id: Filter): string {
+  if (id === 'all') return 'All Windmills'
+  if (id === 'red') return 'Red Windmill'
+  if (id === 'blue') return 'Blue Windmill'
+  return 'Yellow Windmill'
+}
+
+function sortedBy<T extends { sellPrice?: string }>(items: T[], key: 'default' | 'sellAsc' | 'sellDesc'): T[] {
+  if (key === 'default') return items
+  const toPrice = (p?: string) => {
+    if (!p) return NaN
+    const num = Number((p || '').replace(/[^0-9]/g, ''))
+    return Number.isNaN(num) ? NaN : num
+  }
+  const withIndex = items.map((it, idx) => ({ it, idx, price: toPrice(it.sellPrice) }))
+  withIndex.sort((a, b) => {
+    // Keep original order when price missing
+    const aMissing = Number.isNaN(a.price)
+    const bMissing = Number.isNaN(b.price)
+    if (aMissing && bMissing) return a.idx - b.idx
+    if (aMissing) return 1
+    if (bMissing) return -1
+    if (key === 'sellAsc') return (a.price as number) - (b.price as number)
+    return (b.price as number) - (a.price as number)
+  })
+  return withIndex.map((x) => x.it)
+}
+
+
+
