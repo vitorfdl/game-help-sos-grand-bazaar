@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { CalendarDays, ChevronLeft, ChevronRight, Flag, Bell, Sun, Snowflake, Leaf, Flower2 } from 'lucide-react'
 import { festivalsFor, type Season } from '@/data/calendar'
+import { withBase } from '@/lib/utils'
 import { residents as allResidents, avatarFileOverrides } from '@/data/residents'
 
 const seasons: Season[] = ['Spring', 'Summer', 'Autumn', 'Winter']
@@ -16,7 +17,7 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
 function toAvatarFilename(name: string): string {
   const override = (avatarFileOverrides as any)[name]
   const base = override ?? name.toLowerCase()
-  return `/avatars/${base}.png`
+  return withBase(`/avatars/${base}.png`)
 }
 
 type CombinedEvent = { day: number; title: string; type: 'festival' | 'birthday'; residentName?: string }
@@ -196,7 +197,7 @@ export default function Calendar() {
                                 src={toAvatarFilename(ev.residentName)}
                                 alt={ev.residentName}
                                 className="h-9 w-9 md:h-10 md:w-10 rounded-full border object-cover hover:ring-2 hover:ring-ring transition"
-                                onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/vite.svg' }}
+                                onError={(e) => { (e.currentTarget as HTMLImageElement).src = withBase('/vite.svg') }}
                               />
                             </Link>
                           ) : null

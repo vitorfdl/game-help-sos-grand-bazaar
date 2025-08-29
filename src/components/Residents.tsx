@@ -2,11 +2,12 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Search, ChevronLeft, ChevronRight, Users, Gem, Crown, Leaf } from 'lucide-react'
 import { residents as allResidents, type Resident, type ResidentGroup, avatarFileOverrides } from '../data/residents'
+import { withBase } from '@/lib/utils'
 
 function toAvatarFilename(name: string): string {
   const override = avatarFileOverrides[name as keyof typeof avatarFileOverrides]
   const base = override ?? name.toLowerCase()
-  return `/avatars/${base}.png`
+  return withBase(`/avatars/${base}.png`)
 }
 
 const groups: Array<'All' | ResidentGroup> = ['All', 'Bachelors', 'Bachelorettes', 'Villagers']
@@ -135,7 +136,7 @@ export default function Residents() {
                   <img
                     src={toAvatarFilename(current.name)}
                     onError={(e) => {
-                      ;(e.currentTarget as HTMLImageElement).src = '/vite.svg'
+                      ;(e.currentTarget as HTMLImageElement).src = withBase('/vite.svg')
                     }}
                     alt={current.name}
                     className="h-44 w-44 md:h-64 md:w-64 rounded-xl object-cover border-2 border-background shadow-lg"
@@ -249,7 +250,7 @@ export default function Residents() {
                   <img
                     src={toAvatarFilename(r.name)}
                     onError={(e) => {
-                      ;(e.currentTarget as HTMLImageElement).src = '/vite.svg'
+                      ;(e.currentTarget as HTMLImageElement).src = withBase('/vite.svg')
                     }}
                     alt={r.name}
                     className="h-12 w-12 md:h-14 md:w-14 rounded-full object-cover bg-secondary"
