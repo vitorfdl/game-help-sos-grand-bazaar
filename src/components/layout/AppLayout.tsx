@@ -1,6 +1,6 @@
 import { Outlet, NavLink } from 'react-router-dom'
 import { Users, Wind, Calendar as CalendarIcon } from 'lucide-react'
-import { SidebarProvider, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
+import { SidebarProvider, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInset } from '@/components/ui/sidebar'
 import { cn } from '@/lib/utils'
 
 export default function AppLayout() {
