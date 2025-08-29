@@ -5,6 +5,8 @@ import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Base path for GitHub Pages under /game-help-sos-grand-bazaar/
+  base: "/game-help-sos-grand-bazaar/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
