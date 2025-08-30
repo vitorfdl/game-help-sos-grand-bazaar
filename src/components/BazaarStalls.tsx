@@ -85,12 +85,6 @@ export default function BazaarStalls() {
         </div>
       </div>
 
-      <div className="sticky top-16 z-20 bg-background/80 backdrop-blur border-b">
-        <div className="px-1 py-2 text-sm text-muted-foreground">
-          Viewing: <span className="font-medium text-foreground">{filter === 'all' ? 'All Stalls' : displayNameFor(stalls, filter)}</span>
-        </div>
-      </div>
-
       <div className="space-y-6 mt-4">
         {visible.map((stall) => (
           <section key={stall.id} className="rounded-2xl border bg-card/70 backdrop-blur p-6">
