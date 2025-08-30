@@ -14,8 +14,9 @@ export type RecipeItem = {
   recipeDisplay: string
   ingredients?: RecipeIngredientGroup[]
   salesPrice: number | null
-  utensils?: string[] | null
+  effect?: string | null
   whereToGet?: string | null
+  utensils?: string[] | null
   adaptOptions?: string[] | null
 }
 

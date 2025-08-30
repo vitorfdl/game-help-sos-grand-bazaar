@@ -1,15 +1,53 @@
 import { useMemo, useState } from 'react'
-import { Search, ChefHat, ArrowDownZA, ArrowDown01, Info } from 'lucide-react'
+import { Search, ChefHat, ArrowUp, ArrowDown, Info } from 'lucide-react'
 import { recipes as allRecipes, type RecipeItem } from '@/data/recipes'
 import { Input } from '@/components/ui/input'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 
-type SortKey = 'rank' | 'priceAsc' | 'priceDesc' | 'name'
+type SortColumn = 'rank' | 'name' | 'recipe' | 'utensils' | 'whereToGet' | 'effect' | 'adaptOptions' | 'price'
+type SortDirection = 'asc' | 'desc'
 
 export default function CookingRecipes() {
   const [query, setQuery] = useState('')
-  const [sort, setSort] = useState<SortKey>('rank')
+  const [sortColumn, setSortColumn] = useState<SortColumn>('rank')
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
+
+  const handleSort = (column: SortColumn) => {
+    if (sortColumn === column) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')
+    } else {
+      setSortColumn(column)
+      setSortDirection('asc')
+    }
+  }
+
+  const SortableHeader = ({ column, children, className }: { 
+    column: SortColumn; 
+    children: React.ReactNode; 
+    className?: string 
+  }) => {
+    const isActive = sortColumn === column
+    const isAsc = sortDirection === 'asc'
+    
+    return (
+      <TableHead 
+        className={`cursor-pointer select-none hover:bg-muted/50 transition-colors ${className}`}
+        onClick={() => handleSort(column)}
+      >
+        <div className="flex items-center gap-1">
+          {children}
+          <div className="flex flex-col">
+            <ArrowUp 
+              className={`h-3 w-3 ${isActive && isAsc ? 'text-foreground' : 'text-muted-foreground/30'}`} 
+            />
+            <ArrowDown 
+              className={`h-3 w-3 -mt-1 ${isActive && !isAsc ? 'text-foreground' : 'text-muted-foreground/30'}`} 
+            />
+          </div>
+        </div>
+      </TableHead>
+    )
+  }
 
   const filtered: RecipeItem[] = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -19,18 +57,57 @@ export default function CookingRecipes() {
           const haystack = [r.dish, r.recipeDisplay].join(' ').toLowerCase()
           return haystack.includes(q)
         })
+    
     const sorted = [...base]
-    if (sort === 'rank') {
-      sorted.sort((a, b) => (a.bazaarRank ?? 99) - (b.bazaarRank ?? 99) || a.dish.localeCompare(b.dish))
-    } else if (sort === 'priceAsc') {
-      sorted.sort((a, b) => (a.salesPrice ?? Infinity) - (b.salesPrice ?? Infinity) || a.dish.localeCompare(b.dish))
-    } else if (sort === 'priceDesc') {
-      sorted.sort((a, b) => (b.salesPrice ?? -1) - (a.salesPrice ?? -1) || a.dish.localeCompare(b.dish))
-    } else if (sort === 'name') {
-      sorted.sort((a, b) => a.dish.localeCompare(b.dish))
-    }
+    const direction = sortDirection === 'asc' ? 1 : -1
+    
+    sorted.sort((a, b) => {
+      let comparison = 0
+      
+      switch (sortColumn) {
+        case 'rank':
+          const aRank = a.bazaarRank ?? 99
+          const bRank = b.bazaarRank ?? 99
+          comparison = aRank - bRank
+          break
+        case 'name':
+          comparison = a.dish.localeCompare(b.dish)
+          break
+        case 'recipe':
+          comparison = a.recipeDisplay.localeCompare(b.recipeDisplay)
+          break
+        case 'utensils':
+          const aUtensils = a.utensils?.join(', ') ?? ''
+          const bUtensils = b.utensils?.join(', ') ?? ''
+          comparison = aUtensils.localeCompare(bUtensils)
+          break
+        case 'whereToGet':
+          const aWhere = a.whereToGet ?? ''
+          const bWhere = b.whereToGet ?? ''
+          comparison = aWhere.localeCompare(bWhere)
+          break
+        case 'effect':
+          const aEffect = a.effect ?? ''
+          const bEffect = b.effect ?? ''
+          comparison = aEffect.localeCompare(bEffect)
+          break
+        case 'adaptOptions':
+          const aAdapt = a.adaptOptions?.join(', ') ?? ''
+          const bAdapt = b.adaptOptions?.join(', ') ?? ''
+          comparison = aAdapt.localeCompare(bAdapt)
+          break
+        case 'price':
+          const aPrice = a.salesPrice ?? (sortDirection === 'asc' ? Infinity : -1)
+          const bPrice = b.salesPrice ?? (sortDirection === 'asc' ? Infinity : -1)
+          comparison = aPrice - bPrice
+          break
+      }
+      
+      return direction * comparison || a.dish.localeCompare(b.dish)
+    })
+    
     return sorted
-  }, [query, sort])
+  }, [query, sortColumn, sortDirection])
 
   return (
     <div className="px-4 md:px-6 py-8">
@@ -45,29 +122,14 @@ export default function CookingRecipes() {
           </div>
         </div>
         <div className="flex-1" />
-        <div className="flex items-center gap-3">
-          <div className="relative">
-            <Input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search by name or ingredient..."
-              className="w-[260px] md:w-[340px] pl-9 pr-3 py-2 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring"
-            />
-            <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          </div>
-          <Select value={sort} onValueChange={(v) => setSort(v as SortKey)}>
-            <SelectTrigger aria-label="Sort by">
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="rank">
-                <span className="inline-flex items-center gap-2"><ArrowDownZA className="h-4 w-4" /> Bazaar Rank</span>
-              </SelectItem>
-              <SelectItem value="priceDesc">Price: High → Low</SelectItem>
-              <SelectItem value="priceAsc">Price: Low → High</SelectItem>
-              <SelectItem value="name">Name</SelectItem>
-            </SelectContent>
-          </Select>
+        <div className="relative">
+          <Input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by name or ingredient..."
+            className="w-[260px] md:w-[340px] pl-9 pr-3 py-2 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring"
+          />
+          <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         </div>
       </header>
 
@@ -79,13 +141,14 @@ export default function CookingRecipes() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Rank</TableHead>
-            <TableHead>Dish</TableHead>
-            <TableHead>Recipe</TableHead>
-            <TableHead>Utensils</TableHead>
-            <TableHead>Where to get</TableHead>
-            <TableHead>Adapt options</TableHead>
-            <TableHead className="text-right">Sales Price</TableHead>
+            <SortableHeader column="rank">Rank</SortableHeader>
+            <SortableHeader column="name">Dish</SortableHeader>
+            <SortableHeader column="recipe">Recipe</SortableHeader>
+            <SortableHeader column="utensils">Utensils</SortableHeader>
+            <SortableHeader column="whereToGet">Where to get</SortableHeader>
+            <SortableHeader column="effect">Effect</SortableHeader>
+            <SortableHeader column="adaptOptions">Adapt options</SortableHeader>
+            <SortableHeader column="price" className="text-right">Sales Price</SortableHeader>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -100,6 +163,7 @@ export default function CookingRecipes() {
                 {r.utensils?.length ? r.utensils.join(', ') : <span className="text-muted-foreground">—</span>}
               </TableCell>
               <TableCell>{r.whereToGet ?? <span className="text-muted-foreground">—</span>}</TableCell>
+              <TableCell>{r.effect ?? <span className="text-muted-foreground">—</span>}</TableCell>
               <TableCell>
                 {r.adaptOptions?.length ? r.adaptOptions.join(', ') : <span className="text-muted-foreground">—</span>}
               </TableCell>
