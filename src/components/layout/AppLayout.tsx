@@ -1,5 +1,5 @@
 import { Outlet, NavLink, useLocation } from 'react-router-dom'
-import { BookOpen, Users, Wind, Calendar as CalendarIcon, Github, ChefHat } from 'lucide-react'
+import { BookOpen, Users, Wind, Calendar as CalendarIcon, Github, ChefHat, Store } from 'lucide-react'
 import { 
   SidebarProvider, 
   Sidebar, 
@@ -27,6 +27,8 @@ function getPageTitle(pathname: string): string {
       return 'Calendar'
     case '/recipes':
       return 'Cooking Recipes'
+    case '/bazaar':
+      return 'Bazaar Stalls'
     default:
       return 'SoS: Grand Bazaar'
   }
@@ -82,6 +84,14 @@ export default function AppLayout() {
                     <NavLink to="/recipes">
                       <ChefHat />
                       <span>Cooking Recipes</span>
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild isActive={location.pathname === '/bazaar'}>
+                    <NavLink to="/bazaar">
+                      <Store />
+                      <span>Bazaar Stalls</span>
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

@@ -76,28 +76,23 @@ export default function Windmills() {
   }
 
   return (
-    <div className="px-4 md:px-6 py-8">
-      <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center">
-        <div className="flex items-center gap-3">
-          <div className="h-11 w-11 inline-flex items-center justify-center rounded-xl border bg-background">
-            <Wind className="h-5 w-5" />
-          </div>
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">Windmills</h1>
-            <p className="text-sm text-muted-foreground">Recipes, upgrades, and more</p>
-          </div>
+    <div className="px-4 md:px-6 py-6">
+      {/* Toolbar: search, sort and filters (responsive) */}
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="relative w-full sm:w-[340px]">
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search across all windmills..."
+            className="w-full pl-9 pr-3 py-2 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring"
+          />
+          <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         </div>
-        <div className="flex-1" />
+
+        <div className="sm:flex-1" />
+
+        {/* Sort select */}
         <div className="flex items-center gap-3">
-          <div className="relative">
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search across all windmills..."
-              className="w-[260px] md:w-[340px] pl-9 pr-3 py-2 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring"
-            />
-            <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          </div>
           <Select value={sortKey} onValueChange={(v) => setSortKey(v as any)}>
             <SelectTrigger aria-label="Sort items">
               <SelectValue placeholder="Sort by" />
@@ -108,7 +103,9 @@ export default function Windmills() {
               <SelectItem value="priceAsc">Price: Low → High</SelectItem>
             </SelectContent>
           </Select>
-          <div className="inline-flex rounded-full border bg-secondary p-1">
+
+          {/* Desktop filter pills */}
+          <div className="hidden sm:inline-flex rounded-full border bg-secondary p-1">
             {filters.map((f) => (
               <button
                 key={f.id}
@@ -119,14 +116,29 @@ export default function Windmills() {
                 )}
               >
                 {f.icon}
-                <span className="hidden sm:inline">{f.label}</span>
+                <span className="hidden md:inline">{f.label}</span>
               </button>
             ))}
           </div>
         </div>
-      </header>
 
-      <div className="sticky top-14 z-20 bg-background/80 backdrop-blur border-b">
+        {/* Mobile filter select */}
+        <div className="sm:hidden">
+          <Select value={filter} onValueChange={(v) => setFilter(v as Filter)}>
+            <SelectTrigger aria-label="Filter windmills">
+              <SelectValue placeholder="Filter" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All</SelectItem>
+              <SelectItem value="red">Red</SelectItem>
+              <SelectItem value="blue">Blue</SelectItem>
+              <SelectItem value="yellow">Yellow</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      <div className="sticky top-16 z-20 bg-background/80 backdrop-blur border-b">
         <div className="px-1 py-2 text-sm text-muted-foreground">
           Viewing: <span className="font-medium text-foreground">{titleFor(activeWindmill)}</span>
         </div>

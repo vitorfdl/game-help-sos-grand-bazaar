@@ -127,7 +127,7 @@ export default function Calendar() {
   }, [searchParams])
 
   return (
-    <div className="relative px-4 md:px-6 py-8">
+    <div className="relative px-4 md:px-6 py-6">
       <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(60%_45%_at_50%_0%,black,transparent)]">
         <div className={`absolute inset-x-0 -top-40 h-80 bg-gradient-to-b ${seasonAccent[season]} blur-2xl opacity-40`} />
         <div className="absolute right-6 top-10 opacity-20">
@@ -137,49 +137,38 @@ export default function Calendar() {
           {season === 'Winter' && <Snowflake className="h-40 w-40 text-sky-300" />}
         </div>
       </div>
-      <header className="mb-4 sm:mb-6 flex flex-col gap-3 sm:gap-4">
-        <div className="flex items-center gap-3">
-          <div className="h-11 w-11 inline-flex items-center justify-center rounded-xl border bg-background">
-            <CalendarDays className="h-5 w-5" />
+      {/* Toolbar: navigation and filters; header moved to layout */}
+      <div className="mb-4 sm:mb-6 flex flex-wrap items-center justify-between gap-3">
+        <div className="inline-flex items-center gap-2">
+          <button
+            className={`h-8 w-8 sm:h-10 sm:w-10 inline-flex items-center justify-center rounded-lg border bg-background ${canPrevSeason ? 'hover:bg-accent' : 'opacity-50 cursor-not-allowed'}`}
+            onClick={prev}
+            aria-label="Previous season"
+            disabled={!canPrevSeason}
+          >
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+          </button>
+          <div className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border bg-background text-sm sm:text-base md:text-lg font-medium min-w-[180px] sm:min-w-[220px] text-center bg-gradient-to-r ${seasonAccent[season]} bg-clip-text text-transparent shadow-sm`}>
+            Year {year} • {season}
           </div>
-          <div>
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">Calendar</h1>
-            <p className="text-xs sm:text-sm text-muted-foreground">Events and birthdays schedules</p>
-          </div>
+          <button
+            className={`h-8 w-8 sm:h-10 sm:w-10 inline-flex items-center justify-center rounded-lg border bg-background ${canNextSeason ? 'hover:bg-accent' : 'opacity-50 cursor-not-allowed'}`}
+            onClick={next}
+            aria-label="Next season"
+            disabled={!canNextSeason}
+          >
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+          </button>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="inline-flex items-center gap-2">
-            <button
-              className={`h-8 w-8 sm:h-10 sm:w-10 inline-flex items-center justify-center rounded-lg border bg-background ${canPrevSeason ? 'hover:bg-accent' : 'opacity-50 cursor-not-allowed'}`}
-              onClick={prev}
-              aria-label="Previous season"
-              disabled={!canPrevSeason}
-            >
-              <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+        <div className={`inline-flex rounded-full border bg-secondary p-0.5 sm:p-1 ${isMobile ? 'text-xs' : ''}`}>
+          {(['all', 'festival', 'birthday'] as const).map((k) => (
+            <button key={k} onClick={() => setShow(k)} className={`px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm md:text-base ${show === k ? 'bg-background shadow-sm' : 'hover:bg-accent/60'}`}>
+              {k === 'all' ? 'All' : k === 'festival' ? (isMobile ? 'Fest.' : 'Festivals') : (isMobile ? 'Birth.' : 'Birthdays')}
             </button>
-            <div className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border bg-background text-sm sm:text-base md:text-lg font-medium min-w-[180px] sm:min-w-[220px] text-center bg-gradient-to-r ${seasonAccent[season]} bg-clip-text text-transparent shadow-sm`}>
-              Year {year} • {season}
-            </div>
-            <button
-              className={`h-8 w-8 sm:h-10 sm:w-10 inline-flex items-center justify-center rounded-lg border bg-background ${canNextSeason ? 'hover:bg-accent' : 'opacity-50 cursor-not-allowed'}`}
-              onClick={next}
-              aria-label="Next season"
-              disabled={!canNextSeason}
-            >
-              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
-          </div>
-
-          <div className={`inline-flex rounded-full border bg-secondary p-0.5 sm:p-1 ${isMobile ? 'text-xs' : ''}`}>
-            {(['all', 'festival', 'birthday'] as const).map((k) => (
-              <button key={k} onClick={() => setShow(k)} className={`px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm md:text-base ${show === k ? 'bg-background shadow-sm' : 'hover:bg-accent/60'}`}>
-                {k === 'all' ? 'All' : k === 'festival' ? (isMobile ? 'Fest.' : 'Festivals') : (isMobile ? 'Birth.' : 'Birthdays')}
-              </button>
-            ))}
-          </div>
+          ))}
         </div>
-      </header>
+      </div>
 
       
 

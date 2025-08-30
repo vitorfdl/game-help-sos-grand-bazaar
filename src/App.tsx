@@ -4,6 +4,7 @@ import Windmills from './components/Windmills'
 import Calendar from './components/Calendar'
 import CookingRecipes from './components/CookingRecipes'
 import AppLayout from '@/components/layout/AppLayout'
+import BazaarStalls from './components/BazaarStalls'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="windmills" element={<Windmills />} />
         <Route path="calendar" element={<Calendar />} />
         <Route path="recipes" element={<CookingRecipes />} />
+        <Route path="bazaar" element={<BazaarStalls />} />
       </Route>
     </Routes>
   )
