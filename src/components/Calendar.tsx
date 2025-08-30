@@ -186,7 +186,9 @@ export default function Calendar() {
       <div className="overflow-x-auto rounded-2xl border bg-card/70 p-2 sm:p-3 md:p-4 shadow-xl">
         <div className={`grid grid-cols-7 ${isMobile ? 'gap-1' : 'gap-1.5 sm:gap-2'}`}>
           {weekdays.map((w) => (
-            <div key={w} className="text-center text-[11px] sm:text-sm font-medium text-muted-foreground py-0.5 sm:py-1">{w}</div>
+            <div key={w} className="text-center text-[11px] sm:text-sm font-medium text-muted-foreground py-0.5 sm:py-1">
+              {isMobile ? w.slice(0, 3) : w}
+            </div>
           ))}
           {cells.map((cell, idx) => {
             if (isMobile) {
@@ -299,6 +301,7 @@ export default function Calendar() {
                 </span>
               )}
             </DrawerTitle>
+            <p className="text-xs text-muted-foreground text-center mt-1">Swipe down or tap outside to close</p>
           </DrawerHeader>
           <div className="px-4 pb-8">
             {selectedDay && eventsByDay[selectedDay] && eventsByDay[selectedDay].length > 0 ? (
