@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Residents from './components/Residents'
 import Windmills from './components/Windmills'
 import Calendar from './components/Calendar'
+import CookingRecipes from './components/CookingRecipes'
 import AppLayout from '@/components/layout/AppLayout'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Route index element={<Residents />} />
         <Route path="windmills" element={<Windmills />} />
         <Route path="calendar" element={<Calendar />} />
+        <Route path="recipes" element={<CookingRecipes />} />
       </Route>
     </Routes>
   )

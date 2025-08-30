@@ -132,7 +132,7 @@ export default function Calendar() {
           </div>
           <div>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">Calendar</h1>
-            <p className="text-xs sm:text-sm text-muted-foreground">Events and birthdays across two years</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">Events and birthdays schedules</p>
           </div>
         </div>
 

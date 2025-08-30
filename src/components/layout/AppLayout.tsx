@@ -1,5 +1,5 @@
 import { Outlet, NavLink } from 'react-router-dom'
-import { Users, Wind, Calendar as CalendarIcon, Github } from 'lucide-react'
+import { Users, Wind, Calendar as CalendarIcon, Github, ChefHat } from 'lucide-react'
 import { SidebarProvider, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInset } from '@/components/ui/sidebar'
 import { cn } from '@/lib/utils'
 
@@ -17,6 +17,7 @@ export default function AppLayout() {
                   <NavItem to="/" label="Residents" icon={<Users className="h-4 w-4" />} end />
                   <NavItem to="/windmills" label="Windmills" icon={<Wind className="h-4 w-4" />} />
                   <NavItem to="/calendar" label="Calendar" icon={<CalendarIcon className="h-4 w-4" />} />
+                  <NavItem to="/recipes" label="Cooking Recipes" icon={<ChefHat className="h-4 w-4" />} />
                 </nav>
               </SidebarGroupContent>
             </SidebarGroup>

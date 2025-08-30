@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Wind, Leaf, Droplets, Sun, Search, ChevronDown } from 'lucide-react'
 import { windmills } from '@/data/windmills'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
 
 type Filter = 'all' | 'red' | 'blue' | 'yellow'
@@ -8,7 +9,7 @@ type Filter = 'all' | 'red' | 'blue' | 'yellow'
 export default function Windmills() {
   const [filter, setFilter] = useState<Filter>('all')
   const [query, setQuery] = useState('')
-  const [sortKey, setSortKey] = useState<'default' | 'sellAsc' | 'sellDesc'>('default')
+  const [sortKey, setSortKey] = useState<'default' | 'priceAsc' | 'priceDesc'>('default')
   const [expanded, setExpanded] = useState<Set<string>>(() => new Set())
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({})
   const [activeWindmill, setActiveWindmill] = useState<Filter>('red')
@@ -97,18 +98,16 @@ export default function Windmills() {
             />
             <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           </div>
-          <div>
-            <select
-              value={sortKey}
-              onChange={(e) => setSortKey(e.target.value as any)}
-              className="px-3 py-2 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring text-sm"
-              aria-label="Sort items"
-            >
-              <option value="default">Default order</option>
-              <option value="sellDesc">Sell price: High → Low</option>
-              <option value="sellAsc">Sell price: Low → High</option>
-            </select>
-          </div>
+          <Select value={sortKey} onValueChange={(v) => setSortKey(v as any)}>
+            <SelectTrigger aria-label="Sort items">
+              <SelectValue placeholder="Sort by" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="default">Default order</SelectItem>
+              <SelectItem value="priceDesc">Price: High → Low</SelectItem>
+              <SelectItem value="priceAsc">Price: Low → High</SelectItem>
+            </SelectContent>
+          </Select>
           <div className="inline-flex rounded-full border bg-secondary p-1">
             {filters.map((f) => (
               <button
@@ -242,7 +241,7 @@ function titleFor(id: Filter): string {
   return 'Yellow Windmill'
 }
 
-function sortedBy<T extends { sellPrice?: string }>(items: T[], key: 'default' | 'sellAsc' | 'sellDesc'): T[] {
+function sortedBy<T extends { sellPrice?: string }>(items: T[], key: 'default' | 'priceAsc' | 'priceDesc'): T[] {
   if (key === 'default') return items
   const toPrice = (p?: string) => {
     if (!p) return NaN
@@ -257,7 +256,7 @@ function sortedBy<T extends { sellPrice?: string }>(items: T[], key: 'default' |
     if (aMissing && bMissing) return a.idx - b.idx
     if (aMissing) return 1
     if (bMissing) return -1
-    if (key === 'sellAsc') return (a.price as number) - (b.price as number)
+    if (key === 'priceAsc') return (a.price as number) - (b.price as number)
     return (b.price as number) - (a.price as number)
   })
   return withIndex.map((x) => x.it)
