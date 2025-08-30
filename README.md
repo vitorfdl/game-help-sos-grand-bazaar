@@ -6,6 +6,8 @@ This project was made entirely by AI, and can have issues that were not detected
 
 The data is intentionally isolated under `src/data` so that fixing or expanding information is simple and low-risk.
 
+<img width="2388" height="1444" alt="image" src="https://github.com/user-attachments/assets/02578e29-b801-4148-921a-8854c566eb7c" />
+
 ---
 
 ## Quick start
