@@ -139,18 +139,6 @@ export default function Residents() {
 
   return (
     <div className="min-h-dvh flex flex-col relative">
-      <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(60%_40%_at_50%_0%,black,transparent)]">
-        <div className="absolute inset-x-0 -top-40 h-80 bg-gradient-to-b from-[var(--brand-from)]/25 via-[var(--brand-via)]/20 to-transparent blur-2xl" />
-      </div>
-
-      <header className="sticky top-0 z-10 bg-background/70 backdrop-blur border-b">
-        <div className="mx-auto px-4 py-2 flex flex-col gap-2">
-          <h1 className="text-center text-xl font-semibold tracking-tight bg-gradient-to-r from-[var(--chart-2)] to-[var(--chart-3)] bg-clip-text text-transparent">
-            Residents of Zephyr Town
-          </h1>
-          
-        </div>
-      </header>
 
       <main className="flex-1">
         <div className="mx-auto max-w-4xl px-4 py-8">

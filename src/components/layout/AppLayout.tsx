@@ -1,71 +1,125 @@
-import { Outlet, NavLink } from 'react-router-dom'
-import { Users, Wind, Calendar as CalendarIcon, Github, ChefHat } from 'lucide-react'
-import { SidebarProvider, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInset } from '@/components/ui/sidebar'
-import { cn } from '@/lib/utils'
+import { Outlet, NavLink, useLocation } from 'react-router-dom'
+import { BookOpen, Users, Wind, Calendar as CalendarIcon, Github, ChefHat } from 'lucide-react'
+import { 
+  SidebarProvider, 
+  Sidebar, 
+  SidebarContent, 
+  SidebarFooter, 
+  SidebarGroup, 
+  SidebarGroupContent, 
+  SidebarGroupLabel, 
+  SidebarHeader, 
+  SidebarInset,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarTrigger
+} from '@/components/ui/sidebar'
+
+// Helper function to get page title based on current route
+function getPageTitle(pathname: string): string {
+  switch (pathname) {
+    case '/':
+      return 'Residents'
+    case '/windmills':
+      return 'Windmills'
+    case '/calendar':
+      return 'Calendar'
+    case '/recipes':
+      return 'Cooking Recipes'
+    default:
+      return 'SoS: Grand Bazaar'
+  }
+}
 
 export default function AppLayout() {
+  const location = useLocation()
   return (
     <SidebarProvider>
+      <Sidebar collapsible="icon">
+        <SidebarHeader>
+          <div className="flex items-center gap-2 px-2 py-1.5">
+            <div className="flex aspect-square size-6 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+              <BookOpen className="size-4" />
+            </div>
+            <div className="grid flex-1 text-left text-sm leading-tight">
+              <span className="truncate font-semibold">SoS: Grand Bazaar</span>
+              <span className="truncate text-xs">Reference Cheats</span>
+            </div>
+          </div>
+        </SidebarHeader>
+        <SidebarContent>
+          <SidebarGroup>
+            <SidebarGroupLabel>Navigate</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild isActive={location.pathname === '/'}>
+                    <NavLink to="/" end>
+                      <Users />
+                      <span>Residents</span>
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild isActive={location.pathname === '/windmills'}>
+                    <NavLink to="/windmills">
+                      <Wind />
+                      <span>Windmills</span>
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild isActive={location.pathname === '/calendar'}>
+                    <NavLink to="/calendar">
+                      <CalendarIcon />
+                      <span>Calendar</span>
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild isActive={location.pathname === '/recipes'}>
+                    <NavLink to="/recipes">
+                      <ChefHat />
+                      <span>Cooking Recipes</span>
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </SidebarContent>
+        <SidebarFooter>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild>
+                <a
+                  href="https://github.com/vitorfdl/game-help-sos-grand-bazaar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github />
+                  <span>Contribute on GitHub</span>
+                </a>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarFooter>
+      </Sidebar>
       <SidebarInset>
-        <Sidebar className="hidden md:block">
-          <SidebarHeader>SoS: Grand Bazaar</SidebarHeader>
-          <SidebarContent>
-            <SidebarGroup>
-              <SidebarGroupLabel>Navigate</SidebarGroupLabel>
-              <SidebarGroupContent>
-                <nav className="flex flex-col gap-1">
-                  <NavItem to="/" label="Residents" icon={<Users className="h-4 w-4" />} end />
-                  <NavItem to="/windmills" label="Windmills" icon={<Wind className="h-4 w-4" />} />
-                  <NavItem to="/calendar" label="Calendar" icon={<CalendarIcon className="h-4 w-4" />} />
-                  <NavItem to="/recipes" label="Cooking Recipes" icon={<ChefHat className="h-4 w-4" />} />
-                </nav>
-              </SidebarGroupContent>
-            </SidebarGroup>
-          </SidebarContent>
-          <SidebarFooter>
-            <a
-              href="https://github.com/vitorfdl/game-help-sos-grand-bazaar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                'group inline-flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm transition',
-                'hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
-              )}
-            >
-              <Github className="h-4 w-4" />
-              <span>Contribute on GitHub</span>
-            </a>
-          </SidebarFooter>
-        </Sidebar>
-
-        <div className="flex-1 min-w-0 flex flex-col">
- 
-          <main className="flex-1">
-            <Outlet />
-          </main>
-        </div>
+        <header className="flex h-16 shrink-0 items-center gap-2 px-4 border-b">
+          <SidebarTrigger className="-ml-1" />
+          <div className="h-6 w-px bg-border mx-2" />
+          <h1 className="text-lg font-semibold">{getPageTitle(location.pathname)}</h1>
+        </header>
+        <main className="flex-1 p-4">
+          <Outlet />
+        </main>
       </SidebarInset>
     </SidebarProvider>
   )
 }
 
-function NavItem({ to, label, icon, end }: { to: string; label: string; icon: React.ReactNode; end?: boolean }) {
-  return (
-    <NavLink
-      to={to}
-      end={end}
-      className={({ isActive }) =>
-        cn(
-          'group inline-flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm transition',
-          'hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
-          isActive ? 'bg-sidebar-accent text-sidebar-accent-foreground' : undefined,
-        )
-      }
-    >
-      {icon}
-      <span>{label}</span>
-    </NavLink>
-  )
-}
+
 
 
