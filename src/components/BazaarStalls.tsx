@@ -209,9 +209,3 @@ function formatPrice(item: BazaarItem): string {
   return `${formatted} ${unit}`
 }
 
-function displayNameFor(stalls: Array<{ id: string; name: string }>, id: string): string {
-  const s = stalls.find((x) => x.id === id)
-  return s ? s.name : 'All Stalls'
-}
-
-

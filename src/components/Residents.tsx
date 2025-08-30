@@ -200,9 +200,11 @@ export default function Residents() {
                 <div className="space-y-3">
                   <div className="flex items-start gap-2">
                     <span className="font-medium">Favorite:</span>
-                    <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2 py-1 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
-                      {current.favorite}
+                    {current.favorite.map((f) => (
+                    <span key={f} className="inline-flex items-center rounded-md bg-emerald-500/10 px-2 py-1 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                      {f}
                     </span>
+                    ))}
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="font-medium">Likes:</span>
