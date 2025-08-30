@@ -7,6 +7,10 @@ Front-end code development:
 - For any icons, when necessary, use lucide-react.
 - Use Jotai for state management.
 
+Code Standards:
+- Ensure to componentize files and to separate functions by responsability.
+- Act as to prevent code repetition and maintain code DRY. If you find opportunity to optimize, do it.
+
 Theme and Color Scheme:
 - The @index.css file must define the theme and color scheme according to the Shadcn UI guidelines.
 - The CSS is already in Tailwind V4 correct format.

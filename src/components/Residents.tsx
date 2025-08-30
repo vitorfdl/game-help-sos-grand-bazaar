@@ -1,16 +1,31 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Search, ChevronLeft, ChevronRight, Users, Gem, Crown, Leaf } from 'lucide-react'
+import { Search, ChevronLeft, ChevronRight, Users, Gem, Crown, Leaf, Cake, Flower2, Sun, Snowflake } from 'lucide-react'
 import { residents as allResidents, type Resident, type ResidentGroup, avatarFileOverrides } from '../data/residents'
+import { type Season } from '@/data/types'
 import { withBase } from '@/lib/utils'
 
 function toAvatarFilename(name: string): string {
   const override = avatarFileOverrides[name as keyof typeof avatarFileOverrides]
   const base = override ?? name.toLowerCase()
-  return withBase(`/avatars/${base}.png`)
+  return withBase(`/avatars/${base}.webp`)
 }
 
 const groups: Array<'All' | ResidentGroup> = ['All', 'Bachelors', 'Bachelorettes', 'Villagers']
+
+const seasonIcon: Record<Season, typeof Flower2> = {
+  Spring: Flower2,
+  Summer: Sun,
+  Autumn: Leaf,
+  Winter: Snowflake,
+}
+
+const seasonColors: Record<Season, string> = {
+  Spring: 'text-rose-400 border-rose-200/50 bg-rose-50/50 dark:bg-rose-950/30',
+  Summer: 'text-green-500 border-green-200/50 bg-green-50/50 dark:bg-green-950/30',
+  Autumn: 'text-amber-500 border-amber-200/50 bg-amber-50/50 dark:bg-amber-950/30',
+  Winter: 'text-sky-500 border-sky-200/50 bg-sky-50/50 dark:bg-sky-950/30',
+}
 
 export default function Residents() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -105,6 +120,23 @@ export default function Residents() {
     }
   }
 
+  function BirthdayBadge({ resident }: { resident: Resident }) {
+    if (!resident.birthday) return null
+    
+    const { season, day } = resident.birthday
+    const SeasonIcon = seasonIcon[season]
+    
+    return (
+      <div className={`inline-flex items-center gap-2 px-2.5 py-1.5 rounded-lg border ${seasonColors[season]} bg-background/60`}>
+        <Cake className="h-4 w-4" />
+        <div className="flex items-center gap-1.5">
+          <SeasonIcon className="h-4 w-4" />
+          <span className="text-sm font-medium">{season} {day}</span>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-dvh flex flex-col relative">
       <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(60%_40%_at_50%_0%,black,transparent)]">
@@ -112,8 +144,8 @@ export default function Residents() {
       </div>
 
       <header className="sticky top-0 z-10 bg-background/70 backdrop-blur border-b">
-        <div className="mx-auto max-w-6xl px-4 py-5 flex flex-col gap-2">
-          <h1 className="text-center text-3xl md:text-4xl font-semibold tracking-tight bg-gradient-to-r from-[var(--chart-2)] to-[var(--chart-3)] bg-clip-text text-transparent">
+        <div className="mx-auto px-4 py-2 flex flex-col gap-2">
+          <h1 className="text-center text-xl font-semibold tracking-tight bg-gradient-to-r from-[var(--chart-2)] to-[var(--chart-3)] bg-clip-text text-transparent">
             Residents of Zephyr Town
           </h1>
           
@@ -144,8 +176,13 @@ export default function Residents() {
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="flex items-center justify-between gap-3">
-                  <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">{current.name}</h2>
+                <div className="flex items-baseline justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">{current.name}</h2>
+                    <div className="md:hidden">
+                      <BirthdayBadge resident={current} />
+                    </div>
+                  </div>
                   <div className="flex md:hidden gap-2">
                     <button
                       className="h-10 w-10 flex items-center justify-center rounded-full border bg-background/80 hover:bg-accent"
@@ -161,6 +198,9 @@ export default function Residents() {
                     >
                       <ChevronRight className="h-5 w-5" />
                     </button>
+                  </div>
+                  <div className="hidden md:flex">
+                    <BirthdayBadge resident={current} />
                   </div>
                 </div>
                 <div className="text-sm text-muted-foreground">{current.group}</div>
@@ -198,14 +238,14 @@ export default function Residents() {
         </div>
       </main>
 
-      <footer className="sticky bottom-0 z-10 bg-background/85 backdrop-blur border-t">
-        <div className="mx-auto px-4 py-4 space-y-3">
+      <footer className="sticky bottom-0 z-10 bg-background/85 backdrop-blur border-t ">
+        <div className="mx-auto px-4 py-3 sm:py-4 space-y-3">
           <div className="flex flex-col md:flex-row gap-3 md:items-center">
-            <div className="inline-flex rounded-full border bg-secondary p-1">
+            <div className="inline-flex rounded-full border bg-secondary p-0.5 sm:p-1 md:p-1.5">
               {groups.map((g) => (
                 <button
                   key={g}
-                  className={`px-3 md:px-4 py-1.5 rounded-full text-sm transition flex items-center gap-2 ${
+                  className={`px-3 py-1 sm:py-1.5 rounded-full text-xs transition flex items-center gap-2 ${
                     g === group
                       ? 'bg-background shadow-sm'
                       : 'hover:bg-accent/60'
@@ -226,40 +266,41 @@ export default function Residents() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search by name, favorite, likes..."
-                className="w-full md:w-96 pl-10 pr-3 py-2 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring"
+                className="w-full sm:w-72 md:w-80 lg:w-96 xl:w-[28rem] pl-9 pr-3 py-2 h-9 sm:h-10 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring text-sm sm:text-base"
               />
               <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             </div>
           </div>
-          <div
-            ref={thumbnailsRef}
-            className="grid gap-3 md:gap-4"
-            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(104px, 1fr))' }}
-          >
-            {filtered.map((r, idx) => (
-              <button
-                key={r.name}
-                data-index={idx}
-                onClick={() => selectByName(r.name)}
-                className={`group p-[2px] rounded-xl bg-gradient-to-br from-[color-mix(in_oklab,var(--chart-2),transparent_50%)] via-[color-mix(in_oklab,var(--chart-1),transparent_50%)] to-[color-mix(in_oklab,var(--chart-3),transparent_50%)] transition ${
-                  r.name === selectedName ? 'opacity-100' : 'opacity-70 hover:opacity-100'
-                }`}
-                title={r.name}
-              >
-                <div className={`rounded-xl p-2 bg-background border w-full flex flex-col items-center gap-1 ${r.name === selectedName ? 'ring-2 ring-[var(--chart-2)]/70' : ''}`}>
-                  <img
-                    src={toAvatarFilename(r.name)}
-                    onError={(e) => {
-                      ;(e.currentTarget as HTMLImageElement).src = withBase('/vite.svg')
-                    }}
-                    alt={r.name}
-                    className="h-12 w-12 md:h-14 md:w-14 rounded-full object-cover bg-secondary"
-                    loading="lazy"
-                  />
-                  <span className="text-xs md:text-[13px] leading-tight text-center">{r.name}</span>
-                </div>
-              </button>
-            ))}
+          <div className="overflow-y-auto max-h-40 sm:max-h-42 2xl:max-h-64 pr-1">
+            <div
+              ref={thumbnailsRef}
+              className="grid gap-2 sm:gap-3 md:gap-4 [grid-template-columns:repeat(auto-fit,minmax(76px,1fr))] sm:[grid-template-columns:repeat(auto-fit,minmax(96px,1fr))] md:[grid-template-columns:repeat(auto-fit,minmax(104px,1fr))] overflow-x-hidden"
+            >
+              {filtered.map((r, idx) => (
+                <button
+                  key={r.name}
+                  data-index={idx}
+                  onClick={() => selectByName(r.name)}
+                  className={`group p-[2px] sm:p-[2px] rounded-xl bg-gradient-to-br from-[color-mix(in_oklab,var(--chart-2),transparent_50%)] via-[color-mix(in_oklab,var(--chart-1),transparent_50%)] to-[color-mix(in_oklab,var(--chart-3),transparent_50%)] transition ${
+                    r.name === selectedName ? 'opacity-100' : 'opacity-70 hover:opacity-100'
+                  }`}
+                  title={r.name}
+                >
+                  <div className={`rounded-xl p-1 sm:p-1.5 md:p-2 bg-background border w-full flex flex-col items-center gap-1 ${r.name === selectedName ? 'ring-2 ring-[var(--chart-2)]/70' : ''}`}>
+                    <img
+                      src={toAvatarFilename(r.name)}
+                      onError={(e) => {
+                        ;(e.currentTarget as HTMLImageElement).src = withBase('/vite.svg')
+                      }}
+                      alt={r.name}
+                      className="h-9 w-9 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full object-cover bg-secondary"
+                      loading="lazy"
+                    />
+                    <span className="text-[10px] sm:text-xs md:text-[13px] leading-tight text-center">{r.name}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </footer>

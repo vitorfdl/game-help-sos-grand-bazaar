@@ -1,5 +1,5 @@
 import { Outlet, NavLink } from 'react-router-dom'
-import { Users, Wind, Calendar as CalendarIcon } from 'lucide-react'
+import { Users, Wind, Calendar as CalendarIcon, Github } from 'lucide-react'
 import { SidebarProvider, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInset } from '@/components/ui/sidebar'
 import { cn } from '@/lib/utils'
 
@@ -8,7 +8,7 @@ export default function AppLayout() {
     <SidebarProvider>
       <SidebarInset>
         <Sidebar className="hidden md:block">
-          <SidebarHeader>Grand Bazaar</SidebarHeader>
+          <SidebarHeader>SoS: Grand Bazaar</SidebarHeader>
           <SidebarContent>
             <SidebarGroup>
               <SidebarGroupLabel>Navigate</SidebarGroupLabel>
@@ -21,7 +21,20 @@ export default function AppLayout() {
               </SidebarGroupContent>
             </SidebarGroup>
           </SidebarContent>
-          <SidebarFooter>© {new Date().getFullYear()}</SidebarFooter>
+          <SidebarFooter>
+            <a
+              href="https://github.com/vitorfdl/game-help-sos-grand-bazaar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                'group inline-flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm transition',
+                'hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
+              )}
+            >
+              <Github className="h-4 w-4" />
+              <span>Contribute on GitHub</span>
+            </a>
+          </SidebarFooter>
         </Sidebar>
 
         <div className="flex-1 min-w-0 flex flex-col">

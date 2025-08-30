@@ -17,7 +17,7 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
 function toAvatarFilename(name: string): string {
   const override = (avatarFileOverrides as any)[name]
   const base = override ?? name.toLowerCase()
-  return withBase(`/avatars/${base}.png`)
+  return withBase(`/avatars/${base}.webp`)
 }
 
 type CombinedEvent = { day: number; title: string; type: 'festival' | 'birthday'; residentName?: string }
@@ -125,43 +125,43 @@ export default function Calendar() {
           {season === 'Winter' && <Snowflake className="h-40 w-40 text-sky-300" />}
         </div>
       </div>
-      <header className="mb-6 flex flex-col gap-4">
+      <header className="mb-4 sm:mb-6 flex flex-col gap-3 sm:gap-4">
         <div className="flex items-center gap-3">
           <div className="h-11 w-11 inline-flex items-center justify-center rounded-xl border bg-background">
             <CalendarDays className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight">Calendar</h1>
-            <p className="text-sm text-muted-foreground">Events and birthdays across two years</p>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">Calendar</h1>
+            <p className="text-xs sm:text-sm text-muted-foreground">Events and birthdays across two years</p>
           </div>
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="inline-flex items-center gap-2">
             <button
-              className={`h-10 w-10 inline-flex items-center justify-center rounded-lg border bg-background ${canPrevSeason ? 'hover:bg-accent' : 'opacity-50 cursor-not-allowed'}`}
+              className={`h-8 w-8 sm:h-10 sm:w-10 inline-flex items-center justify-center rounded-lg border bg-background ${canPrevSeason ? 'hover:bg-accent' : 'opacity-50 cursor-not-allowed'}`}
               onClick={prev}
               aria-label="Previous season"
               disabled={!canPrevSeason}
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
-            <div className={`px-4 py-2 rounded-xl border bg-background text-base md:text-lg font-medium min-w-[220px] text-center bg-gradient-to-r ${seasonAccent[season]} bg-clip-text text-transparent shadow-sm`}>
+            <div className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border bg-background text-sm sm:text-base md:text-lg font-medium min-w-[180px] sm:min-w-[220px] text-center bg-gradient-to-r ${seasonAccent[season]} bg-clip-text text-transparent shadow-sm`}>
               Year {year} • {season}
             </div>
             <button
-              className={`h-10 w-10 inline-flex items-center justify-center rounded-lg border bg-background ${canNextSeason ? 'hover:bg-accent' : 'opacity-50 cursor-not-allowed'}`}
+              className={`h-8 w-8 sm:h-10 sm:w-10 inline-flex items-center justify-center rounded-lg border bg-background ${canNextSeason ? 'hover:bg-accent' : 'opacity-50 cursor-not-allowed'}`}
               onClick={next}
               aria-label="Next season"
               disabled={!canNextSeason}
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
           </div>
 
-          <div className="inline-flex rounded-full border bg-secondary p-1">
+          <div className="inline-flex rounded-full border bg-secondary p-0.5 sm:p-1">
             {(['all', 'festival', 'birthday'] as const).map((k) => (
-              <button key={k} onClick={() => setShow(k)} className={`px-4 py-2 rounded-full text-sm md:text-base ${show === k ? 'bg-background shadow-sm' : 'hover:bg-accent/60'}`}>
+              <button key={k} onClick={() => setShow(k)} className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm md:text-base ${show === k ? 'bg-background shadow-sm' : 'hover:bg-accent/60'}`}>
                 {k === 'all' ? 'All' : k === 'festival' ? 'Festivals' : 'Birthdays'}
               </button>
             ))}
@@ -171,47 +171,52 @@ export default function Calendar() {
 
       
 
-      <div className="overflow-x-auto rounded-2xl border bg-card/70 p-4 shadow-xl">
-        <div className="grid grid-cols-7 gap-2">
+      <div className="overflow-x-auto rounded-2xl border bg-card/70 p-2 sm:p-3 md:p-4 shadow-xl">
+        <div className="grid grid-cols-7 gap-1.5 sm:gap-2">
           {weekdays.map((w) => (
-            <div key={w} className="text-center text-sm font-medium text-muted-foreground py-1">{w}</div>
+            <div key={w} className="text-center text-[11px] sm:text-sm font-medium text-muted-foreground py-0.5 sm:py-1">{w}</div>
           ))}
           {cells.map((cell, idx) => (
-            <div key={idx} className={`min-h-[96px] sm:min-h-[116px] rounded-xl border p-2 relative ${typeof cell.day === 'number' ? 'bg-background' : 'bg-muted/40'} ${((idx % 7) === 6) ? 'ring-0' : ''} ${typeof cell.day === 'number' ? 'hover:bg-accent/5 transition' : ''}`}>
+            <div key={idx} className={`min-h-[84px] sm:min-h-[96px] md:min-h-[116px] rounded-xl border p-1.5 sm:p-2 relative ${typeof cell.day === 'number' ? 'bg-background' : 'bg-muted/40'} ${((idx % 7) === 6) ? 'ring-0' : ''} ${typeof cell.day === 'number' ? 'hover:bg-accent/5 transition' : ''}`}>
               {typeof cell.day === 'number' && (
                 <>
-                  <div className="text-[13px] font-semibold text-muted-foreground">{cell.day}</div>
-                  <div className="mt-1 space-y-1.5">
+                  <div className="text-[12px] sm:text-[13px] font-semibold text-muted-foreground">{cell.day}</div>
+                  <div className="mt-1 space-y-1">
                     {eventsByDay[cell.day]?.map((ev, i) => (
                       <div key={i} className="flex items-center gap-2">
                         {ev.type === 'festival' ? (
-                          <Flag className="h-6 w-6 text-green-600" />
+                          <>
+                            <Flag className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
+                            <span className="text-xs sm:text-sm md:text-[15px] leading-tight">{ev.title}</span>
+                          </>
                         ) : (
                           ev.residentName ? (
                             <Link
                               to={`/?resident=${encodeURIComponent(ev.residentName)}`}
                               aria-label={`View ${ev.residentName} in Residents`}
-                              className="shrink-0"
+                              className="group flex items-center gap-2 transition-all duration-200"
                             >
                               <img
                                 src={toAvatarFilename(ev.residentName)}
                                 alt={ev.residentName}
-                                className="h-9 w-9 md:h-10 md:w-10 rounded-full border object-cover hover:ring-2 hover:ring-ring transition"
+                                className="h-7 w-7 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full border object-cover shrink-0 transition-all duration-200 group-hover:ring-2 group-hover:ring-ring group-hover:ring-offset-1 group-hover:ring-offset-background group-hover:scale-105"
                                 onError={(e) => { (e.currentTarget as HTMLImageElement).src = withBase('/vite.svg') }}
                               />
+                              <span className="text-xs sm:text-sm md:text-[15px] leading-tight transition-all duration-200 group-hover:text-foreground group-hover:font-medium">{ev.title}</span>
                             </Link>
-                          ) : null
+                          ) : (
+                            <span className="text-xs sm:text-sm md:text-[15px] leading-tight">{ev.title}</span>
+                          )
                         )}
-                        <span className="text-sm md:text-[15px] leading-tight">{ev.title}</span>
                       </div>
                     ))}
                   </div>
                 </>
               )}
               {typeof cell.day === 'number' && ((idx % 7) === 6) && (
-                <div className="absolute right-1.5 top-1.5 inline-flex items-center gap-1.5 rounded-md border bg-background/95 px-2 py-1 shadow-sm">
-                  <Bell className="h-6 w-6 text-sky-500" />
-                  <span className="text-[12px] font-medium text-sky-500">Bazaar Day</span>
+                <div className="absolute right-1 top-1 inline-flex items-center gap-1 rounded-md border bg-background/95 px-1.5 py-0.5 sm:px-2 sm:py-1 shadow-sm">
+                  <Bell className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-sky-500" />
+                  <span className="text-[10px] sm:text-[12px] font-medium text-sky-500">Bazaar Day</span>
                 </div>
               )}
             </div>
