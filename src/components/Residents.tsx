@@ -1,9 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Search, ChevronLeft, ChevronRight, Users, Gem, Crown, Leaf, Cake, Flower2, Sun, Snowflake } from 'lucide-react'
+import { Search, ChevronLeft, ChevronRight, Users, Gem, Crown, Leaf, Cake, Flower2, Sun, Snowflake, ChevronUp, ChevronDown } from 'lucide-react'
 import { residents as allResidents, type Resident, type ResidentGroup, avatarFileOverrides } from '../data/residents'
 import { type Season } from '@/data/types'
 import { withBase } from '@/lib/utils'
+import { useIsMobile } from '@/hooks/use-mobile'
+import { useAtom } from 'jotai'
+import { footerExpandedAtom } from '@/store/atoms'
 
 function toAvatarFilename(name: string): string {
   const override = avatarFileOverrides[name as keyof typeof avatarFileOverrides]
@@ -37,6 +40,8 @@ export default function Residents() {
   })()
   const [selectedName, setSelectedName] = useState<string>(initialFromParam)
   const thumbnailsRef = useRef<HTMLDivElement>(null)
+  const isMobile = useIsMobile()
+  const [footerExpanded, setFooterExpanded] = useAtom(footerExpandedAtom)
 
   const filtered: Resident[] = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -138,12 +143,12 @@ export default function Residents() {
   }
 
   return (
-    <div className="min-h-dvh flex flex-col relative">
+    <div className="flex flex-col relative min-h-0">
 
-      <main className="flex-1">
-        <div className="mx-auto max-w-4xl px-4 py-8">
+      <main className={`flex-1 ${isMobile && !footerExpanded ? 'pb-12' : ''}`}>
+        <div className={`mx-auto max-w-4xl px-4 ${isMobile ? 'py-4' : 'py-8'}`}>
           {current ? (
-            <div className="relative grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-8 items-center rounded-2xl p-6 md:p-8 bg-card/70 backdrop-blur border shadow-xl">
+            <div className={`relative grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-6 md:gap-8 items-center rounded-2xl ${isMobile ? 'p-4' : 'p-6 md:p-8'} bg-card/70 backdrop-blur border shadow-xl`}>
               <button
                 className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 h-11 w-11 items-center justify-center rounded-full border bg-background/80 hover:bg-accent transition"
                 aria-label="Previous"
@@ -159,7 +164,7 @@ export default function Residents() {
                       ;(e.currentTarget as HTMLImageElement).src = withBase('/vite.svg')
                     }}
                     alt={current.name}
-                    className="h-44 w-44 md:h-64 md:w-64 rounded-xl object-cover border-2 border-background shadow-lg"
+                    className={`${isMobile ? 'h-36 w-36' : 'h-44 w-44'} md:h-64 md:w-64 rounded-xl object-cover border-2 border-background shadow-lg`}
                   />
                 </div>
               </div>
@@ -226,68 +231,105 @@ export default function Residents() {
         </div>
       </main>
 
-      <footer className="sticky bottom-0 z-10 bg-background/85 backdrop-blur border-t ">
-        <div className="mx-auto px-4 py-3 sm:py-4 space-y-3">
-          <div className="flex flex-col md:flex-row gap-3 md:items-center">
-            <div className="inline-flex rounded-full border bg-secondary p-0.5 sm:p-1 md:p-1.5">
-              {groups.map((g) => (
-                <button
-                  key={g}
-                  className={`px-3 py-1 sm:py-1.5 rounded-full text-xs transition flex items-center gap-2 ${
-                    g === group
-                      ? 'bg-background shadow-sm'
-                      : 'hover:bg-accent/60'
-                  }`}
-                  onClick={() => setGroup(g)}
-                >
-                  {g === 'All' && <Leaf className="h-4 w-4" />}
-                  {g === 'Bachelors' && <Crown className="h-4 w-4" />}
-                  {g === 'Bachelorettes' && <Gem className="h-4 w-4" />}
-                  {g === 'Villagers' && <Users className="h-4 w-4" />}
-                  <span className="hidden sm:inline">{g}</span>
-                </button>
-              ))}
+      <footer className={`${isMobile ? 'fixed left-0 right-0 bottom-0 z-40' : 'sticky bottom-0 z-10'} bg-background/90 backdrop-blur border-t`}>
+        {/* Mobile Expandable Header */}
+        {isMobile && (
+          <div className="flex items-center justify-between px-4 py-2 border-b">
+            <div className="text-sm font-medium text-muted-foreground">
+              {filtered.length} resident{filtered.length !== 1 ? 's' : ''} {group !== 'All' && `(${group})`}
             </div>
-            <div className="flex-1" />
-            <div className="relative">
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search by name, favorite, likes..."
-                className="w-full sm:w-72 md:w-80 lg:w-96 xl:w-[28rem] pl-9 pr-3 py-2 h-9 sm:h-10 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring text-sm sm:text-base"
-              />
-              <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            </div>
-          </div>
-          <div className="overflow-y-auto max-h-40 sm:max-h-42 2xl:max-h-64 pr-1">
-            <div
-              ref={thumbnailsRef}
-              className="grid gap-2 sm:gap-3 md:gap-4 [grid-template-columns:repeat(auto-fit,minmax(76px,1fr))] sm:[grid-template-columns:repeat(auto-fit,minmax(96px,1fr))] md:[grid-template-columns:repeat(auto-fit,minmax(104px,1fr))] overflow-x-hidden"
+            <button
+              onClick={() => setFooterExpanded(!footerExpanded)}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-md hover:bg-accent transition-colors"
             >
-              {filtered.map((r, idx) => (
-                <button
-                  key={r.name}
-                  data-index={idx}
-                  onClick={() => selectByName(r.name)}
-                  className={`group p-[2px] sm:p-[2px] rounded-xl bg-gradient-to-br from-[color-mix(in_oklab,var(--chart-2),transparent_50%)] via-[color-mix(in_oklab,var(--chart-1),transparent_50%)] to-[color-mix(in_oklab,var(--chart-3),transparent_50%)] transition ${
-                    r.name === selectedName ? 'opacity-100' : 'opacity-70 hover:opacity-100'
-                  }`}
-                  title={r.name}
-                >
-                  <div className={`rounded-xl p-1 sm:p-1.5 md:p-2 bg-background border w-full flex flex-col items-center gap-1 ${r.name === selectedName ? 'ring-2 ring-[var(--chart-2)]/70' : ''}`}>
-                    <img
-                      src={toAvatarFilename(r.name)}
-                      onError={(e) => {
-                        ;(e.currentTarget as HTMLImageElement).src = withBase('/vite.svg')
-                      }}
-                      alt={r.name}
-                      className="h-9 w-9 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full object-cover bg-secondary"
-                      loading="lazy"
-                    />
-                    <span className="text-[10px] sm:text-xs md:text-[13px] leading-tight text-center">{r.name}</span>
-                  </div>
-                </button>
-              ))}
+              <span className="text-sm">
+                {footerExpanded ? 'Collapse' : 'Expand'}
+              </span>
+              {footerExpanded ? (
+                <ChevronDown className="h-4 w-4" />
+              ) : (
+                <ChevronUp className="h-4 w-4" />
+              )}
+            </button>
+          </div>
+        )}
+        
+        {/* Footer Content */}
+        <div className={`mx-auto px-4 transition-all duration-300 ${
+          isMobile 
+            ? footerExpanded 
+              ? 'py-3 max-h-[70vh] opacity-100' 
+              : 'py-0 max-h-0 opacity-0 overflow-hidden'
+            : 'py-3 sm:py-4'
+        }`}>
+          <div className="space-y-3">
+            <div className="flex flex-col md:flex-row gap-3 md:items-center">
+              <div className="inline-flex rounded-full border bg-secondary p-0.5 sm:p-1 md:p-1.5">
+                {groups.map((g) => (
+                  <button
+                    key={g}
+                    className={`px-3 py-1 sm:py-1.5 rounded-full text-xs transition flex items-center gap-2 ${
+                      g === group
+                        ? 'bg-background shadow-sm'
+                        : 'hover:bg-accent/60'
+                    }`}
+                    onClick={() => setGroup(g)}
+                  >
+                    {g === 'All' && <Leaf className="h-4 w-4" />}
+                    {g === 'Bachelors' && <Crown className="h-4 w-4" />}
+                    {g === 'Bachelorettes' && <Gem className="h-4 w-4" />}
+                    {g === 'Villagers' && <Users className="h-4 w-4" />}
+                    <span className="hidden sm:inline">{g}</span>
+                  </button>
+                ))}
+              </div>
+              <div className="flex-1" />
+              <div className="relative">
+                <input
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search by name, favorite, likes..."
+                  className="w-full sm:w-72 md:w-80 lg:w-96 xl:w-[28rem] pl-9 pr-3 py-2 h-9 sm:h-10 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring text-sm sm:text-base"
+                />
+                <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              </div>
+            </div>
+            <div className={`overflow-y-auto pr-1 ${isMobile ? 'max-h-48' : 'max-h-40 sm:max-h-42 2xl:max-h-64'}`}>
+              <div
+                ref={thumbnailsRef}
+                className="grid gap-2 sm:gap-3 md:gap-4 [grid-template-columns:repeat(auto-fit,minmax(76px,1fr))] sm:[grid-template-columns:repeat(auto-fit,minmax(96px,1fr))] md:[grid-template-columns:repeat(auto-fit,minmax(104px,1fr))] overflow-x-hidden"
+              >
+                {filtered.map((r, idx) => (
+                  <button
+                    key={r.name}
+                    data-index={idx}
+                    onClick={() => {
+                      selectByName(r.name)
+                      // Auto-collapse footer on mobile after selection
+                      if (isMobile) {
+                        setFooterExpanded(false)
+                      }
+                    }}
+                    className={`group p-[2px] sm:p-[2px] rounded-xl bg-gradient-to-br from-[color-mix(in_oklab,var(--chart-2),transparent_50%)] via-[color-mix(in_oklab,var(--chart-1),transparent_50%)] to-[color-mix(in_oklab,var(--chart-3),transparent_50%)] transition ${
+                      r.name === selectedName ? 'opacity-100' : 'opacity-70 hover:opacity-100'
+                    }`}
+                    title={r.name}
+                  >
+                    <div className={`rounded-xl p-1 sm:p-1.5 md:p-2 bg-background border w-full flex flex-col items-center gap-1 ${r.name === selectedName ? 'ring-2 ring-[var(--chart-2)]/70' : ''}`}>
+                      <img
+                        src={toAvatarFilename(r.name)}
+                        onError={(e) => {
+                          ;(e.currentTarget as HTMLImageElement).src = withBase('/vite.svg')
+                        }}
+                        alt={r.name}
+                        className="h-9 w-9 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full object-cover bg-secondary"
+                        loading="lazy"
+                      />
+                      <span className="text-[10px] sm:text-xs md:text-[13px] leading-tight text-center">{r.name}</span>
+                    </div>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
