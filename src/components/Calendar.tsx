@@ -4,6 +4,8 @@ import { CalendarDays, ChevronLeft, ChevronRight, Flag, Bell, Sun, Snowflake, Le
 import { festivalsFor, type Season } from '@/data/calendar'
 import { withBase } from '@/lib/utils'
 import { residents as allResidents, avatarFileOverrides } from '@/data/residents'
+import { useIsMobile } from '@/hooks/use-mobile'
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
 
 const seasons: Season[] = ['Spring', 'Summer', 'Autumn', 'Winter']
 const seasonAccent: Record<Season, string> = {
@@ -34,6 +36,9 @@ export default function Calendar() {
     return (match as Season) ?? 'Spring'
   })
   const [show, setShow] = useState<'all' | 'festival' | 'birthday'>('all')
+  const [selectedDay, setSelectedDay] = useState<number | null>(null)
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const isMobile = useIsMobile()
 
   const model = useMemo(() => festivalsFor(year, season), [year, season])
 
@@ -88,6 +93,13 @@ export default function Calendar() {
       setSeason('Spring')
     } else {
       setSeason(seasons[idx + 1])
+    }
+  }
+
+  function handleDayClick(day: number) {
+    if (isMobile) {
+      setSelectedDay(day)
+      setDrawerOpen(true)
     }
   }
 
@@ -159,10 +171,10 @@ export default function Calendar() {
             </button>
           </div>
 
-          <div className="inline-flex rounded-full border bg-secondary p-0.5 sm:p-1">
+          <div className={`inline-flex rounded-full border bg-secondary p-0.5 sm:p-1 ${isMobile ? 'text-xs' : ''}`}>
             {(['all', 'festival', 'birthday'] as const).map((k) => (
-              <button key={k} onClick={() => setShow(k)} className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm md:text-base ${show === k ? 'bg-background shadow-sm' : 'hover:bg-accent/60'}`}>
-                {k === 'all' ? 'All' : k === 'festival' ? 'Festivals' : 'Birthdays'}
+              <button key={k} onClick={() => setShow(k)} className={`px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm md:text-base ${show === k ? 'bg-background shadow-sm' : 'hover:bg-accent/60'}`}>
+                {k === 'all' ? 'All' : k === 'festival' ? (isMobile ? 'Fest.' : 'Festivals') : (isMobile ? 'Birth.' : 'Birthdays')}
               </button>
             ))}
           </div>
@@ -172,59 +184,174 @@ export default function Calendar() {
       
 
       <div className="overflow-x-auto rounded-2xl border bg-card/70 p-2 sm:p-3 md:p-4 shadow-xl">
-        <div className="grid grid-cols-7 gap-1.5 sm:gap-2">
+        <div className={`grid grid-cols-7 ${isMobile ? 'gap-1' : 'gap-1.5 sm:gap-2'}`}>
           {weekdays.map((w) => (
             <div key={w} className="text-center text-[11px] sm:text-sm font-medium text-muted-foreground py-0.5 sm:py-1">{w}</div>
           ))}
-          {cells.map((cell, idx) => (
-            <div key={idx} className={`min-h-[84px] sm:min-h-[96px] md:min-h-[116px] rounded-xl border p-1.5 sm:p-2 relative ${typeof cell.day === 'number' ? 'bg-background' : 'bg-muted/40'} ${((idx % 7) === 6) ? 'ring-0' : ''} ${typeof cell.day === 'number' ? 'hover:bg-accent/5 transition' : ''}`}>
-              {typeof cell.day === 'number' && (
-                <>
-                  <div className="text-[12px] sm:text-[13px] font-semibold text-muted-foreground">{cell.day}</div>
-                  <div className="mt-1 space-y-1">
-                    {eventsByDay[cell.day]?.map((ev, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        {ev.type === 'festival' ? (
-                          <>
-                            <Flag className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
-                            <span className="text-xs sm:text-sm md:text-[15px] leading-tight">{ev.title}</span>
-                          </>
-                        ) : (
-                          ev.residentName ? (
-                            <Link
-                              to={`/?resident=${encodeURIComponent(ev.residentName)}`}
-                              aria-label={`View ${ev.residentName} in Residents`}
-                              className="group flex items-center gap-2 transition-all duration-200"
-                            >
+          {cells.map((cell, idx) => {
+            if (isMobile) {
+              // Mobile view: compact layout with small avatars/icons
+              return (
+                <div
+                  key={idx}
+                  className={`min-h-[52px] rounded-lg border p-1.5 relative cursor-pointer transition-all touch-manipulation ${
+                    typeof cell.day === 'number' ? 'bg-background hover:bg-accent/20 active:bg-accent/30 active:scale-95' : 'bg-muted/40'
+                  }`}
+                  onClick={() => typeof cell.day === 'number' && handleDayClick(cell.day)}
+                >
+                  {typeof cell.day === 'number' && (
+                    <>
+                      <div className="text-sm font-semibold text-foreground mb-1">{cell.day}</div>
+                      <div className="flex flex-wrap gap-0.5 justify-center">
+                        {eventsByDay[cell.day]?.slice(0, 3).map((ev, i) => (
+                          <div key={i} className="flex-shrink-0">
+                            {ev.type === 'festival' ? (
+                              <Flag className="h-3 w-3 text-green-600" />
+                            ) : ev.residentName ? (
                               <img
                                 src={toAvatarFilename(ev.residentName)}
                                 alt={ev.residentName}
-                                className="h-7 w-7 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full border object-cover shrink-0 transition-all duration-200 group-hover:ring-2 group-hover:ring-ring group-hover:ring-offset-1 group-hover:ring-offset-background group-hover:scale-105"
+                                className="h-4 w-4 rounded-full border object-cover"
                                 onError={(e) => { (e.currentTarget as HTMLImageElement).src = withBase('/vite.svg') }}
                               />
-                              <span className="text-xs sm:text-sm md:text-[15px] leading-tight transition-all duration-200 group-hover:text-foreground group-hover:font-medium">{ev.title}</span>
-                            </Link>
-                          ) : (
-                            <span className="text-xs sm:text-sm md:text-[15px] leading-tight">{ev.title}</span>
-                          )
+                            ) : (
+                              <Bell className="h-3 w-3 text-purple-600" />
+                            )}
+                          </div>
+                        ))}
+                        {eventsByDay[cell.day] && eventsByDay[cell.day].length > 3 && (
+                          <div className="h-3 w-3 bg-muted-foreground/50 rounded-full flex items-center justify-center">
+                            <span className="text-[8px] text-background font-bold">+</span>
+                          </div>
                         )}
                       </div>
-                    ))}
-                  </div>
-                </>
-              )}
-              {typeof cell.day === 'number' && ((idx % 7) === 6) && (
-                <div className="absolute right-1 top-1 inline-flex items-center gap-1 rounded-md border bg-background/95 px-1.5 py-0.5 sm:px-2 sm:py-1 shadow-sm">
-                  <Bell className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-sky-500" />
-                  <span className="text-[10px] sm:text-[12px] font-medium text-sky-500">Bazaar Day</span>
+                      {typeof cell.day === 'number' && ((idx % 7) === 6) && (
+                        <div className="absolute -top-1 -right-1 h-2 w-2 bg-sky-500 rounded-full"></div>
+                      )}
+                    </>
+                  )}
                 </div>
-              )}
-            </div>
-          ))}
+              )
+            } else {
+              // Desktop view: original layout
+              return (
+                <div key={idx} className={`min-h-[84px] sm:min-h-[96px] md:min-h-[116px] rounded-xl border p-1.5 sm:p-2 relative ${typeof cell.day === 'number' ? 'bg-background' : 'bg-muted/40'} ${((idx % 7) === 6) ? 'ring-0' : ''} ${typeof cell.day === 'number' ? 'hover:bg-accent/5 transition' : ''}`}>
+                  {typeof cell.day === 'number' && (
+                    <>
+                      <div className="text-[12px] sm:text-[13px] font-semibold text-muted-foreground">{cell.day}</div>
+                      <div className="mt-1 space-y-1">
+                        {eventsByDay[cell.day]?.map((ev, i) => (
+                          <div key={i} className="flex items-center gap-2">
+                            {ev.type === 'festival' ? (
+                              <>
+                                <Flag className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
+                                <span className="text-xs sm:text-sm md:text-[15px] leading-tight">{ev.title}</span>
+                              </>
+                            ) : (
+                              ev.residentName ? (
+                                <Link
+                                  to={`/?resident=${encodeURIComponent(ev.residentName)}`}
+                                  aria-label={`View ${ev.residentName} in Residents`}
+                                  className="group flex items-center gap-2 transition-all duration-200"
+                                >
+                                  <img
+                                    src={toAvatarFilename(ev.residentName)}
+                                    alt={ev.residentName}
+                                    className="h-7 w-7 sm:h-9 sm:w-9 md:h-10 md:w-10 rounded-full border object-cover shrink-0 transition-all duration-200 group-hover:ring-2 group-hover:ring-ring group-hover:ring-offset-1 group-hover:ring-offset-background group-hover:scale-105"
+                                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = withBase('/vite.svg') }}
+                                  />
+                                  <span className="text-xs sm:text-sm md:text-[15px] leading-tight transition-all duration-200 group-hover:text-foreground group-hover:font-medium">{ev.title}</span>
+                                </Link>
+                              ) : (
+                                <span className="text-xs sm:text-sm md:text-[15px] leading-tight">{ev.title}</span>
+                              )
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                  {typeof cell.day === 'number' && ((idx % 7) === 6) && (
+                    <div className="absolute right-1 top-1 inline-flex items-center gap-1 rounded-md border bg-background/95 px-1.5 py-0.5 sm:px-2 sm:py-1 shadow-sm">
+                      <Bell className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-sky-500" />
+                      <span className="text-[10px] sm:text-[12px] font-medium text-sky-500">Bazaar Day</span>
+                    </div>
+                  )}
+                </div>
+              )
+            }
+          })}
         </div>
       </div>
 
       <Legend />
+      
+      {/* Mobile Day Details Drawer */}
+      <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle className="text-center">
+              {season} {selectedDay}, Year {year}
+              {selectedDay && ((((cells.findIndex(c => c.day === selectedDay) + startWeekday) % 7) === 6)) && (
+                <span className="ml-2 inline-flex items-center gap-1 text-sm text-sky-600">
+                  <Bell className="h-4 w-4" />
+                  Bazaar Day
+                </span>
+              )}
+            </DrawerTitle>
+          </DrawerHeader>
+          <div className="px-4 pb-8">
+            {selectedDay && eventsByDay[selectedDay] && eventsByDay[selectedDay].length > 0 ? (
+              <div className="space-y-4">
+                {eventsByDay[selectedDay].map((ev, i) => (
+                  <div key={i} className="flex items-center gap-4 p-4 rounded-lg border bg-card">
+                    {ev.type === 'festival' ? (
+                      <>
+                        <Flag className="h-8 w-8 text-green-600 flex-shrink-0" />
+                        <div>
+                          <div className="font-semibold text-lg">{ev.title}</div>
+                          <div className="text-sm text-muted-foreground">Festival</div>
+                        </div>
+                      </>
+                    ) : ev.residentName ? (
+                      <Link
+                        to={`/?resident=${encodeURIComponent(ev.residentName)}`}
+                        className="flex items-center gap-4 w-full group"
+                        onClick={() => setDrawerOpen(false)}
+                      >
+                        <img
+                          src={toAvatarFilename(ev.residentName)}
+                          alt={ev.residentName}
+                          className="h-12 w-12 rounded-full border object-cover flex-shrink-0 transition-all duration-200 group-hover:ring-2 group-hover:ring-ring group-hover:ring-offset-2"
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).src = withBase('/vite.svg') }}
+                        />
+                        <div>
+                          <div className="font-semibold text-lg group-hover:text-primary transition-colors">{ev.title}</div>
+                          <div className="text-sm text-muted-foreground">Birthday • Tap to view resident</div>
+                        </div>
+                      </Link>
+                    ) : (
+                      <>
+                        <Bell className="h-8 w-8 text-purple-600 flex-shrink-0" />
+                        <div>
+                          <div className="font-semibold text-lg">{ev.title}</div>
+                          <div className="text-sm text-muted-foreground">Event</div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8 text-muted-foreground">
+                <CalendarDays className="h-12 w-12 mx-auto mb-3 opacity-50" />
+                <p className="text-lg">No events this day</p>
+                <p className="text-sm">Enjoy your peaceful day in the valley!</p>
+              </div>
+            )}
+          </div>
+        </DrawerContent>
+      </Drawer>
     </div>
   )
 }
