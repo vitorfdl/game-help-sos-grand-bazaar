@@ -83,7 +83,7 @@ function formatPrice(item: BazaarItem): string {
 
 
 export default function BazaarStalls() {
-  const [filter, setFilter] = useState<FilterId>('all')
+  const [filter, _setFilter] = useState<FilterId>('all')
   const [query, setQuery] = useState('')
   const [sortKey, setSortKey] = useState<'default' | 'priceAsc' | 'priceDesc'>('default')
   const [expanded, setExpanded] = useState<Set<string>>(() => new Set())

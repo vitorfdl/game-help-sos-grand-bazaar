@@ -25,6 +25,41 @@ function WindmillIcon({ color, className }: { color: string; className?: string 
 
 type Filter = 'all' | 'red' | 'blue' | 'yellow'
 
+const filters: Array<{ id: Filter; label: string; icon: ReactNode }> = [
+  { id: 'all', label: 'All', icon: <Leaf className="h-4 w-4" /> },
+  { id: 'red', label: 'Red', icon: <Sun className="h-4 w-4" /> },
+  { id: 'blue', label: 'Blue', icon: <Droplets className="h-4 w-4" /> },
+  { id: 'yellow', label: 'Yellow', icon: <Wind className="h-4 w-4" /> },
+]
+
+function titleFor(id: Filter): string {
+  if (id === 'all') return 'All Windmills'
+  if (id === 'red') return 'Red Windmill'
+  if (id === 'blue') return 'Blue Windmill'
+  return 'Yellow Windmill'
+}
+
+function sortedBy<T extends { sellPrice?: string }>(items: T[], key: 'default' | 'priceAsc' | 'priceDesc'): T[] {
+  if (key === 'default') return items
+  const toPrice = (p?: string) => {
+    if (!p) return NaN
+    const num = Number((p || '').replace(/[^0-9]/g, ''))
+    return Number.isNaN(num) ? NaN : num
+  }
+  const withIndex = items.map((it, idx) => ({ it, idx, price: toPrice(it.sellPrice) }))
+  withIndex.sort((a, b) => {
+    // Keep original order when price missing
+    const aMissing = Number.isNaN(a.price)
+    const bMissing = Number.isNaN(b.price)
+    if (aMissing && bMissing) return a.idx - b.idx
+    if (aMissing) return 1
+    if (bMissing) return -1
+    if (key === 'priceAsc') return (a.price as number) - (b.price as number)
+    return (b.price as number) - (a.price as number)
+  })
+  return withIndex.map((x) => x.it)
+}
+
 export default function Windmills() {
   const [filter, setFilter] = useState<Filter>('all')
   const [query, setQuery] = useState('')
@@ -110,18 +145,36 @@ export default function Windmills() {
 
         <div className="sm:flex-1" />
 
-        {/* Sort select */}
-        <div className="flex items-center gap-3">
-          <Select value={sortKey} onValueChange={(v) => setSortKey(v as any)}>
-            <SelectTrigger aria-label="Sort items">
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="default">Default order</SelectItem>
-              <SelectItem value="priceDesc">Price: High → Low</SelectItem>
-              <SelectItem value="priceAsc">Price: Low → High</SelectItem>
-            </SelectContent>
-          </Select>
+        {/* Sort + filters row */}
+        <div className="flex w-full items-center gap-3">
+          {/* Sort select */}
+          <div className="flex-1 sm:flex-none">
+            <Select value={sortKey} onValueChange={(v) => setSortKey(v as any)}>
+              <SelectTrigger className="w-full" aria-label="Sort items">
+                <SelectValue placeholder="Sort by" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="default">Default order</SelectItem>
+                <SelectItem value="priceDesc">Price: High → Low</SelectItem>
+                <SelectItem value="priceAsc">Price: Low → High</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Mobile filter select */}
+          <div className="flex-1 sm:hidden">
+            <Select value={filter} onValueChange={(v) => setFilter(v as Filter)}>
+              <SelectTrigger className="w-full" aria-label="Filter windmills">
+                <SelectValue placeholder="Filter" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                <SelectItem value="red">Red</SelectItem>
+                <SelectItem value="blue">Blue</SelectItem>
+                <SelectItem value="yellow">Yellow</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
           {/* Desktop filter pills */}
           <div className="hidden sm:inline-flex rounded-full border bg-secondary p-1">
@@ -139,21 +192,6 @@ export default function Windmills() {
               </button>
             ))}
           </div>
-        </div>
-
-        {/* Mobile filter select */}
-        <div className="sm:hidden">
-          <Select value={filter} onValueChange={(v) => setFilter(v as Filter)}>
-            <SelectTrigger aria-label="Filter windmills">
-              <SelectValue placeholder="Filter" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All</SelectItem>
-              <SelectItem value="red">Red</SelectItem>
-              <SelectItem value="blue">Blue</SelectItem>
-              <SelectItem value="yellow">Yellow</SelectItem>
-            </SelectContent>
-          </Select>
         </div>
       </div>
 
@@ -264,41 +302,3 @@ export default function Windmills() {
     </div>
   )
 }
-
-const filters: Array<{ id: Filter; label: string; icon: ReactNode }> = [
-  { id: 'all', label: 'All', icon: <Leaf className="h-4 w-4" /> },
-  { id: 'red', label: 'Red', icon: <Sun className="h-4 w-4" /> },
-  { id: 'blue', label: 'Blue', icon: <Droplets className="h-4 w-4" /> },
-  { id: 'yellow', label: 'Yellow', icon: <Wind className="h-4 w-4" /> },
-]
-
-function titleFor(id: Filter): string {
-  if (id === 'all') return 'All Windmills'
-  if (id === 'red') return 'Red Windmill'
-  if (id === 'blue') return 'Blue Windmill'
-  return 'Yellow Windmill'
-}
-
-function sortedBy<T extends { sellPrice?: string }>(items: T[], key: 'default' | 'priceAsc' | 'priceDesc'): T[] {
-  if (key === 'default') return items
-  const toPrice = (p?: string) => {
-    if (!p) return NaN
-    const num = Number((p || '').replace(/[^0-9]/g, ''))
-    return Number.isNaN(num) ? NaN : num
-  }
-  const withIndex = items.map((it, idx) => ({ it, idx, price: toPrice(it.sellPrice) }))
-  withIndex.sort((a, b) => {
-    // Keep original order when price missing
-    const aMissing = Number.isNaN(a.price)
-    const bMissing = Number.isNaN(b.price)
-    if (aMissing && bMissing) return a.idx - b.idx
-    if (aMissing) return 1
-    if (bMissing) return -1
-    if (key === 'priceAsc') return (a.price as number) - (b.price as number)
-    return (b.price as number) - (a.price as number)
-  })
-  return withIndex.map((x) => x.it)
-}
-
-
-
