@@ -7,6 +7,7 @@ import { withBase } from '@/lib/utils'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { useAtom } from 'jotai'
 import { footerExpandedAtom } from '@/store/atoms'
+import { Input } from './ui/input'
 
 function toAvatarFilename(name: string): string {
   const override = avatarFileOverrides[name as keyof typeof avatarFileOverrides]
@@ -301,7 +302,7 @@ export default function Residents() {
               </div>
               <div className="flex-1" />
               <div className="relative">
-                <input
+                <Input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search by name, favorite, likes..."

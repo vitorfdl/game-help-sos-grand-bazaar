@@ -130,7 +130,7 @@ export default function Windmills() {
   }
 
   return (
-    <div className="px-2 md:px-6 py-4 md:py-6">
+    <div className="px-2 md:px-6">
       {/* Toolbar: search, sort and filters (responsive) */}
       <div className="mb-3 sm:mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="relative w-full sm:w-[340px]">

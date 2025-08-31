@@ -4,6 +4,7 @@ import { bazaarData, type BazaarItem } from '@/data/stalls'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
+import { Input } from './ui/input'
 
 type FilterId = 'all' | string
 
@@ -112,11 +113,11 @@ export default function BazaarStalls() {
   }
 
   return (
-    <div className="px-2 md:px-6 py-4 md:py-6">
+    <div className="px-2 md:px-6">
       {/* Toolbar */}
       <div className="mb-3 sm:mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="relative w-full sm:w-[360px]">
-          <input
+          <Input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search stalls and items..."
