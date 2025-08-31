@@ -117,7 +117,7 @@ export default function AppLayout() {
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 px-4 border-b">
+        <header className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-2 px-4 border-b bg-background">
           <SidebarTrigger className="-ml-1" />
           <div className="h-6 w-px bg-border mx-2" />
           <h1 className="text-lg font-semibold">{getPageTitle(location.pathname)}</h1>
