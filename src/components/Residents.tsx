@@ -177,7 +177,7 @@ export default function Residents() {
     <div className="flex flex-col relative min-h-0">
 
       <main className={`flex-1 ${isMobile && !footerExpanded ? 'pb-12' : ''}`}>
-        <div className={`mx-auto max-w-4xl`}>
+        <div className={`mx-auto max-w-4xl py-2`}>
           {current ? (
             <div className={`relative grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-6 md:gap-8 items-center rounded-2xl ${isMobile ? 'p-4' : 'p-6 md:p-8'} bg-card/70 backdrop-blur border shadow-xl overflow-hidden`}>
               <button
