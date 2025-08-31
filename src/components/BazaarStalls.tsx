@@ -171,12 +171,16 @@ function getStallIcon(stallId: string) {
     case 'garon-s-stall':
       return <Hammer className="h-5 w-5" />
     case 'ramon-s-critters-stall':
-      return <img src="/cow.svg" alt="Cow" className="h-5 w-5" />
+      return <img src={assetPath('cow.svg')} alt="Cow" className="h-5 w-5" />
     case 'sprite-stall':
       return <Leaf className="h-5 w-5" />
     default:
       return <Package className="h-5 w-5" />
   }
+}
+function assetPath(name: string): string {
+  const base = (import.meta as any).env?.BASE_URL ?? '/'
+  return `${base}${name}`
 }
 
 function slugify(text: string): string {
