@@ -233,7 +233,7 @@ export default function Calendar() {
                   key={idx}
                   className={`min-h-[52px] rounded-lg border p-1.5 relative cursor-pointer transition-all touch-manipulation ${
                     typeof cell.day === 'number' ? 'bg-background hover:bg-accent/20 active:bg-accent/30 active:scale-95' : 'bg-muted/40'
-                  }`}
+                  } ${typeof cell.day === 'number' && ((idx % 7) === 6) ? ' bg-sky-500/10 border-sky-500/30' : ''} ${typeof cell.day === 'number' && ((idx % 7) === 0) ? ' bg-rose-500/10 border-rose-500/30' : ''}`}
                   onClick={() => typeof cell.day === 'number' && handleDayClick(cell.day)}
                 >
                   {typeof cell.day === 'number' && (
@@ -272,7 +272,7 @@ export default function Calendar() {
             } else {
               // Desktop view: original layout
               return (
-                <div key={idx} className={`min-h-[84px] sm:min-h-[96px] md:min-h-[116px] rounded-xl border p-1.5 sm:p-2 relative ${typeof cell.day === 'number' ? 'bg-background' : 'bg-muted/40'} ${((idx % 7) === 6) ? 'ring-0' : ''} ${typeof cell.day === 'number' ? 'hover:bg-accent/5 transition' : ''}`}>
+                <div key={idx} className={`min-h-[84px] sm:min-h-[96px] md:min-h-[116px] rounded-xl border p-1.5 sm:p-2 relative ${typeof cell.day === 'number' ? 'bg-background' : 'bg-muted/40'} ${((idx % 7) === 6) ? 'ring-0' : ''} ${typeof cell.day === 'number' ? 'hover:bg-accent/5 transition' : ''} ${typeof cell.day === 'number' && ((idx % 7) === 6) ? ' bg-sky-500/10 border-sky-500/30' : ''} ${typeof cell.day === 'number' && ((idx % 7) === 0) ? ' bg-rose-500/10 border-rose-500/30' : ''}`}>
                   {typeof cell.day === 'number' && (
                     <>
                       <div className="text-[12px] sm:text-[13px] font-semibold text-muted-foreground">{cell.day}</div>
@@ -329,7 +329,7 @@ export default function Calendar() {
           <DrawerHeader>
             <DrawerTitle className="text-center">
               {season} {selectedDay}, Year {year}
-              {selectedDay && ((((cells.findIndex(c => c.day === selectedDay) + startWeekday) % 7) === 6)) && (
+              {selectedDay !== null && (((startWeekday + selectedDay - 1) % 7) === 6) && (
                 <span className="ml-2 inline-flex items-center gap-1 text-sm text-sky-600">
                   <Bell className="h-4 w-4" />
                   Bazaar Day
