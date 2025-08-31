@@ -15,6 +15,7 @@ export type BazaarItems = {
   items: BazaarItem[];
 }[];
 
+
 // JSON data for the requested Bazaar shops
 export const bazaarData: BazaarItems = [
   {

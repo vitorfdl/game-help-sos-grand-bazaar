@@ -95,9 +95,9 @@ export default function Windmills() {
   }
 
   return (
-    <div className="px-4 md:px-6 py-6">
+    <div className="px-2 md:px-6 py-4 md:py-6">
       {/* Toolbar: search, sort and filters (responsive) */}
-      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className="mb-3 sm:mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="relative w-full sm:w-[340px]">
           <input
             value={query}
@@ -168,7 +168,7 @@ export default function Windmills() {
         </div>
       </div>
 
-      <div className="space-y-8 mt-4">
+      <div className="space-y-5 sm:space-y-6 md:space-y-8 mt-4">
         {visible.map((wm) => (
           <section
             key={wm.id}
@@ -176,7 +176,7 @@ export default function Windmills() {
             ref={(el) => {
               sectionRefs.current[wm.id] = el
             }}
-            className="rounded-2xl border bg-card/70 backdrop-blur p-6"
+            className="rounded-2xl border bg-card/70 backdrop-blur p-3 sm:p-4 md:p-6"
           >
             <div className="mb-4 flex items-start justify-between gap-4">
               <div>
@@ -190,12 +190,12 @@ export default function Windmills() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-3 sm:gap-4 md:gap-6">
               {wm.sections.map((section) => (
                 <div key={section.id} className="rounded-xl border bg-background/60 overflow-hidden">
                   <button
                     onClick={() => toggleSection(wm.id, section.id)}
-                    className="w-full px-4 py-3 border-b flex items-center justify-between text-left hover:bg-accent/40"
+                    className="w-full px-3 py-2 sm:px-4 sm:py-3 border-b flex items-center justify-between text-left hover:bg-accent/40"
                     aria-expanded={expanded.has(`${wm.id}:${section.id}`) || !!query}
                   >
                     <h3 className="text-sm font-medium">{section.title}</h3>
@@ -207,11 +207,11 @@ export default function Windmills() {
                     />
                   </button>
                   {(expanded.has(`${wm.id}:${section.id}`) || !!query) && (
-                    <div className="p-4">
-                      <ul className="space-y-4">
+                    <div className="p-3 sm:p-4">
+                      <ul className="space-y-3 sm:space-y-4">
                         {sortedBy(section.items, sortKey).map((item) => (
-                          <li key={item.name} className="rounded-lg border bg-card p-4">
-                            <div className="flex flex-wrap items-start gap-3 justify-between">
+                          <li key={item.name} className="rounded-lg border bg-card p-3 sm:p-4">
+                            <div className="flex flex-wrap items-start gap-2 sm:gap-3 justify-between">
                               <div>
                                 <div className="flex items-center gap-2">
                                   <span className="font-medium">{item.name}</span>
@@ -223,7 +223,7 @@ export default function Windmills() {
                                   <div className="text-xs text-muted-foreground mt-1 max-w-xl">{item.info}</div>
                                 )}
                               </div>
-                              <div className="text-xs grid grid-cols-2 gap-x-6 gap-y-1 text-right">
+                              <div className="text-xs grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-1 text-right">
                                 {item.sellPrice && (
                                   <>
                                     <span className="text-muted-foreground">Sell Price</span>
