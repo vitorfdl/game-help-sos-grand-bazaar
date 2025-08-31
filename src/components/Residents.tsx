@@ -142,13 +142,43 @@ export default function Residents() {
     )
   }
 
+  function TagList({
+    label,
+    items,
+    variant,
+  }: {
+    label: string
+    items: string[]
+    variant: 'favorite' | 'like'
+  }) {
+    return (
+      <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+        <span className="font-medium shrink-0">{label}:</span>
+        <div className="flex flex-wrap gap-2">
+          {items.map((text) => (
+            <span
+              key={text}
+              className={
+                variant === 'favorite'
+                  ? 'inline-flex items-center rounded-md bg-emerald-500/10 px-2 py-1 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 text-sm'
+                  : 'px-2 py-1 rounded-full text-sm border bg-secondary hover:bg-accent transition'
+              }
+            >
+              {text}
+            </span>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-col relative min-h-0">
 
       <main className={`flex-1 ${isMobile && !footerExpanded ? 'pb-12' : ''}`}>
         <div className={`mx-auto max-w-4xl px-4 ${isMobile ? 'py-4' : 'py-8'}`}>
           {current ? (
-            <div className={`relative grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-6 md:gap-8 items-center rounded-2xl ${isMobile ? 'p-4' : 'p-6 md:p-8'} bg-card/70 backdrop-blur border shadow-xl`}>
+            <div className={`relative grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-6 md:gap-8 items-center rounded-2xl ${isMobile ? 'p-4' : 'p-6 md:p-8'} bg-card/70 backdrop-blur border shadow-xl overflow-hidden`}>
               <button
                 className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 h-11 w-11 items-center justify-center rounded-full border bg-background/80 hover:bg-accent transition"
                 aria-label="Previous"
@@ -168,7 +198,7 @@ export default function Residents() {
                   />
                 </div>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-4 min-w-0">
                 <div className="flex items-baseline justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">{current.name}</h2>
@@ -198,24 +228,8 @@ export default function Residents() {
                 </div>
                 <div className="text-sm text-muted-foreground">{current.group}</div>
                 <div className="space-y-3">
-                  <div className="flex items-start gap-2">
-                    <span className="font-medium">Favorite:</span>
-                    {current.favorite.map((f) => (
-                    <span key={f} className="inline-flex items-center rounded-md bg-emerald-500/10 px-2 py-1 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
-                      {f}
-                    </span>
-                    ))}
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="font-medium">Likes:</span>
-                    <div className="flex flex-wrap gap-2">
-                      {current.likes.map((l) => (
-                        <span key={l} className="px-2 py-1 rounded-full text-sm border bg-secondary hover:bg-accent transition">
-                          {l}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <TagList label="Favorite" items={current.favorite} variant="favorite" />
+                  <TagList label="Likes" items={current.likes} variant="like" />
                 </div>
                 
               </div>
@@ -296,7 +310,7 @@ export default function Residents() {
                 <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               </div>
             </div>
-            <div className={`overflow-y-auto pr-1 ${isMobile ? 'max-h-48' : 'max-h-40 sm:max-h-42 2xl:max-h-64'}`}>
+            <div className={`overflow-y-auto pr-1 hm-scrollbar max-h-[20vh]`}>
               <div
                 ref={thumbnailsRef}
                 className="grid gap-2 sm:gap-3 md:gap-4 [grid-template-columns:repeat(auto-fit,minmax(76px,1fr))] sm:[grid-template-columns:repeat(auto-fit,minmax(96px,1fr))] md:[grid-template-columns:repeat(auto-fit,minmax(104px,1fr))] overflow-x-hidden"

@@ -26,14 +26,44 @@ type CombinedEvent = { day: number; title: string; type: 'festival' | 'birthday'
 
 export default function Calendar() {
   const [searchParams, setSearchParams] = useSearchParams()
+  // LocalStorage key for persisting calendar state
+  const STORAGE_KEY = 'sos_gbz_calendar_state'
+
+  // Read any previously stored state (safe/validated)
+  const stored = (() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY)
+      if (!raw) return null as null | { year?: number; season?: Season }
+      const obj = JSON.parse(raw)
+      const y = Number(obj?.year)
+      const s = obj?.season as Season | undefined
+      const validYear = Number.isFinite(y) && y >= 1 ? y : undefined
+      const validSeason = (seasons.find((x) => x === s) as Season | undefined) ?? undefined
+      return { year: validYear, season: validSeason }
+    } catch {
+      return null as null | { year?: number; season?: Season }
+    }
+  })()
+
+  const hasUrlYear = searchParams.has('year')
+  const hasUrlSeason = searchParams.has('season')
+
   const [year, setYear] = useState<number>(() => {
-    const raw = Number(searchParams.get('year') ?? 1)
-    return Number.isFinite(raw) && raw >= 1 ? raw : 1
+    if (hasUrlYear) {
+      const raw = Number(searchParams.get('year') ?? 1)
+      return Number.isFinite(raw) && raw >= 1 ? raw : 1
+    }
+    const fromStorage = stored?.year
+    return typeof fromStorage === 'number' ? fromStorage : 1
   })
   const [season, setSeason] = useState<Season>(() => {
-    const s = searchParams.get('season')
-    const match = seasons.find((x) => x === s)
-    return (match as Season) ?? 'Spring'
+    if (hasUrlSeason) {
+      const s = searchParams.get('season')
+      const match = seasons.find((x) => x === s)
+      return (match as Season) ?? 'Spring'
+    }
+    const fromStorage = stored?.season
+    return (fromStorage as Season) ?? 'Spring'
   })
   const [show, setShow] = useState<'all' | 'festival' | 'birthday'>('all')
   const [selectedDay, setSelectedDay] = useState<number | null>(null)
@@ -116,12 +146,28 @@ export default function Calendar() {
     setSearchParams(next)
   }, [year, season])
 
-  // React to back/forward changing the URL
+  // Persist latest state to localStorage regardless of URL sync outcome
   useEffect(() => {
-    const rawYear = Number(searchParams.get('year') ?? 1)
-    const nextYear = Number.isFinite(rawYear) && rawYear >= 1 ? rawYear : 1
-    const s = searchParams.get('season')
-    const nextSeason = (seasons.find((x) => x === s) as Season) ?? 'Spring'
+    try {
+      console.log('Persisting state to localStorage:', { year, season })
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ year, season }))
+    } catch {
+      console.error('Error persisting state to localStorage:', { year, season })
+    }
+  }, [year, season])
+
+  // React to back/forward changing the URL
+  // Only apply when the URL actually carries calendar params, otherwise
+  // we keep the current (possibly hydrated-from-storage) state.
+  useEffect(() => {
+    const hasYearParam = searchParams.has('year')
+    const hasSeasonParam = searchParams.has('season')
+    if (!hasYearParam && !hasSeasonParam) return
+
+    const rawYear = Number(searchParams.get('year') ?? year)
+    const nextYear = Number.isFinite(rawYear) && rawYear >= 1 ? rawYear : year
+    const s = (searchParams.get('season') as Season | null) ?? season
+    const nextSeason = (seasons.find((x) => x === s) as Season) ?? season
     if (nextYear !== year) setYear(nextYear)
     if (nextSeason !== season) setSeason(nextSeason)
   }, [searchParams])
