@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Search, ChevronDown } from 'lucide-react'
+import { Search, ChevronDown, Gem, Package, Hammer, Leaf } from 'lucide-react'
 import { bazaarData, type BazaarItem } from '@/data/stalls'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
@@ -93,11 +93,16 @@ export default function BazaarStalls() {
               className="w-full text-left flex items-start justify-between gap-4"
               aria-expanded={expanded.has(stall.id) || !!query}
             >
-              <div>
-                <h2 className="text-xl font-semibold tracking-tight">{stall.name}</h2>
-                {stall.description && (
-                  <p className="text-sm text-muted-foreground mt-1 max-w-2xl">{stall.description}</p>
-                )}
+              <div className="flex items-start gap-3">
+                <div className="h-9 w-9 shrink-0 rounded-xl bg-secondary/40 text-secondary-foreground flex items-center justify-center ring-1 ring-border">
+                  {getStallIcon(stall.id)}
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold tracking-tight">{stall.name}</h2>
+                  {stall.description && (
+                    <p className="text-sm text-muted-foreground mt-1 max-w-2xl">{stall.description}</p>
+                  )}
+                </div>
               </div>
               <ChevronDown
                 className={cn(
@@ -155,6 +160,23 @@ export default function BazaarStalls() {
       </div>
     </div>
   )
+}
+
+function getStallIcon(stallId: string) {
+  switch (stallId) {
+    case 'lloyd-s-stall':
+      return <Gem className="h-5 w-5" />
+    case 'isaac-s-stall':
+      return <Package className="h-5 w-5" />
+    case 'garon-s-stall':
+      return <Hammer className="h-5 w-5" />
+    case 'ramon-s-critters-stall':
+      return <img src="/cow.svg" alt="Cow" className="h-5 w-5" />
+    case 'sprite-stall':
+      return <Leaf className="h-5 w-5" />
+    default:
+      return <Package className="h-5 w-5" />
+  }
 }
 
 function slugify(text: string): string {

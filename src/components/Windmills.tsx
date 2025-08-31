@@ -4,6 +4,25 @@ import { windmills } from '@/data/windmills'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
 
+function windmillColorFor(id: string) {
+  if (id === 'red') return '#ef4444' // rose-500
+  if (id === 'blue') return '#0ea5e9' // sky-500
+  return '#f59e0b' // amber-500
+}
+
+function WindmillIcon({ color, className }: { color: string; className?: string }) {
+  // Inline SVG from public/windmill.svg with center fill controlled by `color`.
+  return (
+    <svg className={className} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+      <path d="M24 24C29.5228 24 34 19.5228 34 14C34 8.47715 29.5228 4 24 4V24Z" fill={color} stroke="#000" strokeWidth="4" strokeLinejoin="round" />
+      <path d="M24 24C24 29.5228 28.4772 34 34 34C39.5228 34 44 29.5228 44 24H24Z" fill={color} stroke="#000" strokeWidth="4" strokeLinejoin="round" />
+      <path d="M24 24C24 18.4772 19.5228 14 14 14C8.47715 14 4 18.4772 4 24H24Z" fill={color} stroke="#000" strokeWidth="4" strokeLinejoin="round" />
+      <path d="M24 24C18.4772 24 14 28.4772 14 34C14 39.5228 18.4772 44 24 44V24Z" fill={color} stroke="#000" strokeWidth="4" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 type Filter = 'all' | 'red' | 'blue' | 'yellow'
 
 export default function Windmills() {
@@ -140,7 +159,12 @@ export default function Windmills() {
 
       <div className="sticky top-16 z-20 bg-background/80 backdrop-blur border-b">
         <div className="px-1 py-2 text-sm text-muted-foreground">
-          Viewing: <span className="font-medium text-foreground">{titleFor(activeWindmill)}</span>
+          <div className="flex items-center gap-2">
+            <WindmillIcon color={windmillColorFor(activeWindmill)} className="h-4 w-4" />
+            <span>
+              Viewing: <span className="font-medium text-foreground">{titleFor(activeWindmill)}</span>
+            </span>
+          </div>
         </div>
       </div>
 
@@ -161,7 +185,9 @@ export default function Windmills() {
                   <p className="text-sm text-muted-foreground mt-1 max-w-2xl">{wm.description}</p>
                 )}
               </div>
-              <div className={cn('h-8 w-24 rounded-full bg-gradient-to-r', wm.accentClass)} />
+              <div className="flex items-center">
+                <WindmillIcon color={windmillColorFor(wm.id)} className="h-8 w-8" />
+              </div>
             </div>
 
             <div className="grid grid-cols-1 gap-6">
