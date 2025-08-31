@@ -10,6 +10,7 @@ export type RecipeIngredientGroup = {
 
 export type RecipeItem = {
   dish: string
+  type?: "Main Dish" | "Side Dish" | "Dessert" | "Drink" | "Other"
   bazaarRank: BazaarRank | null
   recipeDisplay: string
   ingredients?: RecipeIngredientGroup[]
