@@ -173,7 +173,7 @@ export default function Calendar() {
   }, [searchParams])
 
   return (
-    <div className="relative px-4 md:px-6 py-6">
+    <div className="relative px-1">
       <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(60%_45%_at_50%_0%,black,transparent)]">
         <div className={`absolute inset-x-0 -top-40 h-80 bg-gradient-to-b ${seasonAccent[season]} blur-2xl opacity-40`} />
         <div className="absolute right-6 top-10 opacity-20">

@@ -130,7 +130,7 @@ export default function Windmills() {
   }
 
   return (
-    <div className="px-2 md:px-6">
+    <div className="px-1">
       {/* Toolbar: search, sort and filters (responsive) */}
       <div className="mb-3 sm:mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="relative w-full sm:w-[340px]">
@@ -233,7 +233,7 @@ export default function Windmills() {
                 <div key={section.id} className="rounded-xl border bg-background/60 overflow-hidden">
                   <button
                     onClick={() => toggleSection(wm.id, section.id)}
-                    className="w-full px-3 py-2 sm:px-4 sm:py-3 border-b flex items-center justify-between text-left hover:bg-accent/40"
+                    className="w-full px-3 py-2 sm:px-4 sm:py-3 border-b flex items-center justify-between text-left hover:bg-card/40"
                     aria-expanded={expanded.has(`${wm.id}:${section.id}`) || !!query}
                   >
                     <h3 className="text-sm font-medium">{section.title}</h3>
@@ -248,7 +248,7 @@ export default function Windmills() {
                     <div className="p-3 sm:p-4">
                       <ul className="space-y-3 sm:space-y-4">
                         {sortedBy(section.items, sortKey).map((item) => (
-                          <li key={item.name} className="rounded-lg border bg-card p-3 sm:p-4">
+                          <li key={item.name} className="rounded-lg border bg-card/20 p-3 sm:p-4">
                             <div className="flex flex-wrap items-start gap-2 sm:gap-3 justify-between">
                               <div>
                                 <div className="flex items-center gap-2">

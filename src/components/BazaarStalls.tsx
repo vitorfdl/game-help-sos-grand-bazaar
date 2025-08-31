@@ -113,7 +113,7 @@ export default function BazaarStalls() {
   }
 
   return (
-    <div className="px-2 md:px-6">
+    <div className="px-1 md:px-6">
       {/* Toolbar */}
       <div className="mb-3 sm:mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="relative w-full sm:w-[360px]">

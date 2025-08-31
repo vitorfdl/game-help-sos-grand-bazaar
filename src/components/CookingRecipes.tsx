@@ -110,7 +110,7 @@ export default function CookingRecipes() {
   }, [query, sortColumn, sortDirection])
 
   return (
-    <div className="px-4 md:px-6">
+    <div className="px-1 md:px-6">
       {/* Toolbar: search only (header moved to layout) */}
       <div className="mb-4 flex items-center gap-3">
         <div className="relative w-full sm:w-[340px]">
