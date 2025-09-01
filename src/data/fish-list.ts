@@ -244,7 +244,7 @@ export const fishList: FishEntry[] = [
     size: FishSize.Unknown,
     season: [Season.Winter],
     weather: [Weather.Sunny, Weather.LightSnow],
-    locations: ["Unknown"],
+    locations: ["Zephyr Town"],
     baseValue: null,
   },
   {
