@@ -36,7 +36,6 @@ export const seasonsFestivals: SeasonFestivals[] = [
       { day: 11, title: "Animal Show" },
       { day: 16, title: "Horse Derby" },
       { day: 21, title: "Crops Show" },
-      { day: 28, title: "Horse Race" },
     ],
   },
   {
