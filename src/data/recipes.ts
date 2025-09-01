@@ -23,6 +23,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: null,
     adaptOptions: null,
+    type: "Sides",
     effect: "Max Stamina Up Lv. 1",
   },
   {
@@ -33,8 +34,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
-    type: "Main Dish",
-    effect: "Extra Stamina Recovered",
+    type: "Sides",
   },
   {
     dish: "Buttered Roll",
@@ -65,6 +65,7 @@ export const recipes: RecipeItem[] = [
     utensils: ["Pan"],
     whereToGet: "Scene Stealer Title / Mini Madeleine",
     adaptOptions: null,
+    type: "Dessert",
     effect: "Petting Happiness Up Lv. 3",
   },
   {
@@ -75,8 +76,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
-    type: "Main Dish",
-    effect: "Extra Stamina Recovered",
+    type: "Sides",
   },
   {
     dish: "Cookies",
@@ -86,10 +86,12 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Dessert",
     effect: "Petting Rare Item % Lv. 1",
   },
   {
     dish: "Egg Drop Soup",
+    type: "Soup",
     bazaarRank: 1,
     recipeDisplay: "Egg x1 (or Silkie Egg x1)",
     salesPrice: 117,
@@ -121,6 +123,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Gazpacho Soup",
+    type: "Soup",
     bazaarRank: 2,
     recipeDisplay: "Tomato x1, Garlic x1, Bread x1",
     salesPrice: 490,
@@ -184,6 +187,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Herb Soup",
+    type: "Soup",
     bazaarRank: 1,
     recipeDisplay: "Lavender x2 (or Mint x2 or Chamomile x2)",
     salesPrice: 137,
@@ -200,6 +204,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Honey Day - Spring 20",
     adaptOptions: null,
+    type: "Dessert",
     effect: "Petting Rare Item % Lv. 2",
   },
   {
@@ -230,6 +235,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Bookshelves - June's house",
     adaptOptions: null,
+    type: "Dessert",
     effect: "Petting Happiness Up Lv. 2",
   },
   {
@@ -261,6 +267,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Freya Request",
     adaptOptions: null,
+    type: "Other",
     effect: "Chat Friendship Boost Lv. 1",
   },
   {
@@ -272,7 +279,7 @@ export const recipes: RecipeItem[] = [
     utensils: ["Cooking Pot"],
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
-    type: "Main Dish",
+    type: "Dessert",
     effect: "Extra Stamina Recovered",
   },
   {
@@ -326,6 +333,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Derek's Request",
     adaptOptions: null,
+    type: "Other",
     effect: "Chat Friendship Boost Lv. 1",
   },
   {
@@ -337,6 +345,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Dessert",
     effect: "Petting Happiness Up Lv. 3",
   },
   {
@@ -358,6 +367,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Sides",
     effect: "Chat Friendship Boost Lv. 1",
   },
   {
@@ -368,6 +378,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Neighborly Title / Mini Madeleine",
     adaptOptions: null,
+    type: "Sides",
     effect: "Chat Friendship Boost Lv. 2",
   },
   {
@@ -378,6 +389,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Sides",
     effect: "Max Stamina Up Lv. 1",
   },
   {
@@ -421,6 +433,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: null,
     adaptOptions: null,
+    type: "Sides",
     effect: "Rod Durability Up Lv. 1",
   },
   {
@@ -441,6 +454,7 @@ export const recipes: RecipeItem[] = [
     utensils: ["Oven"],
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Dessert",
     effect: "Max Stamina Up Lv. 3",
   },
   {
@@ -455,13 +469,13 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Spaghetti Soup",
+    type: "Soup",
     bazaarRank: 3,
     recipeDisplay: "Fish x1, Tomato x1, Oil x1, Pasta x1",
     salesPrice: 1566,
     utensils: ["Cooking Pot"],
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
-    type: "Main Dish",
     effect: "Extra Stamina Recovered",
   },
   {
@@ -472,6 +486,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Clara's Diner",
     adaptOptions: null,
+    type: "Sides",
     effect: "Max Stamina Up Lv. 2",
   },
   {
@@ -492,6 +507,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Big Hops Title / Clara's Diner",
     adaptOptions: null,
+    type: "Dessert",
     effect: "Petting Happiness Up Lv. 2",
   },
   {
@@ -503,6 +519,7 @@ export const recipes: RecipeItem[] = [
     utensils: ["Oven"],
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Dessert",
     effect: "Petting Happiness Up Lv. 3",
   },
   {
@@ -513,6 +530,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Other",
     effect: "Chat Friendship Boost Lv. 2",
   },
   {
@@ -523,6 +541,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Bookshelves - June's house",
     adaptOptions: null,
+    type: "Sides",
     effect: "Max Stamina Up Lv. 1",
   },
   {
@@ -563,6 +582,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Cafe Madeleine / Tea Festival - Spring 27",
     adaptOptions: null,
+    type: "Other",
     effect: "Petting Happiness Up Lv. 2",
   },
   {
@@ -593,6 +613,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Bookshelves - Lloyd's house",
     adaptOptions: null,
+    type: "Sides",
     effect: "Max Stamina Up Lv. 2",
   },
   {
@@ -612,16 +633,18 @@ export const recipes: RecipeItem[] = [
     salesPrice: 237,
     utensils: null,
     whereToGet: "Clara's Diner",
+    type: "Dessert",
     adaptOptions: null,
     effect: "Chat Friendship Boost Lv. 1",
   },
 
   {
     dish: "Pumpkin Soup",
+    type: "Soup",
     bazaarRank: null,
     recipeDisplay: "Pumpkin x1, Milk x1, Onion x1",
     salesPrice: 1320,
-    utensils: null,
+    utensils: ["Cooking Pot"],
     whereToGet: "Clara's Request",
     adaptOptions: null,
     effect: "Run Speed Up Lv. 3",
@@ -630,11 +653,12 @@ export const recipes: RecipeItem[] = [
     dish: "Babaocai",
     bazaarRank: null,
     recipeDisplay:
-      "Napa Cabbage x1, Carrot x1, Green Bell Pepper x1, Mushroom x1",
+      "Napa Cabbage x1, Carrot x1, Green Bell Pepper x1, Any Mushroom x1",
     salesPrice: 1509,
     utensils: ["Pan"],
     whereToGet: "Hydrator Title / Nadine's Bistro",
     adaptOptions: null,
+    type: "Sides",
     effect: "Watering Rare Crop % Lv. 3",
   },
   {
@@ -668,7 +692,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Drink",
+    type: "Other",
     effect: "Pet Training Up Lv. 1",
   },
   {
@@ -679,7 +703,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Side Dish",
+    type: "Sides",
     effect: "Max Stamina Up Lv. 2",
   },
   {
@@ -690,7 +714,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Drink",
+    type: "Other",
     effect: "Pet Training Up Lv. 2",
   },
   {
@@ -701,7 +725,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Drink",
+    type: "Other",
     effect: "Pet Training Up Lv. 1",
   },
   {
@@ -712,7 +736,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Drink",
+    type: "Other",
     effect: "Pet Training Up Lv. 2",
   },
   {
@@ -735,7 +759,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Drink",
+    type: "Other",
     effect: "Pet Training Up Lv. 1",
   },
   {
@@ -746,7 +770,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Drink",
+    type: "Other",
     effect: "Pet Training Up Lv. 2",
   },
   {
@@ -768,7 +792,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Side Dish",
+    type: "Sides",
     effect: "Chat Friendship Boost Lv. 1",
   },
   {
@@ -826,7 +850,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Side Dish",
+    type: "Sides",
     effect: "Max Stamina Up Lv. 2",
   },
   {
@@ -849,7 +873,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Drink",
+    type: "Other",
     effect: "Pet Training Up Lv. 2",
   },
   {
@@ -861,7 +885,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Side Dish",
+    type: "Sides",
     effect: "Stamina Saver Lv. 2",
   },
   {
@@ -895,7 +919,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Drink",
+    type: "Other",
     effect: "Pet Training Up Lv. 2",
   },
   {
@@ -906,7 +930,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Drink",
+    type: "Other",
     effect: "Pet Training Up Lv. 1",
   },
   {
@@ -917,7 +941,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Drink",
+    type: "Other",
     effect: "Pet Training Up Lv. 2",
   },
   {
@@ -928,7 +952,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Drink",
+    type: "Other",
     effect: "Chat Friendship Boost Lv. 1",
   },
   {
@@ -950,7 +974,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
-    type: "Side Dish",
+    type: "Sides",
     effect: "Max Stamina Up Lv. 2",
   },
   {
@@ -994,7 +1018,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: ["Can be used to make Tofu Steak"],
-    type: "Side Dish",
+    type: "Sides",
     effect: "Max Stamina Up Lv. 1",
   },
   {
@@ -1009,15 +1033,15 @@ export const recipes: RecipeItem[] = [
     effect: "Extra Stamina Recovered",
   },
   {
-    dish: "Blueberry Tea",
-    bazaarRank: 4,
-    recipeDisplay: "Blueberry Tea Tin x1",
-    salesPrice: 601,
+    dish: "Grilled Corn",
+    bazaarRank: null,
+    recipeDisplay: "1x Corn, 1x Soy Sauce, 1x Sugar",
+    salesPrice: 886,
     utensils: null,
-    whereToGet: "Mini Madeleine",
+    whereToGet: "Felix's Fixings",
     adaptOptions: null,
-    type: "Drink",
-    effect: "Pet Training Up Lv. 2",
+    type: "Sides",
+    effect: "Watering Rare Crop % Lv. 2",
   },
 ];
 
@@ -1194,7 +1218,6 @@ export const recipes: RecipeItem[] = [
 // { dish: 'Cappuccino', bazaarRank: null, recipeDisplay: '-', salesPrice: 780, utensils: null, whereToGet: 'Nadine\'s Bistro', adaptOptions: null, effect: 'Chat Friendship Boost Lv. 2' },
 // { dish: 'Fruit Juice', bazaarRank: null, recipeDisplay: '-', salesPrice: 826, utensils: null, whereToGet: 'Nadine\'s Bistro', adaptOptions: null, effect: 'Chat Friendship Boost Lv. 2' },
 // { dish: 'Royal Milk Tea', bazaarRank: null, recipeDisplay: '-', salesPrice: 1194, utensils: null, whereToGet: 'Nadine\'s Bistro', adaptOptions: null, effect: 'Chat Friendship Boost Lv. 3' },
-// { dish: 'Grilled Corn', bazaarRank: null, recipeDisplay: '-', salesPrice: 886, utensils: null, whereToGet: 'Felix\'s Fixings', adaptOptions: null, effect: 'Watering Rare Crop % Lv. 2' },
 // { dish: 'Baked Sweet Potato', bazaarRank: null, recipeDisplay: '-', salesPrice: 202, utensils: null, whereToGet: 'Felix\'s Fixings', adaptOptions: null, effect: 'Chat Friendship Boost Lv. 1' },
 // { dish: 'Fried Mushrooms', bazaarRank: null, recipeDisplay: '-', salesPrice: 195, utensils: null, whereToGet: 'Felix\'s Fixings', adaptOptions: null, effect: 'Max Stamina Up Lv. 1' },
 // { dish: 'Fried Eggplant', bazaarRank: null, recipeDisplay: '-', salesPrice: 342, utensils: null, whereToGet: 'Felix\'s Fixings', adaptOptions: null, type: "Main Dish", effect: "Extra Stamina Recovered" },
