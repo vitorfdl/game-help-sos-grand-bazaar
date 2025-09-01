@@ -9,8 +9,7 @@ export type RecipeIngredientGroup = {
 
 export type RecipeItem = {
   dish: string;
-  type?: "Main Dish" | "Sides" | "Dessert" | "Soup" | "Other";
-  bazaarRank: BazaarRank | null;
+  type?: "Main Dish" | "Sides" | "Dessert" | "Soup" | "Salads" | "Other";
   recipeDisplay: string;
   ingredients?: RecipeIngredientGroup[];
   salesPrice: number | null;

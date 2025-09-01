@@ -7,17 +7,16 @@ export type { RecipeItem };
 export const recipes: RecipeItem[] = [
   {
     dish: "Black Tea",
-    bazaarRank: 2,
     recipeDisplay: "Black Tea Tin x1",
     salesPrice: 401,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Other",
     effect: "Watering Rare Crop % Lv. 1",
   },
   {
     dish: "Boiled Egg",
-    bazaarRank: 1,
     recipeDisplay: "Egg x1 (or Silkie Egg x1)",
     salesPrice: 117,
     utensils: null,
@@ -28,7 +27,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Bread",
-    bazaarRank: 1,
     recipeDisplay: "Wheat Flour x1",
     salesPrice: 195,
     utensils: null,
@@ -38,27 +36,26 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Buttered Roll",
-    bazaarRank: 3,
     recipeDisplay: "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Butter x1",
     salesPrice: 1056,
     utensils: ["Oven"],
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Sides",
     effect: "Max Stamina Up Lv. 3",
   },
   {
     dish: "Chamomile Tea",
-    bazaarRank: 1,
     recipeDisplay: "Chamomile Tea Tin x1",
     salesPrice: 344,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Other",
     effect: "Chat Friendship Boost Lv. 1",
   },
   {
     dish: "Churros",
-    bazaarRank: null,
     recipeDisplay:
       "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Oil x1, Sugar x1",
     salesPrice: 1332,
@@ -70,7 +67,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cooked Rice",
-    bazaarRank: 1,
     recipeDisplay: "Rice x1",
     salesPrice: 91,
     utensils: null,
@@ -80,7 +76,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cookies",
-    bazaarRank: 1,
     recipeDisplay: "Wheat Flour x1, Egg x1 (or Silkie Egg x1)",
     salesPrice: 328,
     utensils: null,
@@ -92,7 +87,6 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Egg Drop Soup",
     type: "Soup",
-    bazaarRank: 1,
     recipeDisplay: "Egg x1 (or Silkie Egg x1)",
     salesPrice: 117,
     utensils: null,
@@ -102,7 +96,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Egg Over Rice",
-    bazaarRank: 1,
     recipeDisplay: "Egg x1 (or Silkie Egg x1), Cooked Rice x1",
     salesPrice: 248,
     utensils: null,
@@ -113,18 +106,17 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fried Egg",
-    bazaarRank: 2,
     recipeDisplay: "Egg x1 (or Silkie Egg x1), Oil x1",
     salesPrice: 396,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Sides",
     effect: "Max Stamina Up Lv. 1",
   },
   {
     dish: "Gazpacho Soup",
     type: "Soup",
-    bazaarRank: 2,
     recipeDisplay: "Tomato x1, Garlic x1, Bread x1",
     salesPrice: 490,
     utensils: null,
@@ -134,7 +126,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Grilled Fish",
-    bazaarRank: 1,
     recipeDisplay: "Fish x1",
     salesPrice: 195,
     utensils: null,
@@ -145,7 +136,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Happy Forest Mix",
-    bazaarRank: 1,
     recipeDisplay: "Walnut x1",
     salesPrice: 130,
     utensils: null,
@@ -155,7 +145,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Happy Mushroom Fry",
-    bazaarRank: 3,
     recipeDisplay: "Shimeji Mushroom x1 (or Shiitake Mushroom x1), Salt x1",
     salesPrice: 662,
     utensils: null,
@@ -165,7 +154,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Herb Pasta",
-    bazaarRank: 1,
     recipeDisplay:
       "Wheat Flour x1, Oil x1, Lavender x1 (or Mint x1 or Chamomile x1)",
     salesPrice: 616,
@@ -177,18 +165,17 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Herb Salad",
-    bazaarRank: 1,
     recipeDisplay: "Lavender x2 (or Mint x2 or Chamomile x2)",
     salesPrice: 137,
     utensils: null,
     whereToGet: null,
     adaptOptions: null,
+    type: "Salads",
     effect: "Stamina Saver Lv. 1",
   },
   {
     dish: "Herb Soup",
     type: "Soup",
-    bazaarRank: 1,
     recipeDisplay: "Lavender x2 (or Mint x2 or Chamomile x2)",
     salesPrice: 137,
     utensils: null,
@@ -198,7 +185,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Honey Cake",
-    bazaarRank: 1,
     recipeDisplay: "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Honey x1",
     salesPrice: 755,
     utensils: null,
@@ -209,27 +195,26 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Honey Juice",
-    bazaarRank: 1,
     recipeDisplay: "Honey x1",
     salesPrice: 325,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Other",
     effect: "Stamina Saver Lv. 1",
   },
   {
     dish: "Hot Coffee",
-    bazaarRank: 2,
     recipeDisplay: "Coffee Pack x1",
     salesPrice: 380,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Other",
     effect: "Chat Friendship Boost Lv. 1",
   },
   {
     dish: "Ice Cream",
-    bazaarRank: 1,
     recipeDisplay: "Milk x1, Egg x1 (or Silkie Egg x1), Sugar x1",
     salesPrice: 832,
     utensils: null,
@@ -240,7 +225,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Jam-Filled Bun",
-    bazaarRank: 3,
     recipeDisplay: "Wheat Flour x1",
     salesPrice: 1339,
     utensils: ["Oven"],
@@ -251,17 +235,16 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Mashed Potatoes",
-    bazaarRank: 2,
     recipeDisplay: "Potato x1, Butter x1",
     salesPrice: 677,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Salads",
     effect: "Watering Rare Crop % Lv. 2",
   },
   {
     dish: "Mint Tea",
-    bazaarRank: null,
     recipeDisplay: "Mint Tea Tin x1",
     salesPrice: 344,
     utensils: null,
@@ -272,7 +255,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Mushroom Pasta",
-    bazaarRank: 3,
     recipeDisplay:
       "Pasta x1, Shimeji Mushroom x1 (or Shiitake Mushroom x1), Butter x1",
     salesPrice: 1449,
@@ -284,7 +266,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Omelet",
-    bazaarRank: 2,
     recipeDisplay: "Egg x1 (or Silkie Egg x1), Butter x1",
     salesPrice: 721,
     utensils: null,
@@ -295,7 +276,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Omelet Rice",
-    bazaarRank: 1,
     recipeDisplay: "Omelet x1, Cooked Rice x1",
     salesPrice: 1410,
     utensils: ["Pan"],
@@ -306,7 +286,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Onigiri",
-    bazaarRank: 1,
     recipeDisplay: "Cooked Rice x1, Seaweed x1",
     salesPrice: 370,
     utensils: null,
@@ -317,17 +296,16 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Onion Salad",
-    bazaarRank: 1,
     recipeDisplay: "Onion x1",
     salesPrice: 325,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Salads",
     effect: "Watering Rare Crop % Lv. 1",
   },
   {
     dish: "Oolong Tea",
-    bazaarRank: 4,
     recipeDisplay: "Mint Tea Tin x1",
     salesPrice: 401,
     utensils: null,
@@ -338,7 +316,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pancakes",
-    bazaarRank: 3,
     recipeDisplay:
       "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Milk x1, Honey x1",
     salesPrice: 1152,
@@ -350,7 +327,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pasta",
-    bazaarRank: 1,
     recipeDisplay: "Wheat Flour x1, Egg x1 (or Silkie Egg x1)",
     salesPrice: 328,
     utensils: null,
@@ -361,7 +337,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Poached Egg",
-    bazaarRank: 2,
     recipeDisplay: "Egg x1 (or Silkie Egg x1), Soy Sauce x1",
     salesPrice: 301,
     utensils: null,
@@ -372,7 +347,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Popcorn",
-    bazaarRank: null,
     recipeDisplay: "Corn x1, Oil x1",
     salesPrice: 508,
     utensils: null,
@@ -383,7 +357,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Potato Pancakes",
-    bazaarRank: 2,
     recipeDisplay: "Potato x1, Wheat Flour x1, Egg x1 (or Silkie Egg x1)",
     salesPrice: 429,
     utensils: null,
@@ -394,7 +367,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Rice Porridge",
-    bazaarRank: 2,
     recipeDisplay: "Rice x1, Salt x1",
     salesPrice: 544,
     utensils: null,
@@ -405,7 +377,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Risotto",
-    bazaarRank: 3,
     recipeDisplay: "Rice x1, Tomato x1, Onion x1, Cheese x1",
     salesPrice: 1552,
     utensils: ["Cooking Pot"],
@@ -416,7 +387,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Sandwich",
-    bazaarRank: 1,
     recipeDisplay: "Bread x1, Tomato x1, Cucumber x1",
     salesPrice: 375,
     utensils: null,
@@ -427,7 +397,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Sashimi",
-    bazaarRank: 1,
     recipeDisplay: "Fish x1",
     salesPrice: 195,
     utensils: null,
@@ -438,17 +407,16 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Sautéed Turnips",
-    bazaarRank: 2,
     recipeDisplay: "Turnip x1, Butter x1",
     salesPrice: 882,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Salads",
     effect: "Max Stamina Up Lv. 2",
   },
   {
     dish: "Scones",
-    bazaarRank: 3,
     recipeDisplay: "Wheat Flour x1, Milk x1, Butter x1",
     salesPrice: 1155,
     utensils: ["Oven"],
@@ -459,18 +427,17 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Soy Milk",
-    bazaarRank: 1,
     recipeDisplay: "Soybean x1",
     salesPrice: 85,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Other",
     effect: "Max Stamina Up Lv. 1",
   },
   {
     dish: "Spaghetti Soup",
     type: "Soup",
-    bazaarRank: 3,
     recipeDisplay: "Fish x1, Tomato x1, Oil x1, Pasta x1",
     salesPrice: 1566,
     utensils: ["Cooking Pot"],
@@ -480,7 +447,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Steamed Muffin",
-    bazaarRank: null,
     recipeDisplay: "Sweet Potato x1, Egg x1 (or Silkie Egg x1), Wheat Flour x1",
     salesPrice: 609,
     utensils: null,
@@ -491,17 +457,16 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Strawberry Juice",
-    bazaarRank: 1,
     recipeDisplay: "Strawberry x1",
     salesPrice: 156,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Other",
     effect: "Chat Friendship Boost Lv. 1",
   },
   {
     dish: "Strawberry Mochi",
-    bazaarRank: null,
     recipeDisplay: "Mochi x1, Strawberry x1",
     salesPrice: 618,
     utensils: null,
@@ -512,7 +477,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Strawberry Pie",
-    bazaarRank: 3,
     recipeDisplay:
       "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Strawberry x1, Butter x1",
     salesPrice: 1368,
@@ -524,7 +488,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Strawberry Tea",
-    bazaarRank: 2,
     recipeDisplay: "Strawberry Tea Tin x1",
     salesPrice: 586,
     utensils: null,
@@ -535,7 +498,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Toast",
-    bazaarRank: 1,
     recipeDisplay: "Bread x1",
     salesPrice: 234,
     utensils: null,
@@ -546,37 +508,36 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tomato Juice",
-    bazaarRank: 1,
     recipeDisplay: "Tomato x1",
     salesPrice: 55,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Other",
     effect: "Chat Friendship Boost Lv. 1",
   },
   {
     dish: "Tomato Salad",
-    bazaarRank: 1,
     recipeDisplay: "Tomato x1",
     salesPrice: 128,
     utensils: null,
     whereToGet: "Mini Madeleine",
     adaptOptions: null,
+    type: "Salads",
     effect: "Stamina Saver Lv. 1",
   },
   {
     dish: "Turnip Salad",
-    bazaarRank: 1,
     recipeDisplay: "Turnip x1",
     salesPrice: 260,
     utensils: null,
     whereToGet: null,
     adaptOptions: null,
+    type: "Salads",
     effect: "Stamina Saver Lv. 1",
   },
   {
     dish: "Walnut Cookies",
-    bazaarRank: 2,
     recipeDisplay: "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Walnut x1",
     salesPrice: 524,
     utensils: null,
@@ -587,27 +548,26 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Walnut Juice",
-    bazaarRank: 1,
     recipeDisplay: "Bottled Walnuts x1",
     salesPrice: 260,
     utensils: null,
     whereToGet: null,
     adaptOptions: null,
+    type: "Other",
     effect: "Chat Friendship Boost Lv. 1",
   },
   {
     dish: "Warm Milk",
-    bazaarRank: 1,
     recipeDisplay: "Milk x1 (or Buffalo Milk x1)",
     salesPrice: 195,
     utensils: null,
     whereToGet: "Cafe Madeleine",
     adaptOptions: null,
+    type: "Other",
     effect: "Chat Friendship Boost Lv. 1",
   },
   {
     dish: "Focaccia Bread",
-    bazaarRank: null,
     recipeDisplay: "Wheat Flour x1, Olive Oil x1",
     salesPrice: 843,
     utensils: null,
@@ -618,17 +578,16 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cafe au Lait",
-    bazaarRank: null,
     recipeDisplay: "Coffee x1, Milk x1",
     salesPrice: 780,
     utensils: null,
     whereToGet: "Bookshelves - Freya's House",
     adaptOptions: null,
+    type: "Other",
     effect: "Chat Friendship Boost Lv. 2",
   },
   {
     dish: "Green Tea",
-    bazaarRank: null,
     recipeDisplay: "Aged Tea x1",
     salesPrice: 237,
     utensils: null,
@@ -641,7 +600,6 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Pumpkin Soup",
     type: "Soup",
-    bazaarRank: null,
     recipeDisplay: "Pumpkin x1, Milk x1, Onion x1",
     salesPrice: 1320,
     utensils: ["Cooking Pot"],
@@ -651,7 +609,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Babaocai",
-    bazaarRank: null,
     recipeDisplay:
       "Napa Cabbage x1, Carrot x1, Green Bell Pepper x1, Any Mushroom x1",
     salesPrice: 1509,
@@ -663,7 +620,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pizza",
-    bazaarRank: null,
     recipeDisplay: "Wheat Flour x1, Tomato x1, Cheese x1",
     salesPrice: 1142,
     utensils: null,
@@ -675,7 +631,6 @@ export const recipes: RecipeItem[] = [
 
   {
     dish: "Apple Jam",
-    bazaarRank: 4,
     recipeDisplay: "Apple x1, Lemon x1, Sugar x1",
     salesPrice: 935,
     utensils: null,
@@ -686,7 +641,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Apple Juice",
-    bazaarRank: 4,
     recipeDisplay: "Apple x1",
     salesPrice: 221,
     utensils: null,
@@ -697,7 +651,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Baguettes",
-    bazaarRank: 4,
     recipeDisplay: "Wheat Flour x1, Salt x1",
     salesPrice: 662,
     utensils: null,
@@ -708,7 +661,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Banana Tea",
-    bazaarRank: 4,
     recipeDisplay: "Banana Tea Tin x1",
     salesPrice: 832,
     utensils: null,
@@ -719,7 +671,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Blueberry Juice",
-    bazaarRank: 4,
     recipeDisplay: "Blueberry x1",
     salesPrice: 163,
     utensils: null,
@@ -730,7 +681,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Blueberry Tea",
-    bazaarRank: 4,
     recipeDisplay: "Blueberry Tea Tin x1",
     salesPrice: 601,
     utensils: null,
@@ -741,7 +691,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Boullabaisse",
-    bazaarRank: 4,
     recipeDisplay:
       "Fish x1, Tomato x1, Oil x1 (or Nut/Herb/Olive/Grape Oil x1)",
     salesPrice: 835,
@@ -753,7 +702,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cherry Juice",
-    bazaarRank: 4,
     recipeDisplay: "Cherry x1",
     salesPrice: 182,
     utensils: null,
@@ -764,7 +712,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cherry Tea",
-    bazaarRank: 4,
     recipeDisplay: "Cherry Tea Tin x1",
     salesPrice: 647,
     utensils: null,
@@ -775,7 +722,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Egg Tart",
-    bazaarRank: 4,
     recipeDisplay: "",
     salesPrice: 601,
     utensils: null,
@@ -786,7 +732,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "French Fries",
-    bazaarRank: 4,
     recipeDisplay: "Potato x1, Oil x1 (or Nut/Herb/Olive/Grape Oil x1)",
     salesPrice: 355,
     utensils: null,
@@ -797,7 +742,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fried Onigiri",
-    bazaarRank: 4,
     recipeDisplay: "Soy Sauce x1",
     salesPrice: 735,
     utensils: null,
@@ -808,7 +752,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fruit Dumplings",
-    bazaarRank: 4,
     recipeDisplay:
       "Refined Rice Flour x1, Strawberry x2 (or Banana/Orange/Pineapple/Melon/Peach/Mango/Blueberry/Green Grapes x2)",
     salesPrice: 1089,
@@ -820,7 +763,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fruit Sandwich",
-    bazaarRank: 4,
     recipeDisplay:
       "Strawberry x1 (or Banana/Orange/Pineapple/Melon/Peach/Mango/Blueberry/Green Grapes/Cherry x1)",
     salesPrice: 647,
@@ -832,7 +774,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Grape Jam",
-    bazaarRank: 4,
     recipeDisplay: "Red Grapes x1, Lemon x1, Sugar x1",
     salesPrice: 1007,
     utensils: null,
@@ -843,7 +784,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Hash Browns",
-    bazaarRank: 4,
     recipeDisplay:
       "Potato x1, Wheat Flour x1, Oil x1 (or Nut/Herb/Olive/Grape Oil x1)",
     salesPrice: 632,
@@ -855,7 +795,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Herb Cookies",
-    bazaarRank: 4,
     recipeDisplay:
       "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Lavender x1 (or Mint x1 or Chamomile x1)",
     salesPrice: 415,
@@ -867,7 +806,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Lemon Tea",
-    bazaarRank: 4,
     recipeDisplay: "Lemon Tea Tin x1",
     salesPrice: 632,
     utensils: null,
@@ -878,7 +816,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Marinated Peppers",
-    bazaarRank: 4,
     recipeDisplay:
       "Red Bell Pepper x1, Vinegar x1, Oil x1 (or Nut/Herb/Olive/Grape Oil x1)",
     salesPrice: 598,
@@ -890,7 +827,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Milk Rice Porridge",
-    bazaarRank: 4,
     recipeDisplay: "Rice x1, Salt x1, Milk x1 (or Buffalo Milk x1)",
     salesPrice: 801,
     utensils: null,
@@ -901,7 +837,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Mushroom Rice",
-    bazaarRank: null,
     recipeDisplay:
       "Rice x1, Common Mushroom x3 (or Shimeji/Shiitake/Porcini/Morel x3)",
     salesPrice: 874,
@@ -913,7 +848,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Olive Tea",
-    bazaarRank: 4,
     recipeDisplay: "Olive Tea Tin x1",
     salesPrice: 586,
     utensils: null,
@@ -924,7 +858,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Orange Juice",
-    bazaarRank: 4,
     recipeDisplay: "Orange x1",
     salesPrice: 180,
     utensils: null,
@@ -935,7 +868,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Orange Tea",
-    bazaarRank: 4,
     recipeDisplay: "Orange Tea Tin x1",
     salesPrice: 642,
     utensils: null,
@@ -946,7 +878,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pineapple Juice",
-    bazaarRank: 4,
     recipeDisplay: "Pineapple x1",
     salesPrice: 429,
     utensils: null,
@@ -957,7 +888,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pudding",
-    bazaarRank: 4,
     recipeDisplay: "Egg x1, Milk x1 (or Buffalo Milk x1)",
     salesPrice: 328,
     utensils: null,
@@ -968,7 +898,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Sauteed Cauliflower",
-    bazaarRank: 4,
     recipeDisplay: "Cauliflower x1",
     salesPrice: 602,
     utensils: null,
@@ -979,7 +908,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Soy Milk Pudding",
-    bazaarRank: 4,
     recipeDisplay: "Egg x1, Milk x1",
     salesPrice: 501,
     utensils: null,
@@ -990,7 +918,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Strawberry Jam",
-    bazaarRank: 4,
     recipeDisplay: "Strawberry x1, Lemon x1, Sugar x1",
     salesPrice: 855,
     utensils: null,
@@ -1001,7 +928,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Toasted Mochi",
-    bazaarRank: 4,
     recipeDisplay: "Mochi x1",
     salesPrice: 390,
     utensils: null,
@@ -1012,7 +938,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tofu",
-    bazaarRank: 4,
     recipeDisplay: "Soybean x1",
     salesPrice: 205,
     utensils: null,
@@ -1023,7 +948,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tofu Steak",
-    bazaarRank: 4,
     recipeDisplay: "Soybean x1, Tofu x1",
     salesPrice: 809,
     utensils: null,
@@ -1034,7 +958,6 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Grilled Corn",
-    bazaarRank: null,
     recipeDisplay: "1x Corn, 1x Soy Sauce, 1x Sugar",
     salesPrice: 886,
     utensils: null,

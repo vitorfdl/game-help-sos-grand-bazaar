@@ -4,12 +4,12 @@ import { recipes as allRecipes, type RecipeItem } from '@/data/recipes'
 import { Input } from '@/components/ui/input'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 
-type SortColumn = 'rank' | 'name' | 'recipe' | 'utensils' | 'whereToGet' | 'effect' | 'adaptOptions' | 'price'
+type SortColumn = 'type' | 'name' | 'recipe' | 'utensils' | 'whereToGet' | 'effect' | 'adaptOptions' | 'price'
 type SortDirection = 'asc' | 'desc'
 
 export default function CookingRecipes() {
   const [query, setQuery] = useState('')
-  const [sortColumn, setSortColumn] = useState<SortColumn>('rank')
+  const [sortColumn, setSortColumn] = useState<SortColumn>('type')
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
 
   const handleSort = (column: SortColumn) => {
@@ -65,10 +65,8 @@ export default function CookingRecipes() {
       let comparison = 0
       
       switch (sortColumn) {
-        case 'rank':
-          const aRank = a.bazaarRank ?? 99
-          const bRank = b.bazaarRank ?? 99
-          comparison = aRank - bRank
+        case 'type':
+          comparison = a.type?.localeCompare(b.type ?? '') ?? 0
           break
         case 'name':
           comparison = a.dish.localeCompare(b.dish)
@@ -132,7 +130,7 @@ export default function CookingRecipes() {
       <Table>
         <TableHeader>
           <TableRow>
-            <SortableHeader column="rank">Rank</SortableHeader>
+            <SortableHeader column="type">Type</SortableHeader>
             <SortableHeader column="name">Dish</SortableHeader>
             <SortableHeader column="recipe">Recipe</SortableHeader>
             <SortableHeader column="utensils">Utensils</SortableHeader>
@@ -145,7 +143,7 @@ export default function CookingRecipes() {
         <TableBody>
           {filtered.map((r) => (
             <TableRow key={r.dish}>
-              <TableCell className="tabular-nums">{r.bazaarRank ?? '?'}</TableCell>
+              <TableCell className="tabular-nums">{r.type ?? '?'}</TableCell>
               <TableCell className="font-medium">{r.dish}</TableCell>
               <TableCell>
                 <span className="text-muted-foreground">{r.recipeDisplay}</span>
