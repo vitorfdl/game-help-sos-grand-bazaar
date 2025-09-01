@@ -1,5 +1,5 @@
 import { Outlet, NavLink, useLocation } from 'react-router-dom'
-import { BookOpen, Users, Wind, Calendar as CalendarIcon, Github, ChefHat, Store } from 'lucide-react'
+import { BookOpen, Users, Wind, Calendar as CalendarIcon, Github, ChefHat, Store, History } from 'lucide-react'
 import { 
   SidebarProvider, 
   Sidebar, 
@@ -15,6 +15,9 @@ import {
   SidebarMenuItem,
   SidebarTrigger
 } from '@/components/ui/sidebar'
+import { Badge } from '@/components/ui/badge'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { useRepoUpdate } from '@/hooks/use-repo-update'
 
 // Helper function to get page title based on current route
 function getPageTitle(pathname: string): string {
@@ -36,6 +39,7 @@ function getPageTitle(pathname: string): string {
 
 export default function AppLayout() {
   const location = useLocation()
+  const repo = useRepoUpdate()
   return (
     <SidebarProvider>
       <Sidebar collapsible="icon">
@@ -121,6 +125,35 @@ export default function AppLayout() {
           <SidebarTrigger className="-ml-1" />
           <div className="h-6 w-px bg-border mx-2" />
           <h1 className="text-lg font-semibold">{getPageTitle(location.pathname)}</h1>
+          <div className="ml-auto" />
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a
+                href="https://github.com/vitorfdl/game-help-sos-grand-bazaar"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Badge variant="outline" className="gap-1.5">
+                  <span className="relative mr-1 inline-flex size-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-500/40 animate-ping" />
+                    <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+                  </span>
+                  <History className="size-3 opacity-80" />
+                  <span className="hidden sm:inline">{repo.loading ? 'Fetching latest update…' : repo.relativeLabel ? `Updated ${repo.relativeLabel}` : 'Update unavailable'}</span>
+                  <span className="sm:hidden">{repo.loading ? '…' : repo.relativeLabel ?? '—'}</span>
+                </Badge>
+              </a>
+            </TooltipTrigger>
+            <TooltipContent sideOffset={8}>
+              {repo.error ? (
+                <span>Update unavailable: {repo.error}</span>
+              ) : repo.isoTimestamp ? (
+                <span>Last pushed at {new Date(repo.isoTimestamp).toLocaleString()}</span>
+              ) : (
+                <span>Fetching latest update…</span>
+              )}
+            </TooltipContent>
+          </Tooltip>
         </header>
         <main className="flex-1 p-4">
           <Outlet />
