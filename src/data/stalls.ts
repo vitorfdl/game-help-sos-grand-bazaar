@@ -451,6 +451,13 @@ export const bazaarData: BazaarItems = [
         notes: "Warp Storage Box",
       },
       {
+        name: "Spirit Box: Equestrian Park",
+        price: 10000,
+        unit: "Energy",
+        category: "Storage Box",
+        notes: "Warp Storage Box",
+      },
+      {
         "name": "Happy Box: Bazaar",
         "price": 30000,
         "unit": "G",
@@ -493,6 +500,14 @@ export const bazaarData: BazaarItems = [
       {
         "name": "Happy Box: Mountains",
         "price": 150000,
+        "unit": "G",
+        "category": "Warp",
+        "notes":
+          "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
+      },
+      {
+        "name": "Happy Box: Equestrian Park",
+        "price": 30000,
         "unit": "G",
         "category": "Warp",
         "notes":

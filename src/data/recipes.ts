@@ -141,6 +141,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Happy Sprites Store",
     adaptOptions: null,
+    type: "Other",
     effect: "Happy Energy Gain Lv. 1",
   },
   {
@@ -150,6 +151,7 @@ export const recipes: RecipeItem[] = [
     utensils: null,
     whereToGet: "Happy Sprites Store",
     adaptOptions: null,
+    type: "Other",
     effect: "Happy Energy Gain Lv. 2",
   },
   {
@@ -1504,10 +1506,28 @@ export const recipes: RecipeItem[] = [
     adaptOptions: null,
     effect: "Petting Happiness Up Lv. 2",
   },
+  {
+    dish: "Happy Chef Salad",
+    type: "Other",
+    recipeDisplay: "-",
+    salesPrice: 1233,
+    utensils: null,
+    whereToGet: "Happy Sprites Store",
+    adaptOptions: null,
+    effect: "Happy Energy Gain Lv. 3",
+  },
+  {
+    dish: "Happy Fruit Platter",
+    type: "Other",
+    recipeDisplay: "-",
+    salesPrice: 3274,
+    utensils: null,
+    whereToGet: "Happy Sprites Store",
+    adaptOptions: null,
+    effect: "Happy Energy Gain Lv. 4",
+  },
 ];
 
-// { dish: 'Happy Chef Salad', bazaarRank: null, recipeDisplay: '-', salesPrice: 1233, utensils: null, whereToGet: 'Happy Sprites Store', adaptOptions: null, effect: 'Happy Energy Gain Lv. 3' },
-// { dish: 'Happy Fruit Platter', bazaarRank: null, recipeDisplay: '-', salesPrice: 3274, utensils: null, whereToGet: 'Happy Sprites Store', adaptOptions: null, effect: 'Happy Energy Gain Lv. 4' },
 // { dish: 'Stuffed Cabbage', bazaarRank: null, recipeDisplay: '-', salesPrice: 1213, utensils: null, whereToGet: 'Madeleine Request (Famed Foodie) / Diana\'s Gift on Hearth Day', adaptOptions: null, effect: 'Max Stamina Up Lv. 3' },
 // { dish: 'Herb Rice Porridge', bazaarRank: null, recipeDisplay: '-', salesPrice: 647, utensils: null, whereToGet: 'Sophie Request', adaptOptions: null, type: "Main Dish", effect: "Extra Stamina Recovered" },
 // { dish: 'Vegetable Curry', bazaarRank: null, recipeDisplay: '-', salesPrice: 911, utensils: null, whereToGet: 'Diana Request', adaptOptions: null, type: "Main Dish", effect: "Extra Stamina Recovered" },
