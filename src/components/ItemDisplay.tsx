@@ -48,17 +48,6 @@ function findItemData(itemName: string): { data: ItemData | null; type: ItemType
   return { data: null, type: null }
 }
 
-function getItemIcon(type: ItemType) {
-  switch (type) {
-    case 'recipe':
-      return ChefHat
-    case 'windmill':
-      return WindmillIcon
-    default:
-      return Leaf
-  }
-}
-
 function getVariantStyles(variant: 'favorite' | 'like') {
   switch (variant) {
     case 'favorite':
@@ -256,8 +245,6 @@ export default function ItemDisplay({ itemName, variant = 'like', className = ''
       </span>
     )
   }
-
-  const ItemIcon = getItemIcon(type)
 
   if (isMobile) {
     return (
