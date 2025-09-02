@@ -65,7 +65,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Seasonings",
         "notes":
-       elsewhere as 130G (item quality affects price)",
+          "Sales price shown elsewhere as 130G (item quality affects price)",
       },
       {
         "name": "Soy Sauce",
@@ -724,7 +724,7 @@ export const bazaarData: BazaarItems = [
         "price": 2000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Alpaca Yarn x1, Warm Dye x1",
+        "notes": "Materials: Alpaca Yarn x1, Warm Dye (Red/Pink) x1",
       },
       {
         "name": "Flat Cap",
@@ -745,7 +745,7 @@ export const bazaarData: BazaarItems = [
         "price": 2000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Alpaca Yarn x1, Warm Dye x1",
+        "notes": "Materials: Alpaca Yarn x1, Warm Dye (Red/Pink) x1",
       },
       {
         "name": "Ribbon Headband (Yellow)",
@@ -760,7 +760,7 @@ export const bazaarData: BazaarItems = [
         "price": 5000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Wheat x3, Warm Dye x1",
+        "notes": "Materials: Wheat x3, Warm Dye (Red/Pink) x1",
       },
       {
         "name": "Straw Boater Hat",
@@ -781,7 +781,7 @@ export const bazaarData: BazaarItems = [
         "price": 2000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Woolen Yarn (Sheep) x1, Warm Dye x1",
+        "notes": "Materials: Woolen Yarn (Sheep) x1, Warm Dye (Red/Pink) x1",
       },
       {
         "name": "Knit Hat (Yellow)",
@@ -833,7 +833,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Ingredients: 1 Alpaca Yarn, 1 Warm Dye, 1 Natural Dye, 1 Cool Dye",
+          "Ingredients: 1 Alpaca Yarn, 1 Warm Dye (red/pink), 1 Natural Dye, 1 Cool Dye",
       },
       {
         "name": "Casual Shirt (Black)",
@@ -857,7 +857,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Ingredients: 1 Alpaca Yarn+, 1 Warm Dye, 1 Natural Dye",
+          "Ingredients: 1 Alpaca Yarn+, 1 Warm Dye (red/pink), 1 Natural Dye",
       },
       {
         "name": "Overalls (Red)",
@@ -865,7 +865,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Ingredients: 1 Alpaca Yarn, 1 Noble Dye, 1 Warm Dye",
+          "Ingredients: 1 Alpaca Yarn, 1 Noble Dye, 1 Warm Dye (red/pink)",
       },
       {
         "name": "Overalls",
@@ -873,7 +873,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Ingredients: 1 Alpaca Yarn, 1 Warm Dye, 1 Natural Dye",
+          "Ingredients: 1 Alpaca Yarn, 1 Warm Dye (red/pink), 1 Natural Dye",
       },
       {
         "name": "Overalls (Yellow)",
@@ -889,7 +889,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Ingredients: 1 Alpaca Yarn+, 1 Warm Dye, 1 Natural Dye",
+          "Ingredients: 1 Alpaca Yarn+, 1 Warm Dye (red/pink), 1 Natural Dye",
       },
       {
         "name": "Apron Dress",
@@ -998,7 +998,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Requires 6 Alpaca Yarn+,and 6 Elegant Dye and 6 Noble Dye and 6 Cool Dye",
+          "Requires 6 Alpaca Yarn+ (Gold Alpaca) and 6 Elegant Dye and 6 Noble Dye and 6 Cool Dye",
       },
       {
         "name": "Festival Attire (Red)",
@@ -1034,7 +1034,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Requires 4 Alpaca Yarn+, 4 Alpaca Yarn (or Gold Brown variation), 4 Noble Dye and 4 Elegant Dye",
+          "Requires 4 Alpaca Yarn+ (Gold Alpaca), 4 Alpaca Yarn (or Gold Brown variation), 4 Noble Dye and 4 Elegant Dye — four items shown",
       },
       {
         "name": "Zephyr Town Attire",
@@ -1063,7 +1063,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Requires 4 Brown Alpaca Yarn+ (Gold Brown Alpaca), 4 Alpaca Yarn+, 4 Natural Dye and 4 Noble Dy)",
+          "Requires 4 Brown Alpaca Yarn+ (Gold Brown Alpaca), 4 Alpaca Yarn+ (Gold Alpaca), 4 Natural Dye and 4 Noble Dye (four items shown)",
       },
       {
         "name": "Glossy Jacket (Brown)",
@@ -1071,7 +1071,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Items: Brown Alpaca Yarn x3, Warm Dye x3, Natural Dye x3",
+          "Items: Brown Alpaca Yarn x3, Warm Dye (Red/Pink) x3, Natural Dye x3",
       },
       {
         "name": "Glossy Jacket",
@@ -1079,7 +1079,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Items: Alpaca Yarn x3, Alpaca Yarn+,x3, Cool Dye x3",
+          "Items: Alpaca Yarn x3, Alpaca Yarn+ (Gold Alpaca) x3, Cool Dye x3",
       },
       {
         "name": "Glossy Jacket (Red)",
@@ -1087,7 +1087,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Items: Alpaca Yarn x3, Alpaca Yarn+,x3, Warm Dye x3",
+          "Items: Alpaca Yarn x3, Alpaca Yarn+ (Gold Alpaca) x3, Warm Dye (Red/Pink) x3",
       },
       {
         "name": "Glossy Jacket (Black)",
@@ -1095,7 +1095,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Items: Alpaca Yarn x3, Alpaca Yarn+,x3, Noble Dye (Purple/Black) x3",
+          "Items: Alpaca Yarn x3, Alpaca Yarn+ (Gold Alpaca) x3, Noble Dye (Purple/Black) x3",
       },
       {
         "name": "Stylish Glossy Jacket",
@@ -1103,7 +1103,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Items: Brown Alpaca Yarn+ (Gold Brown Alpaca) x6, Alpaca Yarn+,x6, Elegant Dye (White/Gray) x6, Cool Dye x6",
+          "Items: Brown Alpaca Yarn+ (Gold Brown Alpaca) x6, Alpaca Yarn+ (Gold Alpaca) x6, Elegant Dye (White/Gray) x6, Cool Dye x6",
       },
       {
         "name": "Peacoat",
@@ -1132,7 +1132,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Items: Alpaca Yarn+,x6, Brown Alpaca Yarn+ (Gold Brown Alpaca) x6, Noble Dye (Purple/Black) x6",
+          "Items: Alpaca Yarn+ (Gold Alpaca) x6, Brown Alpaca Yarn+ (Gold Brown Alpaca) x6, Noble Dye (Purple/Black) x6",
       },
       {
         "name": "Sweater & Tights (Gray)",
@@ -1153,7 +1153,7 @@ export const bazaarData: BazaarItems = [
         "price": 10000,
         "unit": "G",
         "category": "Clothes",
-        "notes": "Items: Woolen Yarn x3, Warm Dye x3",
+        "notes": "Items: Woolen Yarn x3, Warm Dye (Red/Pink) x3",
       },
       {
         "name": "Sweater & Tights",
@@ -1168,7 +1168,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Items: Woolen Yarn+ (Gold Sheep) x6, Alpaca Yarn+,x6, Elegant Dye (White/Gray) x6, Noble Dye (Purple/Black) x6",
+          "Items: Woolen Yarn+ (Gold Sheep) x6, Alpaca Yarn+ (Gold Alpaca) x6, Elegant Dye (White/Gray) x6, Noble Dye (Purple/Black) x6",
       },
     ],
   },
