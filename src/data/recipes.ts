@@ -440,7 +440,7 @@ export const recipes: RecipeItem[] = [
     recipeDisplay: "Soybean Milk x1, Egg x1 (or Silkie Egg x1), Milk x1",
     salesPrice: 85,
     utensils: null,
-    whereToGet: "Cafe Madeleine",
+    whereToGet: "Mini Madeleine",
     adaptOptions: null,
     type: "Dessert",
     effect: "Max Stamina Up Lv. 1",
@@ -783,17 +783,6 @@ export const recipes: RecipeItem[] = [
     effect: "Max Stamina Up Lv. 2",
   },
   {
-    dish: "Hes",
-    recipeDisplay:
-      "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Lavender x1 (or Mint x1 or Chamomile x1)",
-    salesPrice: 415,
-    utensils: null,
-    whereToGet: "Mini Madeleine",
-    adaptOptions: null,
-    type: "Dessert",
-    effect: "Petting Happiness Up Lv. 1",
-  },
-  {
     dish: "Lemon Tea",
     recipeDisplay: "Lemon Tea Tin x1",
     salesPrice: 632,
@@ -884,16 +873,6 @@ export const recipes: RecipeItem[] = [
     adaptOptions: null,
     type: "Sides",
     effect: "Max Stamina Up Lv. 2",
-  },
-  {
-    dish: "Sg",
-    recipeDisplay: "Egg x1, Milk x1",
-    salesPrice: 501,
-    utensils: null,
-    whereToGet: "Mini Madeleine",
-    adaptOptions: null,
-    type: "Dessert",
-    effect: "Petting Happiness Up Lv. 2",
   },
   {
     dish: "Strawberry Jam",
