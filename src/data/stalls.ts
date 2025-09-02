@@ -19,8 +19,24 @@ export type BazaarItems = {
 export const bazaarData: BazaarItems = [
   {
     name: "Felix's Stall",
-    description: "Sells abilities, cooking ingredients and cooking recipes.",
+    description: "Sells techniques, cooking ingredients and cooking recipes.",
     items: [
+      {
+        "name": "Double Jump",
+        "price": 10000,
+        "unit": "G",
+        "category": "Technique",
+        "notes":
+          "Reach new heights and increase the range of your tools by jumping a second time in mid-air.",
+      },
+      {
+        "name": "Reel Power",
+        "price": 30000,
+        "unit": "G",
+        "category": "Technique",
+        "notes":
+          "Drastically weaken your catch while fishing with one pull of your rod.",
+      },
       {
         "name": "Ultra Sow Technique +",
         "price": "50,000",
