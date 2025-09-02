@@ -1393,7 +1393,8 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Paella",
     type: "Main Dish",
-    recipeDisplay: "-",
+    recipeDisplay:
+      "Cooked Rice x1, Any Medium Fish x1, Red Bell Pepper x1, Spice x1",
     salesPrice: 1151,
     utensils: ["Pan"],
     whereToGet: "Mini Madeleine",
