@@ -54,7 +54,7 @@ export default function AppLayout() {
             </div>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-semibold">SoS: Grand Bazaar</span>
-              <span className="truncate text-xs">Reference Cheats</span>
+              <span className="truncate text-xs">Reference Sheets</span>
             </div>
           </div>
         </SidebarHeader>
