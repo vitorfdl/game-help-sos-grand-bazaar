@@ -1494,7 +1494,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Baked Apple",
     type: "Dessert",
-    recipeDisplay: "Apple 1x",
+    recipeDisplay: "Apple 1x, Butter x1",
     salesPrice: 838,
     utensils: null,
     whereToGet: "Felix's Fixings",
