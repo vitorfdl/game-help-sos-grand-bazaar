@@ -235,7 +235,7 @@ export const fishList: FishEntry[] = [
     fish: "Grass Carp",
     size: FishSize.Guardian,
     season: [Season.Summer, Season.Autumn],
-    weather: [Weather.Raining],
+    weather: [Weather.Any],
     locations: ["Pond at middle of Zephyr Town"],
     baseValue: null,
   },
