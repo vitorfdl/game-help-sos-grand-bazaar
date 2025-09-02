@@ -690,8 +690,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Boullabaisse",
-    recipeDisplay:
-      "Fish x1, Tomato x1, Oil x1 (or Nut/Herb/Olive/Grape Oil x1)",
+    recipeDisplay: "Fish x1, Tomato x1, Any Oil x1",
     salesPrice: 835,
     utensils: null,
     whereToGet: "Mini Madeleine",
