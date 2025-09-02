@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Search, ChevronDown, Gem, Package, Hammer, Leaf, CookingPot, GiftIcon, CircleFadingArrowUp, HopIcon, ShirtIcon } from 'lucide-react'
+import { Search, ChevronDown, Gem, Package, Hammer, Leaf, GiftIcon, CircleFadingArrowUp, HopIcon, ShirtIcon } from 'lucide-react'
 import { bazaarData, type BazaarItem } from '@/data/stalls'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
