@@ -649,16 +649,6 @@ export const recipes: RecipeItem[] = [
     effect: "Pet Training Up Lv. 1",
   },
   {
-    dish: "",
-    recipeDisplay: "Wheat Flour x1, Salt x1",
-    salesPrice: 662,
-    utensils: null,
-    whereToGet: "Mini Madeleine",
-    adaptOptions: null,
-    type: "Sides",
-    effect: "Max Stamina Up Lv. 2",
-  },
-  {
     dish: "Banana Tea",
     recipeDisplay: "Banana Tea Tin x1",
     salesPrice: 832,
@@ -1332,7 +1322,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Baguettes",
     type: "Sides",
-    recipeDisplay: "-",
+    recipeDisplay: "Wheat Flour x1, Salt x",
     salesPrice: 662,
     utensils: null,
     whereToGet: "Mini Madeleine",
