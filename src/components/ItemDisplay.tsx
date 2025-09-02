@@ -14,7 +14,6 @@ import {
   Utensils, 
   MapPin,
   Sparkles,
-  Leaf,
   Zap
 } from 'lucide-react'
 import { WindmillIcon } from './Windmills'
