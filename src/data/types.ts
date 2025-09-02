@@ -23,6 +23,6 @@ export type RecipeItem = {
   salesPrice: number | null;
   effect?: string | null;
   whereToGet?: string | null;
-  utensils?: string[] | null;
+  utensils?: ("Cooking Pot" | "Oven" | "Pan")[] | null;
   adaptOptions?: string[] | null;
 };

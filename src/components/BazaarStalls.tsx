@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Search, ChevronDown, Gem, Package, Hammer, Leaf } from 'lucide-react'
+import { Search, ChevronDown, Gem, Package, Hammer, Leaf, CookingPot, GiftIcon, CircleFadingArrowUp, HopIcon, ShirtIcon } from 'lucide-react'
 import { bazaarData, type BazaarItem } from '@/data/stalls'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
@@ -20,6 +20,14 @@ function getStallIcon(stallId: string) {
       return <img src={assetPath('cow.svg')} alt="Cow" className="h-5 w-5" />
     case 'sprite-stall':
       return <Leaf className="h-5 w-5" />
+    case 'felix-s-stall':
+      return <CircleFadingArrowUp className="h-5 w-5" />
+    case 'joy-s-stall':
+      return <GiftIcon className="h-5 w-5" />
+    case "arata-s-stall":
+      return <HopIcon className="h-5 w-5" />
+    case "karina-s-stall":
+      return <ShirtIcon className="h-5 w-5" />
     default:
       return <Package className="h-5 w-5" />
   }
