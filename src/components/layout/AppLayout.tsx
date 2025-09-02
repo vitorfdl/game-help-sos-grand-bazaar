@@ -1,5 +1,5 @@
 import { Outlet, NavLink, useLocation } from 'react-router-dom'
-import { BookOpen, Users, Wind, Calendar as CalendarIcon, Github, ChefHat, Store, History, Fish } from 'lucide-react'
+import { Users, Wind, Calendar as CalendarIcon, Github, ChefHat, Store, History, Fish } from 'lucide-react'
 import { 
   SidebarProvider, 
   Sidebar, 
@@ -49,8 +49,8 @@ export default function AppLayout() {
       <Sidebar collapsible="icon">
         <SidebarHeader>
           <div className="flex items-center gap-2 px-2 py-1.5">
-            <div className="flex aspect-square size-6 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-              <BookOpen className="size-4" />
+            <div className="flex aspect-square size-7 items-center justify-center">
+              <img src="/favicon/favicon.svg" alt="SoS: Grand Bazaar" className="size-7" />
             </div>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-semibold">SoS: Grand Bazaar</span>
