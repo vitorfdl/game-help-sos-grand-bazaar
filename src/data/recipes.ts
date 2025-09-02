@@ -156,8 +156,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Herb Pasta",
-    recipeDisplay:
-      "Wheat Flour x1, Oil x1, Lavender x1 (or Mint x1 or Chamomile x1)",
+    recipeDisplay: "Wheat Flour x1, Oil x1, Any Herb x1",
     salesPrice: 616,
     utensils: null,
     whereToGet: "Bookshelves - Jules and Derek's house",
@@ -167,7 +166,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Herb Salad",
-    recipeDisplay: "Lavender x2 (or Mint x2 or Chamomile x2)",
+    recipeDisplay: "Any Herb x2",
     salesPrice: 137,
     utensils: null,
     whereToGet: null,
@@ -178,7 +177,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Herb Soup",
     type: "Soup",
-    recipeDisplay: "Lavender x2 (or Mint x2 or Chamomile x2)",
+    recipeDisplay: "Any Herb x2",
     salesPrice: 137,
     utensils: null,
     whereToGet: null,
@@ -257,8 +256,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Mushroom Pasta",
-    recipeDisplay:
-      "Pasta x1, Shimeji Mushroom x1 (or Shiitake Mushroom x1), Butter x1",
+    recipeDisplay: "Pasta x1, Any Mushroom x1, Butter x1",
     salesPrice: 1449,
     utensils: ["Cooking Pot"],
     whereToGet: "Cafe Madeleine",
@@ -268,7 +266,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Omelet",
-    recipeDisplay: "Egg x1 (or Silkie Egg x1), Butter x1",
+    recipeDisplay: "Egg x1, Butter x1",
     salesPrice: 721,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -743,8 +741,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fruit Dumplings",
-    recipeDisplay:
-      "Refined Rice Flour x1, Strawberry x2 (or Banana/Orange/Pineapple/Melon/Peach/Mango/Blueberry/Green Grapes x2)",
+    recipeDisplay: "Refined Rice Flour x1, Any Fruit x2",
     salesPrice: 1089,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -754,8 +751,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fruit Sandwich",
-    recipeDisplay:
-      "Strawberry x1 (or Banana/Orange/Pineapple/Melon/Peach/Mango/Blueberry/Green Grapes/Cherry x1)",
+    recipeDisplay: "Any Fruit x1",
     salesPrice: 647,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -796,8 +792,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Marinated Peppers",
-    recipeDisplay:
-      "Red Bell Pepper x1, Vinegar x1, Oil x1 (or Nut/Herb/Olive/Grape Oil x1)",
+    recipeDisplay: "Red Bell Pepper x1, Vinegar x1, Any Oil x1",
     salesPrice: 598,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -817,8 +812,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Mushroom Rice",
-    recipeDisplay:
-      "Rice x1, Common Mushroom x3 (or Shimeji/Shiitake/Porcini/Morel x3)",
+    recipeDisplay: "Rice x1, Any Mushroom x3",
     salesPrice: 874,
     utensils: null,
     whereToGet: "Madeleine Request",
@@ -1039,7 +1033,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Herb Sandwich",
     recipeDisplay:
-      "1x Mayonnaise, 1x Bread, 1x Lavender, 1x Mint, 1x Chamomile, 1x Herb Mayonnaise, 1x Mayonnaise",
+      "1x Mayonnaise, 1x Bread, 1x Lavender, 1x Mint, 1x Chamomile, 1x Herb Mayonnaise",
     salesPrice: 817,
     utensils: null,
     whereToGet: "Mina Request",
