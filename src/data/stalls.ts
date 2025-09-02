@@ -419,29 +419,84 @@ export const bazaarData: BazaarItems = [
         name: "Spirit Box: Bazaar",
         price: 5000,
         unit: "Energy",
-        category: "Warp",
+        category: "Storage Box",
         notes: "Warp Storage Box",
       },
       {
         name: "Spirit Box: Zephyr Town",
         price: 20000,
         unit: "Energy",
-        category: "Warp",
+        category: "Storage Box",
         notes: "Warp Storage Box",
       },
       {
         name: "Spirit Box: Red Windmill",
         price: 5000,
         unit: "Energy",
-        category: "Warp",
+        category: "Storage Box",
+        notes: "Warp Storage Box",
+      },
+      {
+        name: "Spirit Box: Blue Windmill",
+        price: 20000,
+        unit: "Energy",
+        category: "Storage Box",
         notes: "Warp Storage Box",
       },
       {
         name: "Spirit Box: Mountains",
         price: 50000,
         unit: "Energy",
-        category: "Warp",
+        category: "Storage Box",
         notes: "Warp Storage Box",
+      },
+      {
+        "name": "Happy Box: Bazaar",
+        "price": 30000,
+        "unit": "G",
+        "category": "Warp",
+        "notes":
+          "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
+      },
+      {
+        "name": "Happy Box: Zephyr Town",
+        "price": 60000,
+        "unit": "G",
+        "category": "Warp",
+        "notes":
+          "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
+      },
+      {
+        "name": "Happy Box: Red Windmill",
+        "price": 30000,
+        "unit": "G",
+        "category": "Warp",
+        "notes":
+          "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
+      },
+      {
+        "name": "Happy Box: Blue Windmill",
+        "price": 50000,
+        "unit": "G",
+        "category": "Warp",
+        "notes":
+          "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
+      },
+      {
+        "name": "Happy Box: Yellow Windmill",
+        "price": 90000,
+        "unit": "G",
+        "category": "Warp",
+        "notes":
+          "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
+      },
+      {
+        "name": "Happy Box: Mountains",
+        "price": 150000,
+        "unit": "G",
+        "category": "Warp",
+        "notes":
+          "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
       },
       {
         name: "Power Berry",
