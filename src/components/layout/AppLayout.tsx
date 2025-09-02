@@ -42,6 +42,7 @@ function getPageTitle(pathname: string): string {
 export default function AppLayout() {
   const location = useLocation()
   const repo = useRepoUpdate()
+  const faviconUrl = `${import.meta.env.BASE_URL}favicon/favicon.svg`
 
   console.log("update");
   return (
@@ -50,7 +51,7 @@ export default function AppLayout() {
         <SidebarHeader>
           <div className="flex items-center gap-2 px-2 py-1.5">
             <div className="flex aspect-square size-7 items-center justify-center">
-              <img src="/favicon/favicon.svg" alt="SoS: Grand Bazaar" className="size-7" />
+              <img src={faviconUrl} alt="SoS: Grand Bazaar" className="size-7" />
             </div>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-semibold">SoS: Grand Bazaar</span>
