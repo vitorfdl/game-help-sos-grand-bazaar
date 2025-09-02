@@ -8,6 +8,7 @@ import { useIsMobile } from '@/hooks/use-mobile'
 import { useAtom } from 'jotai'
 import { footerExpandedAtom } from '@/store/atoms'
 import { Input } from './ui/input'
+import ItemDisplay from './ItemDisplay'
 
 function toAvatarFilename(name: string): string {
   const override = avatarFileOverrides[name as keyof typeof avatarFileOverrides]
@@ -157,16 +158,11 @@ export default function Residents() {
         <span className="font-medium shrink-0">{label}:</span>
         <div className="flex flex-wrap gap-2">
           {items.map((text) => (
-            <span
+            <ItemDisplay
               key={text}
-              className={
-                variant === 'favorite'
-                  ? 'inline-flex items-center rounded-md bg-emerald-500/10 px-2 py-1 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 text-sm'
-                  : 'px-2 py-1 rounded-full text-sm border bg-secondary hover:bg-accent transition'
-              }
-            >
-              {text}
-            </span>
+              itemName={text}
+              variant={variant}
+            />
           ))}
         </div>
       </div>

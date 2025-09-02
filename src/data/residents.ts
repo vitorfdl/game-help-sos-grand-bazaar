@@ -15,7 +15,7 @@ export const residents: Resident[] = [
   {
     name: "Jules",
     group: "Bachelors",
-    favorite: ["Herb Perfume"],
+    favorite: ["Herbal Perfume"],
     likes: [
       "Herbs",
       "Perfumes",
@@ -68,7 +68,7 @@ export const residents: Resident[] = [
   {
     name: "Arata",
     group: "Bachelors",
-    favorite: ["Unadon (Eel Ricebowl)", "Warm Milk"],
+    favorite: ["Unadon", "Warm Milk"],
     likes: ["Warm Milk", "Onigiri", "Omelet", "Fishes", "Curries"],
     birthday: { season: "Winter", day: 17 },
   },
@@ -135,7 +135,7 @@ export const residents: Resident[] = [
   {
     name: "Erik",
     group: "Villagers",
-    favorite: ["Any Spring Blend Tea", "Moondrop Tea"],
+    favorite: ["Black Tea", "Chamomile Tea", "Any Spring Blend Tea"],
     likes: [
       "Teas",
       "Juices",
@@ -157,7 +157,7 @@ export const residents: Resident[] = [
   {
     name: "Sonia",
     group: "Villagers",
-    favorite: ["Strawberry Juice, Tomato Juice"],
+    favorite: ["Strawberry Juice", "Tomato Juice", "Any fruit juice"],
     likes: ["Juices", "Teas", "Wild Herbs", "Poached Egg", "Toy Flower"],
     birthday: { season: "Spring", day: 25 },
   },
@@ -213,7 +213,7 @@ export const residents: Resident[] = [
   {
     name: "Isaac",
     group: "Villagers",
-    favorite: ["Jam Bread", "Sandwich"],
+    favorite: ["Jam-Filled Bun", "Sandwich"],
     likes: ["Sandwiches", "Sweets", "Cicadas"],
     birthday: { season: "Autumn", day: 6 },
   },
@@ -227,21 +227,21 @@ export const residents: Resident[] = [
   {
     name: "Sylvia",
     group: "Villagers",
-    favorite: ["Donut", "Omelet"],
+    favorite: ["Donuts", "Omelet"],
     likes: ["Sweets", "Egg Dishes", "Fishes", "Pasta"],
     birthday: { season: "Autumn", day: 18 },
   },
   {
     name: "Laurie",
     group: "Villagers",
-    favorite: ["Sweet Potato Dessert", "Omelet"],
-    likes: ["Sweets", "Herbs", "Fireflies", "Popocorn"],
+    favorite: ["Sweet Potato Cakes", "Omelet"],
+    likes: ["Sweets", "Herbs", "Fireflies", "Popcorn"],
     birthday: { season: "Autumn", day: 18 },
   },
   {
     name: "Harold",
     group: "Villagers",
-    favorite: ["Ultimate Curry", "Soy Milk Pudding"],
+    favorite: ["Supreme Curry", "Soy Milk Pudding"],
     likes: ["Puddings", "Teas", "Beetles"],
     birthday: { season: "Summer", day: 7 },
   },

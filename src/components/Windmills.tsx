@@ -10,7 +10,7 @@ function windmillColorFor(id: string) {
   return '#f59e0b' // amber-500
 }
 
-function WindmillIcon({ color, className }: { color: string; className?: string }) {
+export function WindmillIcon({ color, className }: { color: string; className?: string }) {
   // Inline SVG from public/windmill.svg with center fill controlled by `color`.
   return (
     <svg className={className} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
