@@ -1523,7 +1523,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Melon Juice",
     type: "Other (Juice)",
-    recipeDisplay: "-",
+    recipeDisplay: "Melon x1",
     salesPrice: 658,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1583,7 +1583,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Lavender Tea",
     type: "Other (Tea)",
-    recipeDisplay: "-",
+    recipeDisplay: "Lavender Tea Tin x1",
     salesPrice: 344,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1663,7 +1663,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Radish Soup",
-    type: undefined,
+    type: "Soup",
     recipeDisplay: "-",
     salesPrice: 770,
     utensils: null,
@@ -1693,7 +1693,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cake",
-    type: undefined,
+    type: "Dessert",
     recipeDisplay: "-",
     salesPrice: 601,
     utensils: null,
@@ -1702,18 +1702,8 @@ export const recipes: RecipeItem[] = [
     effect: "Petting Happiness Up Lv. 2",
   },
   {
-    dish: "Toasted Mochi",
-    type: undefined,
-    recipeDisplay: "-",
-    salesPrice: 390,
-    utensils: null,
-    whereToGet: "Mini Madeleine",
-    adaptOptions: null,
-    effect: "Petting Happiness Up Lv. 1",
-  },
-  {
     dish: "Mixed Salad",
-    type: undefined,
+    type: "Salads",
     recipeDisplay: "-",
     salesPrice: 404,
     utensils: null,
@@ -1723,7 +1713,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Kinpira Gobo",
-    type: undefined,
+    type: "Sides",
     recipeDisplay: "-",
     salesPrice: 909,
     utensils: null,
@@ -1733,7 +1723,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Miso Soup",
-    type: undefined,
+    type: "Soup",
     recipeDisplay: "-",
     salesPrice: 260,
     utensils: null,
@@ -1743,7 +1733,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Asparagus Soup",
-    type: undefined,
+    type: "Soup",
     recipeDisplay: "-",
     salesPrice: 1728,
     utensils: null,
@@ -1763,7 +1753,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tofu Skin",
-    type: undefined,
+    type: "Sides",
     recipeDisplay: "-",
     salesPrice: 111,
     utensils: null,
@@ -2073,7 +2063,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Chocolate Cookies",
-    type: undefined,
+    type: "Dessert",
     recipeDisplay: "-",
     salesPrice: 832,
     utensils: null,
@@ -2113,8 +2103,8 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Matcha Tea",
-    type: undefined,
-    recipeDisplay: "-",
+    type: "Other (Tea)",
+    recipeDisplay: "Matcha Tea Tin x1",
     salesPrice: 364,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2123,8 +2113,8 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pu'er Tea",
-    type: undefined,
-    recipeDisplay: "-",
+    type: "Other (Tea)",
+    recipeDisplay: "Pu'er Tea Tin x1",
     salesPrice: 401,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2133,8 +2123,8 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Sencha Tea",
-    type: undefined,
-    recipeDisplay: "-",
+    type: "Other (Tea)",
+    recipeDisplay: "Sencha Tea Tin x1",
     salesPrice: 401,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2153,7 +2143,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Macaroni Salad",
-    type: undefined,
+    type: "Salads",
     recipeDisplay: "-",
     salesPrice: 1859,
     utensils: null,
@@ -2163,7 +2153,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Vichyssoise Soup",
-    type: undefined,
+    type: "Soup",
     recipeDisplay: "-",
     salesPrice: 709,
     utensils: null,
@@ -2413,7 +2403,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pudding (Bistro)",
-    type: undefined,
+    type: "Dessert",
     recipeDisplay: "-",
     salesPrice: 328,
     utensils: null,
@@ -2423,7 +2413,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pumpkin Pudding",
-    type: undefined,
+    type: "Dessert",
     recipeDisplay: "-",
     salesPrice: 986,
     utensils: null,
@@ -2433,7 +2423,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Whole Cake",
-    type: undefined,
+    type: "Dessert",
     recipeDisplay: "-",
     salesPrice: 1350,
     utensils: null,
@@ -2443,7 +2433,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Whole Cheesecake",
-    type: undefined,
+    type: "Dessert",
     recipeDisplay: "-",
     salesPrice: 2746,
     utensils: null,
@@ -2453,7 +2443,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Chocolate Fondue",
-    type: undefined,
+    type: "Dessert",
     recipeDisplay: "-",
     salesPrice: 924,
     utensils: null,
@@ -2463,7 +2453,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Blueberry Pie",
-    type: undefined,
+    type: "Dessert",
     recipeDisplay: "-",
     salesPrice: 1377,
     utensils: null,
@@ -2473,7 +2463,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cheesecake",
-    type: undefined,
+    type: "Dessert",
     recipeDisplay: "-",
     salesPrice: 1602,
     utensils: null,
@@ -2483,7 +2473,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cappuccino",
-    type: undefined,
+    type: "Other",
     recipeDisplay: "-",
     salesPrice: 780,
     utensils: null,
@@ -2493,7 +2483,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fruit Juice",
-    type: undefined,
+    type: "Other (Juice)",
     recipeDisplay: "-",
     salesPrice: 826,
     utensils: null,
