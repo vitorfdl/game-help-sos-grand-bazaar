@@ -970,7 +970,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Jam Tea",
-    recipe: [],
+    recipe: ["1x Black Tea", "1x Any Jam"],
     salesPrice: 1850,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1207,7 +1207,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Curry Rice",
     type: "Main Dish",
-    recipe: ["1x Rice", "1x Curry Powder"],
+    recipe: ["1x Rice", "1x Curry Powder", "1x Carrot (or Potato/Onion"],
     salesPrice: 911,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2092,7 +2092,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Wrapped Rice Cakes",
     type: "Dessert",
-    recipe: [],
+    recipe: ["1x Mochi", "1x Summer Tea Leaves"],
     salesPrice: 544,
     utensils: null,
     whereToGet: "Clara's Diner",
