@@ -227,14 +227,14 @@ export const residents: Resident[] = [
   {
     name: "Sylvia",
     group: "Villagers",
-    favorite: ["Donuts", "Omelet"],
+    favorite: ["Donuts", "Baked Sweet Potato", "Omelet"],
     likes: ["Sweets", "Egg Dishes", "Fishes", "Pasta"],
     birthday: { season: "Autumn", day: 18 },
   },
   {
     name: "Laurie",
     group: "Villagers",
-    favorite: ["Sweet Potato Cakes", "Omelet"],
+    favorite: ["Sweet Potato Cakes", "Baked Sweet Potato", "Omelet"],
     likes: ["Sweets", "Herbs", "Fireflies", "Popcorn"],
     birthday: { season: "Autumn", day: 18 },
   },
