@@ -941,7 +941,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Blueberry Jam",
-    recipeDisplay: "-",
+    recipeDisplay: "1x Blueberry, 1x Lemon, 1x Sugar",
     salesPrice: 863,
     utensils: null,
     whereToGet: "Mini Madeleine",

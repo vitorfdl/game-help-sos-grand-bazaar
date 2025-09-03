@@ -240,6 +240,14 @@ export const fishList: FishEntry[] = [
     baseValue: null,
   },
   {
+    fish: "Black Carp",
+    size: FishSize.Guardian,
+    season: [Season.Spring, Season.Autumn],
+    weather: [Weather.Any],
+    locations: ["River in front of Blue Windmill"],
+    baseValue: null,
+  },
+  {
     fish: "Koi",
     size: FishSize.Unknown,
     season: [Season.Winter],
