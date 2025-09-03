@@ -3,6 +3,7 @@ import { Search, ArrowUp, ArrowDown, Info } from 'lucide-react'
 import { recipes as allRecipes, type RecipeItem } from '@/data/recipes'
 import { Input } from '@/components/ui/input'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Badge } from '@/components/ui/badge'
 
 type SortColumn = 'type' | 'name' | 'recipe' | 'utensils' | 'whereToGet' | 'effect' | 'adaptOptions' | 'price'
 type SortDirection = 'asc' | 'desc'
@@ -54,7 +55,7 @@ export default function CookingRecipes() {
     const base = !q
       ? allRecipes
       : allRecipes.filter((r) => {
-          const haystack = [r.dish, r.recipeDisplay].join(' ').toLowerCase()
+          const haystack = [r.dish, r.recipe.join(', ')].join(' ').toLowerCase()
           return haystack.includes(q)
         })
     
@@ -72,7 +73,7 @@ export default function CookingRecipes() {
           comparison = a.dish.localeCompare(b.dish)
           break
         case 'recipe':
-          comparison = a.recipeDisplay.localeCompare(b.recipeDisplay)
+          comparison = a.recipe.join(', ').localeCompare(b.recipe.join(', '))
           break
         case 'utensils':
           const aUtensils = a.utensils?.join(', ') ?? ''
@@ -146,7 +147,13 @@ export default function CookingRecipes() {
               <TableCell className="tabular-nums">{r.type ?? '?'}</TableCell>
               <TableCell className="font-medium">{r.dish}</TableCell>
               <TableCell>
-                <span className="text-muted-foreground">{r.recipeDisplay}</span>
+                <div className="flex flex-wrap gap-1">
+                  {r.recipe.map((ingredient, index) => (
+                    <Badge key={index} variant="secondary" className="text-xs">
+                      {ingredient}
+                    </Badge>
+                  ))}
+                </div>
               </TableCell>
               <TableCell>
                 {r.utensils?.length ? r.utensils.join(', ') : <span className="text-muted-foreground">—</span>}

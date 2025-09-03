@@ -18,7 +18,7 @@ export type RecipeItem = {
     | "Other"
     | "Other (Juice)"
     | "Other (Tea)";
-  recipeDisplay: string;
+  recipe: string[];
   ingredients?: RecipeIngredientGroup[];
   salesPrice: number | null;
   effect?: string | null;

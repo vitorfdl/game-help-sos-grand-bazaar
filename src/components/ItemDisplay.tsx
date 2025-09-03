@@ -95,15 +95,19 @@ function ItemDetails({ item, type }: { item: ItemData; type: ItemType }) {
       {/* Recipe Details */}
       {isRecipe && recipe && (
         <div className="space-y-3">
-          {recipe.recipeDisplay && (
+          {recipe.recipe && recipe.recipe.length > 0 && (
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Utensils className="h-4 w-4 text-muted-foreground" />
                 <span className="font-medium text-sm text-foreground">Recipe</span>
               </div>
-              <p className="text-sm text-foreground bg-muted/50 p-3 rounded-lg">
-                {recipe.recipeDisplay}
-              </p>
+              <div className="space-y-1">
+                {recipe.recipe.map((ingredient, index) => (
+                  <p key={index} className="text-sm text-foreground bg-muted/50 p-2 rounded">
+                    {ingredient}
+                  </p>
+                ))}
+              </div>
             </div>
           )}
 

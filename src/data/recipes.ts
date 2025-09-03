@@ -7,7 +7,7 @@ export type { RecipeItem };
 export const recipes: RecipeItem[] = [
   {
     dish: "Black Tea",
-    recipeDisplay: "Black Tea Tin x1",
+    recipe: ["1x Black Tea Tin"],
     salesPrice: 401,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -17,7 +17,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Boiled Egg",
-    recipeDisplay: "Egg x1 (or Silkie Egg x1)",
+    recipe: ["1x Egg (or Silkie Egg)"],
     salesPrice: 117,
     utensils: null,
     whereToGet: null,
@@ -27,7 +27,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Bread",
-    recipeDisplay: "Wheat Flour x1",
+    recipe: ["1x Wheat Flour"],
     salesPrice: 195,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -36,7 +36,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Buttered Roll",
-    recipeDisplay: "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Butter x1",
+    recipe: ["1x Wheat Flour", "1x Egg (or Silkie Egg)", "1x Butter"],
     salesPrice: 1056,
     utensils: ["Oven"],
     whereToGet: "Cafe Madeleine",
@@ -46,7 +46,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Chamomile Tea",
-    recipeDisplay: "Chamomile Tea Tin x1",
+    recipe: ["1x Chamomile Tea Tin"],
     salesPrice: 344,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -56,8 +56,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Churros",
-    recipeDisplay:
-      "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Oil x1, Sugar x1",
+    recipe: ["1x Wheat Flour", "1x Egg (or Silkie Egg)", "1x Oil", "1x Sugar"],
     salesPrice: 1332,
     utensils: ["Pan"],
     whereToGet: "Scene Stealer Title / Mini Madeleine",
@@ -67,7 +66,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cooked Rice",
-    recipeDisplay: "Rice x1",
+    recipe: ["1x Rice"],
     salesPrice: 91,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -76,7 +75,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cookies",
-    recipeDisplay: "Wheat Flour x1, Egg x1 (or Silkie Egg x1)",
+    recipe: ["1x Wheat Flour", "1x Egg (or Silkie Egg)"],
     salesPrice: 328,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -87,7 +86,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Egg Drop Soup",
     type: "Soup",
-    recipeDisplay: "Egg x1 (or Silkie Egg x1)",
+    recipe: ["1x Egg (or Silkie Egg)"],
     salesPrice: 117,
     utensils: null,
     whereToGet: null,
@@ -96,7 +95,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Egg Over Rice",
-    recipeDisplay: "Egg x1 (or Silkie Egg x1), Cooked Rice x1",
+    recipe: ["1x Egg (or Silkie Egg)", "1x Cooked Rice"],
     salesPrice: 248,
     utensils: null,
     whereToGet: null,
@@ -106,7 +105,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fried Egg",
-    recipeDisplay: "Egg x1 (or Silkie Egg x1), Oil x1",
+    recipe: ["1x Egg (or Silkie Egg)", "1x Oil"],
     salesPrice: 396,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -117,7 +116,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Gazpacho Soup",
     type: "Soup",
-    recipeDisplay: "Tomato x1, Garlic x1, Bread x1",
+    recipe: ["1x Tomato", "1x Garlic", "1x Bread"],
     salesPrice: 490,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -126,7 +125,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Grilled Fish",
-    recipeDisplay: "Fish x1",
+    recipe: ["1x Fish"],
     salesPrice: 195,
     utensils: null,
     whereToGet: null,
@@ -136,7 +135,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Happy Forest Mix",
-    recipeDisplay: "Walnut x1",
+    recipe: ["1x Walnut"],
     salesPrice: 130,
     utensils: null,
     whereToGet: "Happy Sprites Store",
@@ -146,7 +145,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Happy Mushroom Fry",
-    recipeDisplay: "Shimeji Mushroom x1 (or Shiitake Mushroom x1), Salt x1",
+    recipe: ["1x Shimeji Mushroom (or Shiitake Mushroom)", "1x Salt"],
     salesPrice: 662,
     utensils: null,
     whereToGet: "Happy Sprites Store",
@@ -156,7 +155,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Herb Pasta",
-    recipeDisplay: "Wheat Flour x1, Oil x1, Any Herb x1",
+    recipe: ["1x Wheat Flour", "1x Oil", "1x Any Herb"],
     salesPrice: 616,
     utensils: null,
     whereToGet: "Bookshelves - Jules and Derek's house",
@@ -166,7 +165,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Herb Salad",
-    recipeDisplay: "Any Herb x2",
+    recipe: ["2x Any Herb"],
     salesPrice: 137,
     utensils: null,
     whereToGet: null,
@@ -177,7 +176,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Herb Soup",
     type: "Soup",
-    recipeDisplay: "Any Herb x2",
+    recipe: ["2x Any Herb"],
     salesPrice: 137,
     utensils: null,
     whereToGet: null,
@@ -186,7 +185,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Honey Cake",
-    recipeDisplay: "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Honey x1",
+    recipe: ["1x Wheat Flour", "1x Egg (or Silkie Egg)", "1x Honey"],
     salesPrice: 755,
     utensils: null,
     whereToGet: "Honey Day - Spring 20",
@@ -196,7 +195,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Honey Juice",
-    recipeDisplay: "Any Honey x1",
+    recipe: ["1x Any Honey"],
     salesPrice: 325,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -206,7 +205,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Hot Coffee",
-    recipeDisplay: "Coffee Pack x1",
+    recipe: ["1x Coffee Pack"],
     salesPrice: 380,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -216,7 +215,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Ice Cream",
-    recipeDisplay: "Milk x1, Egg x1 (or Silkie Egg x1), Sugar x1",
+    recipe: ["1x Milk", "1x Egg (or Silkie Egg)", "1x Sugar"],
     salesPrice: 832,
     utensils: null,
     whereToGet: "Bookshelves - June's house",
@@ -226,7 +225,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Jam-Filled Bun",
-    recipeDisplay: "Wheat Flour x1",
+    recipe: ["1x Wheat Flour"],
     salesPrice: 1339,
     utensils: ["Oven"],
     whereToGet: "Cafe Madeleine",
@@ -236,7 +235,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Mashed Potatoes",
-    recipeDisplay: "Potato x1, Butter x1",
+    recipe: ["1x Potato", "1x Butter"],
     salesPrice: 677,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -246,7 +245,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Mint Tea",
-    recipeDisplay: "Mint Tea Tin x1",
+    recipe: ["1x Mint Tea Tin"],
     salesPrice: 344,
     utensils: null,
     whereToGet: "Freya Request",
@@ -256,7 +255,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Mushroom Pasta",
-    recipeDisplay: "Pasta x1, Any Mushroom x1, Butter x1",
+    recipe: ["1x Pasta", "1x Any Mushroom", "1x Butter"],
     salesPrice: 1449,
     utensils: ["Cooking Pot"],
     whereToGet: "Cafe Madeleine",
@@ -266,7 +265,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Omelet",
-    recipeDisplay: "Egg x1, Butter x1",
+    recipe: ["1x Egg", "1x Butter"],
     salesPrice: 721,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -276,7 +275,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Omelet Rice",
-    recipeDisplay: "Omelet x1, Cooked Rice x1",
+    recipe: ["1x Omelet", "1x Cooked Rice"],
     salesPrice: 1410,
     utensils: ["Pan"],
     whereToGet: "Bookshelves - Gabriel's House",
@@ -286,7 +285,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Onigiri",
-    recipeDisplay: "Cooked Rice x1, Seaweed x1",
+    recipe: ["1x Cooked Rice", "1x Seaweed"],
     salesPrice: 370,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -296,7 +295,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Onion Salad",
-    recipeDisplay: "Onion x1",
+    recipe: ["1x Onion"],
     salesPrice: 325,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -306,7 +305,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Oolong Tea",
-    recipeDisplay: "Mint Tea Tin x1",
+    recipe: ["1x Mint Tea Tin"],
     salesPrice: 401,
     utensils: null,
     whereToGet: "Derek's Request",
@@ -316,8 +315,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pancakes",
-    recipeDisplay:
-      "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Milk x1, Honey x1",
+    recipe: ["1x Wheat Flour", "1x Egg (or Silkie Egg)", "1x Milk", "1x Honey"],
     salesPrice: 1152,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -327,7 +325,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pasta",
-    recipeDisplay: "Wheat Flour x1, Egg x1 (or Silkie Egg x1)",
+    recipe: ["1x Wheat Flour", "1x Egg (or Silkie Egg)"],
     salesPrice: 328,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -337,7 +335,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Poached Egg",
-    recipeDisplay: "Egg x1 (or Silkie Egg x1), Soy Sauce x1",
+    recipe: ["1x Egg (or Silkie Egg)", "1x Soy Sauce"],
     salesPrice: 301,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -347,7 +345,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Popcorn",
-    recipeDisplay: "Corn x1, Oil x1",
+    recipe: ["1x Corn", "1x Oil"],
     salesPrice: 508,
     utensils: null,
     whereToGet: "Neighborly Title / Mini Madeleine",
@@ -357,7 +355,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Potato Pancakes",
-    recipeDisplay: "Potato x1, Wheat Flour x1, Egg x1 (or Silkie Egg x1)",
+    recipe: ["1x Potato", "1x Wheat Flour", "1x Egg (or Silkie Egg)"],
     salesPrice: 429,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -367,7 +365,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Rice Porridge",
-    recipeDisplay: "Rice x1, Salt x1",
+    recipe: ["1x Rice", "1x Salt"],
     salesPrice: 544,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -377,7 +375,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Risotto",
-    recipeDisplay: "Rice x1, Tomato x1, Onion x1, Cheese x1",
+    recipe: ["1x Rice", "1x Tomato", "1x Onion", "1x Cheese"],
     salesPrice: 1552,
     utensils: ["Cooking Pot"],
     whereToGet: "Cafe Madeleine",
@@ -387,7 +385,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Sandwich",
-    recipeDisplay: "Bread x1, Tomato x1, Cucumber x1",
+    recipe: ["1x Bread", "1x Tomato", "1x Cucumber"],
     salesPrice: 375,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -397,7 +395,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Sashimi",
-    recipeDisplay: "Fish x1",
+    recipe: ["1x Fish"],
     salesPrice: 195,
     utensils: null,
     whereToGet: null,
@@ -407,7 +405,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Sautéed Turnips",
-    recipeDisplay: "Turnip x1, Butter x1",
+    recipe: ["1x Turnip", "1x Butter"],
     salesPrice: 882,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -417,7 +415,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Scones",
-    recipeDisplay: "Wheat Flour x1, Milk x1, Butter x1",
+    recipe: ["1x Wheat Flour", "1x Milk", "1x Butter"],
     salesPrice: 1155,
     utensils: ["Oven"],
     whereToGet: "Cafe Madeleine",
@@ -427,7 +425,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Soy Milk",
-    recipeDisplay: "Soybean x1",
+    recipe: ["1x Soybean"],
     salesPrice: 85,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -437,7 +435,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Soy Milk Pudding",
-    recipeDisplay: "Soybean Milk x1, Egg x1 (or Silkie Egg x1), Milk x1",
+    recipe: ["1x Soybean Milk", "1x Egg (or Silkie Egg)", "1x Milk"],
     salesPrice: 85,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -448,7 +446,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Spaghetti Soup",
     type: "Soup",
-    recipeDisplay: "Fish x1, Tomato x1, Oil x1, Pasta x1",
+    recipe: ["1x Fish", "1x Tomato", "1x Oil", "1x Pasta"],
     salesPrice: 1566,
     utensils: ["Cooking Pot"],
     whereToGet: "Cafe Madeleine",
@@ -457,7 +455,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Steamed Muffin",
-    recipeDisplay: "Sweet Potato x1, Egg x1 (or Silkie Egg x1), Wheat Flour x1",
+    recipe: ["1x Sweet Potato", "1x Egg (or Silkie Egg)", "1x Wheat Flour"],
     salesPrice: 609,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -467,7 +465,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Strawberry Juice",
-    recipeDisplay: "Strawberry x1",
+    recipe: ["1x Strawberry"],
     salesPrice: 156,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -477,7 +475,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Strawberry Mochi",
-    recipeDisplay: "Mochi x1, Strawberry x1",
+    recipe: ["1x Mochi", "1x Strawberry"],
     salesPrice: 618,
     utensils: null,
     whereToGet: "Big Hops Title / Clara's Diner",
@@ -487,8 +485,12 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Strawberry Pie",
-    recipeDisplay:
-      "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Strawberry x1, Butter x1",
+    recipe: [
+      "1x Wheat Flour",
+      "1x Egg (or Silkie Egg)",
+      "1x Strawberry",
+      "1x Butter",
+    ],
     salesPrice: 1368,
     utensils: ["Oven"],
     whereToGet: "Cafe Madeleine",
@@ -498,7 +500,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Strawberry Tea",
-    recipeDisplay: "Strawberry Tea Tin x1",
+    recipe: ["1x Strawberry Tea Tin"],
     salesPrice: 586,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -508,7 +510,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Toast",
-    recipeDisplay: "Bread x1",
+    recipe: ["1x Bread"],
     salesPrice: 234,
     utensils: null,
     whereToGet: "Bookshelves - June's house",
@@ -518,7 +520,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tomato Juice",
-    recipeDisplay: "Tomato x1",
+    recipe: ["1x Tomato"],
     salesPrice: 55,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -528,7 +530,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tomato Salad",
-    recipeDisplay: "Tomato x1",
+    recipe: ["1x Tomato"],
     salesPrice: 128,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -538,7 +540,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Turnip Salad",
-    recipeDisplay: "Turnip x1",
+    recipe: ["1x Turnip"],
     salesPrice: 260,
     utensils: null,
     whereToGet: null,
@@ -548,7 +550,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Walnut Cookies",
-    recipeDisplay: "Wheat Flour x1, Egg x1 (or Silkie Egg x1), Walnut x1",
+    recipe: ["1x Wheat Flour", "1x Egg (or Silkie Egg)", "1x Walnut"],
     salesPrice: 524,
     utensils: null,
     whereToGet: "Cafe Madeleine / Tea Festival - Spring 27",
@@ -558,7 +560,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Walnut Juice",
-    recipeDisplay: "Bottled Walnuts x1",
+    recipe: ["1x Bottled Walnuts"],
     salesPrice: 260,
     utensils: null,
     whereToGet: null,
@@ -568,7 +570,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Warm Milk",
-    recipeDisplay: "Milk x1 (or Buffalo Milk x1)",
+    recipe: ["1x Milk (or Buffalo Milk)"],
     salesPrice: 195,
     utensils: null,
     whereToGet: "Cafe Madeleine",
@@ -578,7 +580,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Focaccia Bread",
-    recipeDisplay: "Wheat Flour x1, Olive Oil x1",
+    recipe: ["1x Wheat Flour", "1x Olive Oil"],
     salesPrice: 843,
     utensils: null,
     whereToGet: "Bookshelves - Lloyd's house",
@@ -588,7 +590,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cafe au Lait",
-    recipeDisplay: "Coffee x1, Milk x1",
+    recipe: ["1x Coffee", "1x Milk"],
     salesPrice: 780,
     utensils: null,
     whereToGet: "Bookshelves - Freya's House",
@@ -598,7 +600,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Green Tea",
-    recipeDisplay: "Aged Tea x1",
+    recipe: ["1x Aged Tea"],
     salesPrice: 237,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -610,7 +612,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Pumpkin Soup",
     type: "Soup",
-    recipeDisplay: "Pumpkin x1, Milk x1, Onion x1",
+    recipe: ["1x Pumpkin", "1x Milk", "1x Onion"],
     salesPrice: 1320,
     utensils: ["Cooking Pot"],
     whereToGet: "Clara's Request",
@@ -619,8 +621,12 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Babaocai",
-    recipeDisplay:
-      "Napa Cabbage x1, Carrot x1, Green Bell Pepper x1, Any Mushroom x1",
+    recipe: [
+      "1x Napa Cabbage",
+      "1x Carrot",
+      "1x Green Bell Pepper",
+      "1x Any Mushroom",
+    ],
     salesPrice: 1509,
     utensils: ["Pan"],
     whereToGet: "Hydrator Title / Nadine's Bistro",
@@ -630,7 +636,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pizza",
-    recipeDisplay: "Wheat Flour x1, Tomato x1, Cheese x1",
+    recipe: ["1x Wheat Flour", "1x Tomato", "1x Cheese"],
     salesPrice: 1142,
     utensils: null,
     whereToGet: "Face of Zephyr Town Title / Nadine's Bistro",
@@ -640,7 +646,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Apple Juice",
-    recipeDisplay: "Apple x1",
+    recipe: ["1x Apple"],
     salesPrice: 221,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -650,7 +656,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Banana Tea",
-    recipeDisplay: "Banana Tea Tin x1",
+    recipe: ["1x Banana Tea Tin"],
     salesPrice: 832,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -660,7 +666,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Blueberry Juice",
-    recipeDisplay: "Blueberry x1",
+    recipe: ["1x Blueberry"],
     salesPrice: 163,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -670,7 +676,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Blueberry Tea",
-    recipeDisplay: "Blueberry Tea Tin x1",
+    recipe: ["1x Blueberry Tea Tin"],
     salesPrice: 601,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -680,7 +686,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Boullabaisse",
-    recipeDisplay: "Fish x1, Tomato x1, Any Oil x1",
+    recipe: ["1x Fish", "1x Tomato", "1x Any Oil"],
     salesPrice: 835,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -690,7 +696,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cherry Juice",
-    recipeDisplay: "Cherry x1",
+    recipe: ["1x Cherry"],
     salesPrice: 182,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -700,7 +706,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Egg Tart",
-    recipeDisplay: "",
+    recipe: [],
     salesPrice: 601,
     utensils: null,
     whereToGet: "Milker Title",
@@ -710,7 +716,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "French Fries",
-    recipeDisplay: "Potato x1, Oil x1 (or Nut/Herb/Olive/Grape Oil x1)",
+    recipe: ["1x Potato", "1x Oil (or Nut/Herb/Olive/Grape Oil)"],
     salesPrice: 355,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -720,7 +726,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fried Onigiri",
-    recipeDisplay: "Onigiri x1,Soy Sauce x1",
+    recipe: ["1x Onigiri", "1x Soy Sauce"],
     salesPrice: 735,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -730,7 +736,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fruit Dumplings",
-    recipeDisplay: "Refined Rice Flour x1, Any Fruit x2",
+    recipe: ["1x Refined Rice Flour", "1x Any Fruit"],
     salesPrice: 1089,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -740,7 +746,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fruit Sandwich",
-    recipeDisplay: "Any Fruit x1",
+    recipe: ["1x Any Fruit"],
     salesPrice: 647,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -750,7 +756,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Grape Jam",
-    recipeDisplay: "Red Grapes x1, Lemon x1, Sugar x1",
+    recipe: ["1x Red Grapes", "1x Lemon", "1x Sugar"],
     salesPrice: 1007,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -760,8 +766,11 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Hwns",
-    recipeDisplay:
-      "Potato x1, Wheat Flour x1, Oil x1 (or Nut/Herb/Olive/Grape Oil x1)",
+    recipe: [
+      "1x Potato",
+      "1x Wheat Flour",
+      "1x Any Oil",
+    ],
     salesPrice: 632,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -771,7 +780,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Lemon Tea",
-    recipeDisplay: "Lemon Tea Tin x1",
+    recipe: ["1x Lemon Tea Tin"],
     salesPrice: 632,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -781,7 +790,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Marinated Peppers",
-    recipeDisplay: "Red Bell Pepper x1, Vinegar x1, Any Oil x1",
+    recipe: ["1x Red Bell Pepper", "1x Vinegar", "1x Any Oil"],
     salesPrice: 598,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -791,7 +800,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Milk Rice Porridge",
-    recipeDisplay: "Rice x1, Salt x1, Milk x1 (or Buffalo Milk x1)",
+    recipe: ["1x Rice", "1x Salt", "1x Milk (or Buffalo Milk)"],
     salesPrice: 801,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -801,7 +810,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Mushroom Rice",
-    recipeDisplay: "Rice x1, Any Mushroom x3",
+    recipe: ["1x Rice", "1x Any Mushroom"],
     salesPrice: 874,
     utensils: null,
     whereToGet: "Madeleine Request",
@@ -811,7 +820,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Olive Tea",
-    recipeDisplay: "Olive Tea Tin x1",
+    recipe: ["1x Olive Tea Tin"],
     salesPrice: 586,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -821,7 +830,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Orange Juice",
-    recipeDisplay: "Orange x1",
+    recipe: ["1x Orange"],
     salesPrice: 180,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -831,7 +840,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pineapple Juice",
-    recipeDisplay: "Pineapple x1",
+    recipe: ["1x Pineapple"],
     salesPrice: 429,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -841,7 +850,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pudding",
-    recipeDisplay: "Egg x1, Milk x1 (or Buffalo Milk x1)",
+    recipe: ["1x Egg", "1x Milk (or Buffalo Milk)"],
     salesPrice: 328,
     utensils: null,
     whereToGet: "Generous Forager Title / Nadine's Bistro",
@@ -851,7 +860,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Sauteed Cauliflower",
-    recipeDisplay: "Cauliflower x1",
+    recipe: ["1x Cauliflower"],
     salesPrice: 602,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -861,7 +870,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Strawberry Jam",
-    recipeDisplay: "Strawberry x1, Lemon x1, Sugar x1",
+    recipe: ["1x Strawberry", "1x Lemon", "1x Sugar"],
     salesPrice: 855,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -871,7 +880,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Toasted Mochi",
-    recipeDisplay: "Mochi x1",
+    recipe: ["1x Mochi"],
     salesPrice: 390,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -881,7 +890,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tofu",
-    recipeDisplay: "Soybean x1",
+    recipe: ["1x Soybean"],
     salesPrice: 205,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -891,7 +900,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tofu Steak",
-    recipeDisplay: "Soybean x1, Tofu x1",
+    recipe: ["1x Soybean", "1x Tofu"],
     salesPrice: 809,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -901,7 +910,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Grilled Corn",
-    recipeDisplay: "1x Corn, 1x Soy Sauce, 1x Sugar",
+    recipe: ["1x Corn", "1x Soy Sauce", "1x Sugar"],
     salesPrice: 886,
     utensils: null,
     whereToGet: "Felix's Fixings",
@@ -911,7 +920,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Supreme Curry",
-    recipeDisplay: "1x Curry Rice, 1x Star Potato, 1x Three-Forked Carrot",
+    recipe: ["1x Curry Rice", "1x Star Potato", "1x Three-Forked Carrot"],
     salesPrice: 3724,
     utensils: null,
     whereToGet: "Win the Cook-Off Event",
@@ -921,7 +930,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Whole Chocolate Cake",
-    recipeDisplay: "1x Chocolate, 1x Wheat Flour, 1x Egg, 1x Milk, 1x Sugar",
+    recipe: ["1x Chocolate", "1x Wheat Flour", "1x Egg", "1x Milk", "1x Sugar"],
     salesPrice: 1786,
     utensils: null,
     whereToGet: "Win the Bake-Off Event",
@@ -931,7 +940,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Unadon",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1262,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -941,7 +950,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Blueberry Jam",
-    recipeDisplay: "1x Blueberry, 1x Lemon, 1x Sugar",
+    recipe: ["1x Blueberry", "1x Lemon", "1x Sugar"],
     salesPrice: 863,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -951,7 +960,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Apple Jam",
-    recipeDisplay: "1x Apple, 1x Lemon, 1x Sugar",
+    recipe: ["1x Apple", "1x Lemon", "1x Sugar"],
     salesPrice: 932,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -961,7 +970,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Jam Tea",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1850,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -971,7 +980,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Orange Tea",
-    recipeDisplay: "1x Orange Tea Tin",
+    recipe: ["1x Orange Tea Tin"],
     salesPrice: 642,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -981,7 +990,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cherry Tea",
-    recipeDisplay: "1x Cherry Tea Tin",
+    recipe: ["1x Cherry Tea Tin"],
     salesPrice: 647,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -991,7 +1000,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pineapple Tea",
-    recipeDisplay: "1x Pineapple Tea Tin",
+    recipe: ["1x Pineapple Tea Tin"],
     salesPrice: 1320,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1001,7 +1010,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Melon Tea",
-    recipeDisplay: "1x Melon Tea Tin",
+    recipe: ["1x Melon Tea Tin"],
     salesPrice: 1901,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1011,7 +1020,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Watermelon Tea",
-    recipeDisplay: "1x Watermelon Tea Tin",
+    recipe: ["1x Watermelon Tea Tin"],
     salesPrice: 2148,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1021,8 +1030,14 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Herb Sandwich",
-    recipeDisplay:
-      "1x Mayonnaise, 1x Bread, 1x Lavender, 1x Mint, 1x Chamomile, 1x Herb Mayonnaise",
+    recipe: [
+      "1x Mayonnaise",
+      "1x Bread",
+      "1x Lavender",
+      "1x Mint",
+      "1x Chamomile",
+      "1x Herb Mayonnaise",
+    ],
     salesPrice: 817,
     utensils: null,
     whereToGet: "Mina Request",
@@ -1032,8 +1047,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Herb Cookies",
-    recipeDisplay:
-      "1x Wheat Flour, 1x Egg, 1x, Lavender x1 (or Mint x1 or Chamomile x1)",
+    recipe: ["1x Wheat Flour", "1x Egg", "1x Lavender (or Mint or Chamomile)"],
     salesPrice: 415,
     utensils: null,
     whereToGet: "'A Kind Gesture' Letter (Diana)",
@@ -1043,7 +1057,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Engadiner Nusstorte",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1206,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1053,7 +1067,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Lemon Juice",
     type: "Other (Juice)",
-    recipeDisplay: "1x Lemon",
+    recipe: ["1x Lemon"],
     salesPrice: 176,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1063,7 +1077,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Peach Juice",
     type: "Other (Juice)",
-    recipeDisplay: "1x Peach",
+    recipe: ["1x Peach"],
     salesPrice: 182,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1073,7 +1087,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Grape Juice",
     type: "Other (Juice)",
-    recipeDisplay: "1x Grape",
+    recipe: ["1x Grape"],
     salesPrice: 228,
     utensils: null,
     whereToGet: "Nadine's Bistro / Juice Festival",
@@ -1083,7 +1097,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Mango Juice",
     type: "Other (Juice)",
-    recipeDisplay: "1x Mango",
+    recipe: ["1x Mango"],
     salesPrice: 260,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1093,7 +1107,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Banana Juice",
     type: "Other (Juice)",
-    recipeDisplay: "1x Banana",
+    recipe: ["1x Banana"],
     salesPrice: 260,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1103,7 +1117,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Peach Tea",
     type: "Other (Tea)",
-    recipeDisplay: "1x Peach Tea Tin",
+    recipe: ["1x Peach Tea Tin"],
     salesPrice: 647,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1113,7 +1127,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Apple Tea",
     type: "Other (Tea)",
-    recipeDisplay: "1x Apple Tea Tin",
+    recipe: ["1x Apple Tea Tin"],
     salesPrice: 740,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1123,7 +1137,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Red Grape Tea",
     type: "Other (Tea)",
-    recipeDisplay: "1x Red Grape Tea Tin",
+    recipe: ["1x Red Grape Tea Tin"],
     salesPrice: 755,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1133,7 +1147,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Green Grape Tea",
     type: "Other (Tea)",
-    recipeDisplay: "1x Green Grape Tea Tin",
+    recipe: ["1x Green Grape Tea Tin"],
     salesPrice: 777,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1143,7 +1157,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Mango Tea",
     type: "Other (Tea)",
-    recipeDisplay: "1x Mango Tea Tin",
+    recipe: ["1x Mango Tea Tin"],
     salesPrice: 832,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1153,7 +1167,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Fish Cake",
     type: "Sides",
-    recipeDisplay: "1x Fish",
+    recipe: ["1x Fish"],
     salesPrice: 195,
     utensils: null,
     whereToGet: "Nadine's Request",
@@ -1163,7 +1177,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Spring Blend Tea",
     type: "Other (Tea)",
-    recipeDisplay: "1x Spring Blend Tea Tin",
+    recipe: ["1x Spring Blend Tea Tin"],
     salesPrice: 1287,
     utensils: null,
     whereToGet: "Cafe Madeleine (Spring only)",
@@ -1173,7 +1187,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Summer Blend Tea",
     type: "Other (Tea)",
-    recipeDisplay: "1x Summer Blend Tea Tin",
+    recipe: ["1x Summer Blend Tea Tin"],
     salesPrice: 1287,
     utensils: null,
     whereToGet: "Cafe Madeleine (Summer only)",
@@ -1183,7 +1197,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Autumn Blend Tea",
     type: "Other (Tea)",
-    recipeDisplay: "1x Autumn Blend Tea Tin",
+    recipe: ["1x Autumn Blend Tea Tin"],
     salesPrice: 1452,
     utensils: null,
     whereToGet: "Cafe Madeleine (Autumn only)",
@@ -1193,7 +1207,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Curry Rice",
     type: "Main Dish",
-    recipeDisplay: "1x Rice, 1x Curry Powder",
+    recipe: ["1x Rice", "1x Curry Powder"],
     salesPrice: 911,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1202,7 +1216,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Mont Blanc Cake",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1242,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1211,7 +1225,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Donuts",
-    recipeDisplay: "-",
+    recipe: [],
     type: "Dessert",
     salesPrice: 1332,
     utensils: null,
@@ -1221,7 +1235,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Sweet Potato Cakes",
-    recipeDisplay: "-",
+    recipe: [],
     type: "Dessert",
     salesPrice: 932,
     utensils: null,
@@ -1231,7 +1245,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Croquettes",
-    recipeDisplay: "-",
+    recipe: ["Sides"],
     type: "Sides",
     salesPrice: 709,
     utensils: null,
@@ -1241,7 +1255,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Stew",
-    recipeDisplay: "-",
+    recipe: [],
     type: "Sides",
     salesPrice: 770,
     utensils: null,
@@ -1251,7 +1265,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Dango",
-    recipeDisplay: "1x Refined Rice Flour",
+    recipe: ["1x Refined Rice Flour"],
     type: "Dessert",
     salesPrice: 588,
     utensils: null,
@@ -1262,7 +1276,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Corn Soup",
     type: "Soup",
-    recipeDisplay: "Corn x1, Milk x1, Butter x1, Onion x1",
+    recipe: ["1x Corn", "1x Milk", "1x Butter", "1x Onion"],
     salesPrice: 1815,
     utensils: ["Cooking Pot"],
     whereToGet: "Mini Madeleine",
@@ -1272,7 +1286,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Onion Soup",
     type: "Soup",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1024,
     utensils: ["Cooking Pot"],
     whereToGet: "Mini Madeleine",
@@ -1282,7 +1296,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Poke",
     type: "Salads",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1197,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1292,7 +1306,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Cheese Bun",
     type: "Sides",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1320,
     utensils: ["Cooking Pot"],
     whereToGet: "Mini Madeleine",
@@ -1302,7 +1316,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Sautéed Cauliflower",
     type: "Sides",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 602,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1312,7 +1326,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Hash Browns",
     type: "Sides",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 632,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1322,7 +1336,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Baguettes",
     type: "Sides",
-    recipeDisplay: "Wheat Flour x1, Salt x",
+    recipe: ["1x Wheat Flour", "1x Salt"],
     salesPrice: 662,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1332,7 +1346,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Galette",
     type: "Sides",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1122,
     utensils: ["Pan"],
     whereToGet: "Mini Madeleine",
@@ -1342,7 +1356,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Fish & Chips",
     type: "Sides",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1584,
     utensils: ["Pan"],
     whereToGet: "Mini Madeleine",
@@ -1352,7 +1366,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Steamed Bun",
     type: "Sides",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1377,
     utensils: ["Oven"],
     whereToGet: "Mini Madeleine",
@@ -1362,7 +1376,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Bouillabaisse",
     type: "Main Dish",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 835,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1372,7 +1386,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Meuniere Fish",
     type: "Main Dish",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1073,
     utensils: ["Pan"],
     whereToGet: "Mini Madeleine",
@@ -1382,8 +1396,12 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Paella",
     type: "Main Dish",
-    recipeDisplay:
-      "Cooked Rice x1, Any Medium Fish x1, Red Bell Pepper x1, Spice x1",
+    recipe: [
+      "1x Cooked Rice",
+      "1x Any Medium Fish",
+      "1x Red Bell Pepper",
+      "1x Spice",
+    ],
     salesPrice: 1151,
     utensils: ["Pan"],
     whereToGet: "Mini Madeleine",
@@ -1393,7 +1411,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Herb Bread",
     type: "Main Dish",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1182,
     utensils: ["Oven"],
     whereToGet: "Mini Madeleine",
@@ -1402,7 +1420,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Rice Gratin",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1188,
     utensils: ["Oven"],
     whereToGet: "Mini Madeleine",
@@ -1412,7 +1430,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Rainbow Curry",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1304,
     utensils: ["Cooking Pot"],
     whereToGet: "Mini Madeleine",
@@ -1422,7 +1440,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Milk Hot Pot",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 2640,
     utensils: ["Cooking Pot"],
     whereToGet: "Mini Madeleine",
@@ -1433,7 +1451,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Steamed Cake",
     type: "Dessert",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1422,
     utensils: ["Oven"],
     whereToGet: "Mini Madeleine",
@@ -1443,7 +1461,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Baked Sweet Potato",
     type: "Sides",
-    recipeDisplay: "Sweet Potato x1",
+    recipe: ["1x Sweet Potato"],
     salesPrice: 202,
     utensils: null,
     whereToGet: "Felix's Fixings",
@@ -1453,7 +1471,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Fried Mushrooms",
     type: "Sides",
-    recipeDisplay: "Any Mushroom x1",
+    recipe: ["1x Any Mushroom"],
     salesPrice: 195,
     utensils: null,
     whereToGet: "Felix's Fixings",
@@ -1462,7 +1480,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fried Eggplant",
-    recipeDisplay: "Eggplant x1, Any Oil x1",
+    recipe: ["1x Eggplant", "1x Any Oil"],
     salesPrice: 342,
     utensils: null,
     whereToGet: "Felix's Fixings",
@@ -1472,7 +1490,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fried Matsutake Mushrooms",
-    recipeDisplay: "Matsutake Mushrooms x1",
+    recipe: ["1x Matsutake Mushrooms"],
     salesPrice: 1200,
     utensils: ["Pan"],
     whereToGet: "Felix's Fixings",
@@ -1483,7 +1501,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Baked Apple",
     type: "Dessert",
-    recipeDisplay: "Apple 1x, Butter x1",
+    recipe: ["1x Apple", "1x Butter"],
     salesPrice: 838,
     utensils: null,
     whereToGet: "Felix's Fixings",
@@ -1493,7 +1511,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Happy Chef Salad",
     type: "Other",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1233,
     utensils: null,
     whereToGet: "Happy Sprites Store",
@@ -1503,7 +1521,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Happy Fruit Platter",
     type: "Other",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 3274,
     utensils: null,
     whereToGet: "Happy Sprites Store",
@@ -1513,7 +1531,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Chestnut Juice (Bistro)",
     type: "Other (Juice)",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 390,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1523,7 +1541,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Melon Juice",
     type: "Other (Juice)",
-    recipeDisplay: "Melon x1",
+    recipe: ["1x Melon"],
     salesPrice: 658,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1533,7 +1551,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Watermelon Juice",
     type: "Other (Juice)",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 756,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1543,7 +1561,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Specialty Juice",
     type: "Other (Juice)",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 9511,
     utensils: null,
     whereToGet: "Best Juice at the Juice Festival",
@@ -1553,7 +1571,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Spring Juice",
     type: "Other (Juice)",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 935,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1563,7 +1581,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Summer Juice",
     type: "Other (Juice)",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1020,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1573,7 +1591,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Autumn Juice",
     type: "Other (Juice)",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1010,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1583,7 +1601,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Lavender Tea",
     type: "Other (Tea)",
-    recipeDisplay: "Lavender Tea Tin x1",
+    recipe: ["1x Lavender Tea Tin"],
     salesPrice: 344,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1593,7 +1611,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Milk Tea",
     type: "Other (Tea)",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 674,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1603,7 +1621,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Royal Milk Tea",
     type: "Other (Tea)",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1194,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -1613,7 +1631,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Shumai Dumplings",
     type: "Sides",
-    recipeDisplay: "Wheat Flour x1, Onion x1, Any Fish x1",
+    recipe: ["1x Wheat Flour", "1x Onion", "1x Any Fish"],
     salesPrice: 924,
     utensils: null,
     whereToGet: "Sonia's Request",
@@ -1623,7 +1641,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Guacamole Salad",
     type: "Salads",
-    recipeDisplay: "Avocado x1, Tomato x1, Onion x1, Salt x1",
+    recipe: ["1x Avocado", "1x Tomato", "1x Onion", "1x Salt"],
     salesPrice: 1309,
     utensils: null,
     whereToGet: "Plower Title / Nadine's Bistro",
@@ -1634,7 +1652,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Stuffed Cabbage",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1213,
     utensils: null,
     whereToGet: "Madeleine Request (Famed Foodie) / Diana's Gift on Hearth Day",
@@ -1643,7 +1661,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Herb Rice Porridge",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 647,
     utensils: null,
     whereToGet: "Sophie Request",
@@ -1653,7 +1671,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Vegetable Curry",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 911,
     utensils: null,
     whereToGet: "Diana Request",
@@ -1664,7 +1682,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Radish Soup",
     type: "Soup",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 770,
     utensils: null,
     whereToGet: "Mina's Request",
@@ -1674,7 +1692,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Buttered Potatoes",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 677,
     utensils: null,
     whereToGet: "Freya Request (Count on Me)",
@@ -1683,7 +1701,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Sushi",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 657,
     utensils: null,
     whereToGet: "Let's Get Cooking! Letter / Clara's Diner",
@@ -1694,7 +1712,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Cake",
     type: "Dessert",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 601,
     utensils: null,
     whereToGet: "Everything Changes (Gabriel) / Nadine's Bistro",
@@ -1704,7 +1722,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Mixed Salad",
     type: "Salads",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 404,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1714,7 +1732,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Kinpira Gobo",
     type: "Sides",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 909,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1724,7 +1742,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Miso Soup",
     type: "Soup",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 260,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1734,7 +1752,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Asparagus Soup",
     type: "Soup",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1728,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1744,7 +1762,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Curry Bun",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1920,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1754,7 +1772,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Tofu Skin",
     type: "Sides",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 111,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1763,8 +1781,8 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Corn Flakes Cereal",
-    type: undefined,
-    recipeDisplay: "-",
+    type: "Sides",
+    recipe: [],
     salesPrice: 403,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1773,8 +1791,8 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Chilled Tofu",
-    type: undefined,
-    recipeDisplay: "-",
+    type: "Sides",
+    recipe: [],
     salesPrice: 458,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1784,7 +1802,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Soy Okara",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 743,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1793,8 +1811,8 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Steamed Egg Custard",
-    type: undefined,
-    recipeDisplay: "-",
+    type: "Sides",
+    recipe: [],
     salesPrice: 747,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1804,7 +1822,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Rolled Egg",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 801,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1814,7 +1832,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Lightly Fried Tofu",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 809,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1824,7 +1842,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Freeze-Dried Tofu",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 824,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1834,7 +1852,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Stir-Fried Vegetables",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1276,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1844,7 +1862,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Gyoza",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1353,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1854,7 +1872,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Spring Rolls",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1530,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1863,7 +1881,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Chestnut Rice",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 329,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1873,7 +1891,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Raisin Bread",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 444,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1883,7 +1901,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Simmered Fish",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 451,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1893,7 +1911,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Udon",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 647,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1903,7 +1921,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Donburi Rice Bowl",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 664,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1913,7 +1931,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Zaru Soba",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 838,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1923,7 +1941,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Chirashi Sushi",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 867,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1933,7 +1951,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Rice & Mixed Vegetables",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1052,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1943,7 +1961,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tempura",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1152,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1953,7 +1971,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Okonomiyaki",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1172,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1963,7 +1981,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Yakisoba",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1271,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1973,7 +1991,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fried Rice",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1316,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1983,7 +2001,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Seaweed Curry",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1386,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -1993,7 +2011,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Inari Sushi",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1437,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2003,7 +2021,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Fried Udon",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1437,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2013,7 +2031,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Matsutake Rice",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1760,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2023,7 +2041,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tempura Rice Bowl",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 2089,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2033,7 +2051,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tempura Udon",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 2188,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2043,7 +2061,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Hot Pot",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 2487,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2053,7 +2071,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tempura Soba",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 2641,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2064,7 +2082,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Chocolate Cookies",
     type: "Dessert",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 832,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2073,8 +2091,8 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Wrapped Rice Cakes",
-    type: undefined,
-    recipeDisplay: "-",
+    type: "Dessert",
+    recipe: [],
     salesPrice: 544,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2083,8 +2101,8 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Castella",
-    type: undefined,
-    recipeDisplay: "-",
+    type: "Dessert",
+    recipe: [],
     salesPrice: 801,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2093,18 +2111,18 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Chocolate Cake",
-    type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1242,
     utensils: null,
     whereToGet: "Clara's Diner",
     adaptOptions: null,
+    type: "Dessert",
     effect: "Petting Happiness Up Lv. 3",
   },
   {
     dish: "Matcha Tea",
     type: "Other (Tea)",
-    recipeDisplay: "Matcha Tea Tin x1",
+    recipe: ["1x Matcha Tea Tin"],
     salesPrice: 364,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2114,7 +2132,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Pu'er Tea",
     type: "Other (Tea)",
-    recipeDisplay: "Pu'er Tea Tin x1",
+    recipe: ["1x Pu'er Tea Tin"],
     salesPrice: 401,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2124,7 +2142,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Sencha Tea",
     type: "Other (Tea)",
-    recipeDisplay: "Sencha Tea Tin x1",
+    recipe: ["1x Sencha Tea Tin"],
     salesPrice: 401,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2133,8 +2151,8 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Simmered Seaweed",
-    type: undefined,
-    recipeDisplay: "-",
+    type: "Other",
+    recipe: [],
     salesPrice: 424,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2144,7 +2162,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Macaroni Salad",
     type: "Salads",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1859,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2154,7 +2172,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Vichyssoise Soup",
     type: "Soup",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 709,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2163,7 +2181,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "White Bread",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 182,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2174,7 +2192,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "French Toast",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 647,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2184,7 +2202,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Cream Croquettes",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1098,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2194,7 +2212,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Cheese Croquettes",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1844,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2204,7 +2222,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Miso Glazed Eggplant",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 246,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2214,7 +2232,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Fried Tofu",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 267,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2224,7 +2242,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Broccoli & Garlic Saute",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 563,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2234,7 +2252,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Chili con Carne",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 911,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2244,7 +2262,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Morel Cream Stew",
     type: undefined,
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 2592,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2253,7 +2271,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Penne Pasta",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 604,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2263,7 +2281,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tomato Fondue",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 650,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2273,7 +2291,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pink Fondue",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 937,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2283,7 +2301,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Curry Bread",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1073,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2293,7 +2311,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Bok Choy Soy Cream Stew",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1131,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2303,7 +2321,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Burgundy Fondue",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1325,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2313,7 +2331,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Milk Curry",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1334,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2323,7 +2341,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Spaghetti Peperoncino",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1410,
     utensils: ["Cooking Pot"],
     whereToGet: "Nadine's Bistro",
@@ -2333,7 +2351,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Cheese Fondue",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1452,
     utensils: null,
     whereToGet: "Sophie's Gift on Hearth Day / Nadine's Bistro",
@@ -2343,7 +2361,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Carpaccio",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1469,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2353,7 +2371,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Raclette Cheese",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1271,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2363,7 +2381,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Mushroom Polenta",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 2295,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2373,7 +2391,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Ukha",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 2324,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2383,7 +2401,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Macaroni & Cheese",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 2592,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2393,7 +2411,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Pizzoccheri",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 2784,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2404,7 +2422,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Pudding (Bistro)",
     type: "Dessert",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 328,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2414,7 +2432,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Pumpkin Pudding",
     type: "Dessert",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 986,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2424,7 +2442,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Whole Cake",
     type: "Dessert",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1350,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2434,7 +2452,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Whole Cheesecake",
     type: "Dessert",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 2746,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2444,7 +2462,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Chocolate Fondue",
     type: "Dessert",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 924,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2454,7 +2472,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Blueberry Pie",
     type: "Dessert",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1377,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2464,7 +2482,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Cheesecake",
     type: "Dessert",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 1602,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2474,7 +2492,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Cappuccino",
     type: "Other",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 780,
     utensils: null,
     whereToGet: "Nadine's Bistro",
@@ -2484,7 +2502,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Fruit Juice",
     type: "Other (Juice)",
-    recipeDisplay: "-",
+    recipe: [],
     salesPrice: 826,
     utensils: null,
     whereToGet: "Nadine's Bistro",

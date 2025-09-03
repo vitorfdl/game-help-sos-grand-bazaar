@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { Input } from './ui/input'
+import { WindmillIcon } from './Windmills'
 
 type FilterId = 'all' | string
 
@@ -28,6 +29,8 @@ function getStallIcon(stallId: string) {
       return <HopIcon className="h-5 w-5" />
     case "karina-s-stall":
       return <ShirtIcon className="h-5 w-5" />
+    case "felipe-s-stall":
+      return <WindmillIcon color="bg-secondary" className="h-5 w-5" />
     default:
       return <Package className="h-5 w-5" />
   }
