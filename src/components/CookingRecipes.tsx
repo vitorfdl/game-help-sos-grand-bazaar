@@ -5,14 +5,44 @@ import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { SortableTable, type SortColumn, type SortDirection } from '@/components/ui/sortable-table'
 import { CategoryFilter } from '@/components/ui/category-filter'
+import { useIsMobile } from '@/hooks/use-mobile'
 
 type RecipeSortColumn = 'type' | 'name' | 'recipe' | 'utensils' | 'whereToGet' | 'effect' | 'adaptOptions' | 'price'
+
+function truncateText(text: string, maxLength: number = 50): string {
+  if (text.length <= maxLength) return text
+  return text.substring(0, maxLength) + '...'
+}
+
+function getTypeBadgeVariant(type: string) {
+  switch (type?.toLowerCase()) {
+    case 'main dish':
+      return "bg-blue-500/20 text-blue-300 border-blue-400/40 font-medium"
+    case 'dessert':
+      return "bg-pink-500/20 text-pink-300 border-pink-400/40 font-medium"
+    case 'appetizer':
+      return "bg-emerald-500/20 text-emerald-300 border-emerald-400/40 font-medium"
+    case 'beverage':
+      return "bg-cyan-500/20 text-cyan-300 border-cyan-400/40 font-medium"
+    case 'soup':
+      return "bg-orange-500/20 text-orange-300 border-orange-400/40 font-medium"
+    case 'salad':
+      return "bg-lime-500/20 text-lime-300 border-lime-400/40 font-medium"
+    case 'side dish':
+      return "bg-yellow-500/20 text-yellow-300 border-yellow-400/40 font-medium"
+    case 'snack':
+      return "bg-violet-500/20 text-violet-300 border-violet-400/40 font-medium"
+    default:
+      return "bg-slate-500/20 text-slate-300 border-slate-400/40 font-medium"
+  }
+}
 
 export default function CookingRecipes() {
   const [query, setQuery] = useState('')
   const [sortColumn, setSortColumn] = useState<RecipeSortColumn>('type')
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const isMobile = useIsMobile()
 
   const handleSort = (column: SortColumn) => {
     if (sortColumn === column) {
@@ -22,6 +52,10 @@ export default function CookingRecipes() {
       setSortDirection('asc')
     }
   }
+
+  // For mobile, we only support sorting by name
+  const mobileSortColumn = isMobile ? 'name' : sortColumn
+  const mobileSortDirection = isMobile ? sortDirection : sortDirection
 
   // Get unique categories from recipes
   const categories = useMemo(() => {
@@ -100,12 +134,77 @@ export default function CookingRecipes() {
     return sorted
   }, [query, sortColumn, sortDirection, selectedCategory])
 
-  const columns = [
+  const mobileColumns = [
+    {
+      key: 'name',
+      label: 'Dish',
+      render: (recipe: RecipeItem) => (
+        <div className="space-y-1.5">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="font-medium">{recipe.dish}</span>
+              {recipe.type && (
+                <Badge variant="outline" className={`text-xs ${getTypeBadgeVariant(recipe.type)}`}>
+                  {recipe.type}
+                </Badge>
+              )}
+            </div>
+            {recipe.salesPrice != null && (
+              <span className="text-sm font-semibold text-emerald-400 bg-emerald-900/20 px-2 py-0.5 rounded-md shrink-0">
+                {recipe.salesPrice} G
+              </span>
+            )}
+          </div>
+          
+          {/* Recipe ingredients - more compact */}
+          <div className="flex flex-wrap gap-1">
+            {recipe.recipe.map((ingredient, index) => (
+              <Badge key={index} variant="secondary" className="text-xs">
+                {ingredient}
+              </Badge>
+            ))}
+          </div>
+          
+          {/* Additional details - more compact layout */}
+          <div className="text-xs text-muted-foreground space-y-0.5">
+            {recipe.whereToGet && (
+              <div>
+                <span className="text-foreground/70">Source:</span> {truncateText(recipe.whereToGet, 45)}
+              </div>
+            )}
+            {recipe.effect && (
+              <div>
+                <span className="text-foreground/70">Effect:</span> {truncateText(recipe.effect, 45)}
+              </div>
+            )}
+            {recipe.utensils?.length && (
+              <div>
+                <span className="text-foreground/70">Utensils:</span> {truncateText(recipe.utensils.join(', '), 50)}
+              </div>
+            )}
+            {recipe.adaptOptions?.length && (
+              <div>
+                <span className="text-foreground/70">Adapt:</span> {truncateText(recipe.adaptOptions.join(', '), 45)}
+              </div>
+            )}
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  const desktopColumns = [
     {
       key: 'type',
       label: 'Type',
       render: (recipe: RecipeItem) => (
-        <span className="tabular-nums">{recipe.type ?? '?'}</span>
+        recipe.type ? (
+          <Badge variant="outline" className={`text-xs ${getTypeBadgeVariant(recipe.type)}`}>
+            {recipe.type}
+          </Badge>
+        ) : (
+          <span className="tabular-nums text-muted-foreground">—</span>
+        )
       )
     },
     {
@@ -172,6 +271,8 @@ export default function CookingRecipes() {
     }
   ]
 
+  const columns = isMobile ? mobileColumns : desktopColumns
+
   return (
     <div className="px-1 md:px-6">
       {/* Toolbar */}
@@ -204,8 +305,8 @@ export default function CookingRecipes() {
       <SortableTable
         data={filtered}
         columns={columns}
-        sortColumn={sortColumn}
-        sortDirection={sortDirection}
+        sortColumn={mobileSortColumn}
+        sortDirection={mobileSortDirection}
         onSort={handleSort}
         getRowKey={(recipe) => recipe.dish}
       />

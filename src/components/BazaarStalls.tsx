@@ -272,7 +272,6 @@ export default function BazaarStalls() {
     
     // Separate processed stalls: those with remaining items vs those filtered out
     const visibleStalls = processed.filter((s) => s.items.length > 0)
-    const filteredOutStalls = processed.filter((s) => s.items.length === 0)
     
     // Only show empty stalls as "coming soon" if there's no search query
     // If there's a search query, don't show truly empty stalls

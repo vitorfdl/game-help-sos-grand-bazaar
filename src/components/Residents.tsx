@@ -302,7 +302,7 @@ export default function Residents() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search by name, favorite, likes..."
-                  className="w-full sm:w-72 md:w-80 lg:w-96 xl:w-[28rem] pl-9 pr-3 py-2 h-9 sm:h-10 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring text-sm sm:text-base"
+                  className="w-full sm:w-72 md:w-80 lg:w-96 xl:w-[28rem] pl-9 pr-3 py-2 h-9 sm:h-10 rounded-lg border bg-background/70 backdrop-blur focus:outline-none focus:ring-2 focus:ring-ring text-base"
                 />
                 <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               </div>
