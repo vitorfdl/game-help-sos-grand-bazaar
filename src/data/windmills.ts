@@ -1,6 +1,10 @@
+type RecipeOneOf = {
+  oneOf: string[];
+};
+
 export type WindmillItem = {
   name: string;
-  recipe?: string[];
+  recipe?: (string | RecipeOneOf)[];
   info?: string;
   sellPrice?: string;
   processTime?: string;
@@ -78,98 +82,84 @@ const RedWindmill: Windmill = {
           recipe: ["Hoe", "1x Copper", "1x Iron", "2x Lumber"],
           info: "Tills more soil in one go.",
           processTime: "8h",
-          unique: true,
         },
         {
           name: "Copper Hoe +",
           recipe: ["Copper Hoe", "3x Copper", "5x Iron"],
           info: "Tills more soil in one go.",
           processTime: "10h",
-          unique: true,
         },
         {
           name: "Silver Hoe",
           recipe: ["Copper Hoe +", "3x Silver", "4x Lumber"],
           info: "Tills more soil in one go.",
           processTime: "12h",
-          unique: true,
         },
         {
           name: "Copper Watering Can",
           recipe: ["Watering Can", "3x Copper", "1x Iron"],
           info: "Waters more crops in one go.",
           processTime: "8h",
-          unique: true,
         },
         {
           name: "Copper Watering Can +",
           recipe: ["Copper Watering Can", "3x Copper", "5x Iron"],
           info: "Waters more crops in one go.",
           processTime: "10h",
-          unique: true,
         },
         {
           name: "Silver Watering Can",
           recipe: ["Copper Watering Can +", "6x Silver"],
           info: "Waters more crops in one go.",
           processTime: "12h",
-          unique: true,
         },
         {
           name: "Copper Sickle",
           recipe: ["Sickle", "2x Copper", "1x Iron", "2x Lumber"],
           info: "Harvests more crops in one go.",
           processTime: "8h",
-          unique: true,
         },
         {
           name: "Copper Sickle +",
           recipe: ["Copper Sickle", "3x Copper", "5x Iron"],
           info: "Harvests more crops in one go.",
           processTime: "10h",
-          unique: true,
         },
         {
           name: "Silver Sickle",
           recipe: ["Copper Sickle +", "5x Silver", "1x Lumber"],
           info: "Harvests more crops in one go.",
           processTime: "12h",
-          unique: true,
         },
         {
           name: "Copper Fishing Rod",
           recipe: ["Fishing Rod", "1x Copper", "3x Lumber"],
           info: "Catch a wider variety of fish; more Reel Power chances.",
           processTime: "8h",
-          unique: true,
         },
         {
           name: "Copper Fishing Rod +",
           recipe: ["Copper Fishing Rod", "3x Copper", "5x Iron"],
           info: "More chances to use Reel Power.",
           processTime: "10h",
-          unique: true,
         },
         {
           name: "Silver Fishing Rod",
           recipe: ["Copper Fishing Rod +", "2x Silver", "10x Lumber"],
           info: "Catch a wider variety of fish; more Reel Power chances.",
           processTime: "12h",
-          unique: true,
         },
         {
           name: "Copper Hatchet",
           recipe: ["Hatchet", "3x Copper", "10x Iron", "2x Lumber"],
           info: "Capable of mining stones for Silver Ore.",
           processTime: "8h",
-          unique: true,
         },
         {
           name: "Silver Hatchet",
           recipe: ["Copper Hatchet", "5x Silver", "20x Iron", "4x Lumber"],
           info: "Capable of mining stones for Gold Ore.",
           processTime: "12h",
-          unique: true,
         },
       ],
     },
@@ -182,21 +172,18 @@ const RedWindmill: Windmill = {
           recipe: ["10x Stone", "10x Lumber", "20x Iron", "3x Warm Dye"],
           info: "Effect: Bulk Sale Lv. 1 • Buff: All Items",
           processTime: "1d",
-          unique: true,
         },
         {
           name: "Windmill Churn",
           recipe: ["10x Stone", "30x Iron"],
           info: "Effect: Bulk Sale Lv. 1 • Buff: All Items",
           processTime: "12h",
-          unique: true,
         },
         {
           name: "Jewelry Stand",
           recipe: ["5x Lumber", "1x Black Necklace", "1x Chartreuse Brooch"],
           info: "Effect: Freshness Up Lv. 1 • Buff: All Items",
           processTime: "8h",
-          unique: true,
         },
       ],
     },
@@ -218,13 +205,21 @@ const RedWindmill: Windmill = {
         },
         {
           name: "Herbal Perfume",
-          recipe: ["2x Mint/Chamomile/Lavender (any)"],
+          recipe: [{ oneOf: ["2x Mint", "Chamomile", "Lavender"] }],
           sellPrice: "176G",
           processTime: "3h",
         },
         {
           name: "Floral Perfume",
-          recipe: ["3x Toy/Moondrop/Magic Blue/Pink Cat/Magic Red (any)"],
+          recipe: [{
+            oneOf: [
+              "3x Toy",
+              "Moondrop",
+              "Magic Blue",
+              "Pink Cat",
+              "Magic Red",
+            ],
+          }],
           sellPrice: "384G",
           processTime: "3h",
         },
@@ -268,30 +263,30 @@ const RedWindmill: Windmill = {
     },
     {
       id: "foodstuffs",
-      title: "Foodstuffs & Seasonings",
+      title: "Foodstuff",
       items: [
         {
           name: "Cheese",
-          recipe: ["1x Milk or Buffalo Milk"],
+          recipe: [{ oneOf: ["1x Milk", "Buffalo Milk"] }],
           sellPrice: "650G",
           processTime: "2h 30m",
         },
         {
           name: "Butter",
-          recipe: ["1x Milk or Buffalo Milk"],
+          recipe: [{ oneOf: ["1x Milk", "Buffalo Milk"] }],
           sellPrice: "400G",
           processTime: "2h",
         },
         {
           name: "Yogurt",
-          recipe: ["1x Milk or Buffalo Milk"],
+          recipe: [{ oneOf: ["1x Milk", "Buffalo Milk"] }],
           info: "Stamina Recovery: Slight",
           sellPrice: "600G",
           processTime: "3h",
         },
         {
           name: "Mayonnaise",
-          recipe: ["1x Egg or Silkie Egg"],
+          recipe: [{ oneOf: ["1x Egg", "Silkie Egg"] }],
           sellPrice: "300G",
           processTime: "1h",
         },
@@ -428,33 +423,52 @@ const RedWindmill: Windmill = {
         },
         {
           name: "Warm Dye",
-          recipe: ["3x Buttercup/Pink Cat/Hibiscus/Magic Red/Rose (any)"],
+          recipe: [{
+            oneOf: [
+              "3x Buttercup",
+              "Pink Cat",
+              "Hibiscus",
+              "Magic Red",
+              "Rose",
+            ],
+          }],
           sellPrice: "360G",
           processTime: "3h",
         },
         {
           name: "Cool Dye",
-          recipe: ["3x Magic Blue/Baby Blue/Cineraria (any)"],
+          recipe: [{
+            oneOf: ["3x Magic Blue", "Baby Blue", "Cineraria"],
+          }],
           sellPrice: "360G",
           processTime: "3h",
         },
         {
           name: "Natural Dye",
           recipe: [
-            "3x Toy/Moondrop/Pansy/Marigold/Sunflower/Chrysanthemum (any)",
+            {
+              oneOf: [
+                "3x Toy",
+                "Moondrop",
+                "Pansy",
+                "Marigold",
+                "Sunflower",
+                "Chrysanthemum",
+              ],
+            },
           ],
           sellPrice: "300G",
           processTime: "3h",
         },
         {
           name: "Noble Dye",
-          recipe: ["3x Clematis/Primrose/Bellflower (any)"],
+          recipe: [{ oneOf: ["3x Clematis", "Primrose", "Bellflower"] }],
           sellPrice: "810G",
           processTime: "3h",
         },
         {
           name: "Elegant Dye",
-          recipe: ["2x Petunia/Daisy (any)"],
+          recipe: [{ oneOf: ["2x Petunia", "Daisy"] }],
           sellPrice: "990G",
           processTime: "3h",
         },
@@ -598,84 +612,72 @@ const BlueWindmill: Windmill = {
           recipe: ["Silver Hoe", "5x Silver", "10x Iron"],
           info: "Tills more soil in one go.",
           processTime: "10h 30m",
-          unique: true,
         },
         {
           name: "Golden Hoe",
           recipe: ["Silver Hoe +", "3x Gold", "4x Sturdy Lumber"],
           info: "Tills more soil in one go.",
           processTime: "12h",
-          unique: true,
         },
         {
           name: "Golden Hoe +",
           recipe: ["Golden Hoe", "8x Gold", "20x Iron"],
           info: "Tills more soil in one go.",
           processTime: "15h",
-          unique: true,
         },
         {
           name: "Silver Watering Can +",
           recipe: ["Silver Watering Can", "5x Silver", "10x Iron"],
           info: "Waters more crops in one go.",
           processTime: "10h 30m",
-          unique: true,
         },
         {
           name: "Golden Watering Can",
           recipe: ["Silver Watering Can +", "6x Gold"],
           info: "Waters more crops in one go.",
           processTime: "12h",
-          unique: true,
         },
         {
           name: "Golden Watering Can +",
           recipe: ["Golden Watering Can", "8x Gold", "10x Iron"],
           info: "Waters more crops in one go.",
           processTime: "15h",
-          unique: true,
         },
         {
           name: "Silver Sickle +",
           recipe: ["Silver Sickle", "5x Silver", "10x Iron"],
           info: "Harvests more crops in one go.",
           processTime: "10h 30m",
-          unique: true,
         },
         {
           name: "Golden Sickle",
           recipe: ["Silver Sickle +", "5x Gold", "2x Sturdy Lumber"],
           info: "Harvests more crops in one go.",
           processTime: "12h",
-          unique: true,
         },
         {
           name: "Golden Sickle +",
           recipe: ["Golden Sickle", "8x Gold", "20x Iron"],
           info: "Harvests more crops in one go.",
           processTime: "15h",
-          unique: true,
         },
         {
           name: "Silver Fishing Rod +",
           recipe: ["Silver Fishing Rod", "5x Silver", "10x Iron"],
           info: "More chances to use Reel Power.",
           processTime: "10h 30m",
-          unique: true,
         },
         {
           name: "Golden Fishing Rod",
           recipe: ["Silver Fishing Rod +", "2x Gold", "10x Sturdy Lumber"],
           info: "Catch a wider variety of fish; more Reel Power chances.",
           processTime: "12h",
-          unique: true,
         },
         {
           name: "Golden Fishing Rod +",
           recipe: ["Golden Fishing Rod", "8x Gold", "20x Iron"],
           info: "More chances to use Reel Power.",
           processTime: "15h",
-          unique: true,
         },
         {
           name: "Golden Hatchet",
@@ -687,7 +689,6 @@ const BlueWindmill: Windmill = {
           ],
           info: "Capable of mining stones for Orichalcum Ore.",
           processTime: "15m",
-          unique: true,
         },
       ],
     },
@@ -706,14 +707,12 @@ const BlueWindmill: Windmill = {
           ],
           info: "Effect: Bulk Sale Lv. 2 • Buff: All Items",
           processTime: "18h",
-          unique: true,
         },
         {
           name: "White Windmill Churn",
           recipe: ["10x Sturdy Stone", "10x Silver"],
           info: "Effect: Bulk Sale Lv. 2 • Buff: All Items",
           processTime: "9h",
-          unique: true,
         },
         {
           name: "Sparkling Jewelry Stand",
@@ -726,7 +725,6 @@ const BlueWindmill: Windmill = {
           ],
           info: "Effect: Freshness Up Lv. 2 • Buff: All Items",
           processTime: "6h",
-          unique: true,
         },
       ],
     },
@@ -768,13 +766,13 @@ const BlueWindmill: Windmill = {
     },
     {
       id: "foodstuffs",
-      title: "Foodstuffs & Seasonings",
+      title: "Foodstuff",
       items: [
         {
           name: "Herb Cheese",
           recipe: [
-            "1x Milk or Buffalo Milk",
-            "1x Mint/Chamomile/Lavender (any)",
+            { oneOf: ["1x Milk", "Buffalo Milk"] },
+            { oneOf: ["1x Mint", "Chamomile", "Lavender"] },
           ],
           sellPrice: "750G",
           processTime: "1h 52m",
@@ -782,22 +780,24 @@ const BlueWindmill: Windmill = {
         {
           name: "Herb Butter",
           recipe: [
-            "1x Milk or Buffalo Milk",
-            "1x Mint/Chamomile/Lavender (any)",
+            { oneOf: ["1x Milk", "Buffalo Milk"] },
+            { oneOf: ["1x Mint", "Chamomile", "Lavender"] },
           ],
           sellPrice: "600G",
           processTime: "1h 30m",
         },
         {
           name: "Fruit Yogurt",
-          recipe: ["1x Yogurt", "1x Mint", "1x Strawberry"],
+          recipe: ["1x Yogurt", "Mint", "Strawberry"],
           info: "Stamina Recovery: Slight",
           sellPrice: "1,200G",
           processTime: "2h 15m",
         },
         {
           name: "Herb Mayonnaise",
-          recipe: ["1x Mayonnaise", "1x Mint/Chamomile/Lavender (any)"],
+          recipe: ["1x Mayonnaise", {
+            oneOf: ["1x Mint", "Chamomile", "Lavender"],
+          }],
           sellPrice: "450G",
           processTime: "45m",
         },
@@ -1321,7 +1321,13 @@ const BlueWindmill: Windmill = {
         },
         {
           name: "Tea Seeds",
-          recipe: ["1x Spring/Summer/Autumn Tea Leaves"],
+          recipe: [{
+            oneOf: [
+              "1x Spring Tea Leaves",
+              "Summer Tea Leaves",
+              "Autumn Tea Leaves",
+            ],
+          }],
           info: "Grows in Spring, Summer, and Autumn. Regrows.",
           sellPrice: "100G",
           processTime: "4h 30m",
@@ -1414,8 +1420,8 @@ const BlueWindmill: Windmill = {
             "5x Pink Diamond",
             "10x Diamond",
             "10x Golden Crops",
-            "10x Golden Milk (Milk+ or Buffalo Milk+)",
-            "10x Golden Egg (Egg+ or Silkie Egg+)",
+            { oneOf: ["10x Golden Milk", "Milk+", "Buffalo Milk"] },
+            { oneOf: ["10x Golden Egg", "Egg+", "Silkie Egg"] },
           ],
         },
         {
@@ -1508,7 +1514,6 @@ const YellowWindmill: Windmill = {
           recipe: ["Gold Hoe", "6x Orichalcum", "8x Ultimate Lumber"],
           info: "This upgrade allows the hoe to till more soil in one go.",
           processTime: "1d 6h",
-          unique: true,
         },
         {
           name: "Orichalcum Watering Can",
@@ -1516,14 +1521,12 @@ const YellowWindmill: Windmill = {
           info:
             "This upgrade allows the watering can to water more crops in one go.",
           processTime: "1d 6h",
-          unique: true,
         },
         {
           name: "Orichalcum Sickle",
           recipe: ["Gold Sickle", "9x Orichalcum", "4x Ultimate Lumber"],
           info: "This upgrade allows you to harvest more crops in one go.",
           processTime: "1d 6h",
-          unique: true,
         },
         {
           name: "Orichalcum Fishing Rod",
@@ -1535,7 +1538,6 @@ const YellowWindmill: Windmill = {
           info:
             "This upgrade allows you to catch a wider variety of fish, and you have more chances to use Reel Power.",
           processTime: "1d 6h",
-          unique: true,
         },
         {
           name: "Orichalcum Hatchet",
@@ -1548,7 +1550,6 @@ const YellowWindmill: Windmill = {
           info:
             "This upgrade is capable of mining stones with any type of ore.",
           processTime: "1d 6h",
-          unique: true,
         },
       ],
     },
@@ -1567,14 +1568,12 @@ const YellowWindmill: Windmill = {
           ],
           info: "Effect: Bulk Sale Lv. 3 • Buff: All Items",
           processTime: "18h",
-          unique: true,
         },
         {
           name: "Glittering Windmill Churn",
           recipe: ["30x Ultimate Stone", "30x Iron", "5x Diamond"],
           info: "Effect: Bulk Sale Lv. 3 • Buff: All Items",
           processTime: "9h",
-          unique: true,
         },
         {
           name: "Glittering Jewelry Stand",
@@ -1587,7 +1586,6 @@ const YellowWindmill: Windmill = {
           ],
           info: "Effect: Freshness Up Lv. 3 • Buff: All Items",
           processTime: "6h",
-          unique: true,
         },
       ],
     },
@@ -1611,7 +1609,7 @@ const YellowWindmill: Windmill = {
     },
     {
       id: "foodstuffs",
-      title: "Foodstuffs & Seasonings",
+      title: "Foodstuff",
       items: [
         {
           name: "Cheese +",
@@ -1634,7 +1632,7 @@ const YellowWindmill: Windmill = {
         },
         {
           name: "Mayonnaise +",
-          recipe: ["1x Egg + or Silkie Egg +"],
+          recipe: [{ oneOf: ["1x Egg +", "Silkie Egg +"] }],
           sellPrice: "1,950G",
           processTime: "1h 30m",
         },
@@ -2061,7 +2059,6 @@ const YellowWindmill: Windmill = {
             "9x Orichalcum Ore",
             "20x Ultimate Stone",
           ],
-          unique: true,
         },
         {
           name: "Ultimate Watering Can",
@@ -2071,7 +2068,6 @@ const YellowWindmill: Windmill = {
             "1x Adamantite",
             "15x Orichalcum Ore",
           ],
-          unique: true,
         },
         {
           name: "Ultimate Sickle",
@@ -2082,7 +2078,6 @@ const YellowWindmill: Windmill = {
             "12x Orichalcum Ore",
             "15x Ultimate Stone",
           ],
-          unique: true,
         },
         {
           name: "Ultimate Fishing Rod",
@@ -2093,7 +2088,6 @@ const YellowWindmill: Windmill = {
             "6x Orichalcum Ore",
             "40x Ultimate Lumber",
           ],
-          unique: true,
         },
         {
           name: "Ultimate Hatchet",
@@ -2104,7 +2098,6 @@ const YellowWindmill: Windmill = {
             "15x Orichalcum Ore",
             "20x Ultimate Lumber",
           ],
-          unique: true,
         },
         {
           name: "Pink Brooch",
