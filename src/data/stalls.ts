@@ -9,17 +9,19 @@ export type BazaarItem = {
   category?: string; // Optional: e.g., "Ore", "Expansion", "Upgrade", "Animal", "Warp", "Decoration", etc.
 };
 
-export type BazaarItems = {
+export type BaazarStalls = {
   name: string;
   description: string;
+  rank: number;
   items: BazaarItem[];
 }[];
 
 // JSON data for the requested Bazaar shops
-export const bazaarData: BazaarItems = [
+export const bazaarData: BaazarStalls = [
   {
     name: "Felix's Stall",
     description: "Sells techniques, cooking ingredients and cooking recipes.",
+    rank: 1,
     items: [
       {
         "name": "Double Jump",
@@ -131,84 +133,9 @@ export const bazaarData: BazaarItems = [
     ],
   },
   {
-    name: "Lloyd's Stall",
-    description: "Sells ores.",
-    items: [
-      {
-        "name": "Rock",
-        "price": 20,
-        "unit": "G",
-        "category": "Ore",
-      },
-      {
-        name: "Iron",
-        price: 210,
-        unit: "G",
-        category: "Ore",
-        unlockWhen: "Bazaar Rank 3",
-      },
-      {
-        name: "Copper",
-        price: 700,
-        unit: "G",
-        category: "Ore",
-        unlockWhen: "Bazaar Rank 3",
-      },
-      {
-        name: "Silver",
-        price: 1120,
-        unit: "G",
-        category: "Ore",
-        unlockWhen: "Bazaar Rank 3",
-      },
-      {
-        name: "Gold",
-        price: 2800,
-        unit: "G",
-        category: "Ore",
-        unlockWhen: "Bazaar Rank 4",
-      },
-      {
-        "name": "Moonstone",
-        "price": 1000,
-        "unit": "G",
-        "category": "Gemstones",
-      },
-      {
-        "name": "Peridot",
-        "price": 1500,
-        "unit": "G",
-        "category": "Gemstones",
-      },
-      {
-        "name": "Amethyst",
-        "price": 2000,
-        "unit": "G",
-        "category": "Gemstones",
-      },
-      {
-        "name": "Topaz",
-        "price": 2500,
-        "unit": "G",
-        "category": "Gemstones",
-      },
-      {
-        "name": "Emerald",
-        "price": 3000,
-        "unit": "G",
-        "category": "Gemstones",
-      },
-      {
-        "name": "Ruby",
-        "price": 4000,
-        "unit": "G",
-        "category": "Gemstones",
-      },
-    ],
-  },
-  {
     name: "Isaac's Stall",
     description: "Sells bag, storage, field, pasture, and bed expansions.",
+    rank: 1,
     items: [
       {
         name: "Bag Expansion",
@@ -294,6 +221,7 @@ export const bazaarData: BazaarItems = [
     name: "Garon's Stall",
     description:
       "Sells soil upgrades, storage freshness power-ups, cooking tools, bath upgrade, and barn construction.",
+    rank: 3,
     items: [
       {
         name: "Good-Quality Soil",
@@ -362,8 +290,86 @@ export const bazaarData: BazaarItems = [
     ],
   },
   {
+    name: "Lloyd's Stall",
+    description: "Sells ores.",
+    rank: 3,
+    items: [
+      {
+        "name": "Rock",
+        "price": 20,
+        "unit": "G",
+        "category": "Ore",
+      },
+      {
+        name: "Iron",
+        price: 210,
+        unit: "G",
+        category: "Ore",
+        unlockWhen: "Bazaar Rank 3",
+      },
+      {
+        name: "Copper",
+        price: 700,
+        unit: "G",
+        category: "Ore",
+        unlockWhen: "Bazaar Rank 3",
+      },
+      {
+        name: "Silver",
+        price: 1120,
+        unit: "G",
+        category: "Ore",
+        unlockWhen: "Bazaar Rank 3",
+      },
+      {
+        name: "Gold",
+        price: 2800,
+        unit: "G",
+        category: "Ore",
+        unlockWhen: "Bazaar Rank 4",
+      },
+      {
+        "name": "Moonstone",
+        "price": 1000,
+        "unit": "G",
+        "category": "Gemstones",
+      },
+      {
+        "name": "Peridot",
+        "price": 1500,
+        "unit": "G",
+        "category": "Gemstones",
+      },
+      {
+        "name": "Amethyst",
+        "price": 2000,
+        "unit": "G",
+        "category": "Gemstones",
+      },
+      {
+        "name": "Topaz",
+        "price": 2500,
+        "unit": "G",
+        "category": "Gemstones",
+      },
+      {
+        "name": "Emerald",
+        "price": 3000,
+        "unit": "G",
+        "category": "Gemstones",
+      },
+      {
+        "name": "Ruby",
+        "price": 4000,
+        "unit": "G",
+        "category": "Gemstones",
+      },
+    ],
+  },
+  {
     name: "Ramon's Critters Stall",
     description: "Sells livestock, poultry, and pets.",
+    rank: 2,
     items: [
       { name: "Chick", price: 2000, unit: "G", category: "Animal" },
       { name: "Chicken", price: 4000, unit: "G", category: "Animal" },
@@ -414,6 +420,7 @@ export const bazaarData: BazaarItems = [
     name: "Sprite Stall",
     description:
       "Trades Energy for warp boxes, power berries, decorations, recipes, and basic resources/seeds.",
+    rank: 2,
     items: [
       {
         name: "Spirit Box: Bazaar",
@@ -582,6 +589,7 @@ export const bazaarData: BazaarItems = [
   {
     name: "Ronaldo's Stall",
     description: "Sell seeds and cooking ingredients.",
+    rank: 4,
     items: [
       {
         "name": "Carrot Seed",
@@ -661,6 +669,7 @@ export const bazaarData: BazaarItems = [
   {
     name: "Arata's Stall",
     description: "Sell upgrades for beekeeping and mushroom logs.",
+    rank: 3,
     items: [
       {
         name: "Beekeeping House",
@@ -711,20 +720,21 @@ export const bazaarData: BazaarItems = [
   {
     "name": "Karina's Stall",
     "description": "Sell clothes and wearables.",
+    rank: 2,
     items: [
       {
         "name": "Flat Cap (Black)",
         "price": 2000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Alpaca Yarn x1, Noble Dye (Black) x1",
+        "notes": "Materials: Alpaca Yarn x1, Noble Dye x1",
       },
       {
         "name": "Flat Cap (Red)",
         "price": 2000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Alpaca Yarn x1, Warm Dye (Red/Pink) x1",
+        "notes": "Materials: Alpaca Yarn x1, Warm Dye x1",
       },
       {
         "name": "Flat Cap",
@@ -738,29 +748,28 @@ export const bazaarData: BazaarItems = [
         "price": 2000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Alpaca Yarn x1, Noble Dye (Black) x1",
+        "notes": "Materials: Alpaca Yarn x1, Noble Dye x1",
       },
       {
         "name": "Ribbon Headband (Pink)",
         "price": 2000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Alpaca Yarn x1, Warm Dye (Red/Pink) x1",
+        "notes": "Materials: Alpaca Yarn x1, Warm Dye x1",
       },
       {
         "name": "Ribbon Headband (Yellow)",
         "price": 2000,
         "unit": "G",
         "category": "Headwear",
-        "notes":
-          "Materials: Alpaca Yarn x1, Warm Dye + Natural Dye (Yellow) x1",
+        "notes": "Materials: Alpaca Yarn x1, Warm Dye + Natural Dye x1",
       },
       {
         "name": "Straw Boater Hat (Red)",
         "price": 5000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Wheat x3, Warm Dye (Red/Pink) x1",
+        "notes": "Materials: Wheat x3, Warm Dye x1",
       },
       {
         "name": "Straw Boater Hat",
@@ -774,29 +783,28 @@ export const bazaarData: BazaarItems = [
         "price": 5000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Wheat x3, Noble Dye (Black) x1",
+        "notes": "Materials: Wheat x3, Noble Dye x1",
       },
       {
         "name": "Knit Hat (Red)",
         "price": 2000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Woolen Yarn (Sheep) x1, Warm Dye (Red/Pink) x1",
+        "notes": "Materials: Woolen Yarn x1, Warm Dye x1",
       },
       {
         "name": "Knit Hat (Yellow)",
         "price": 2000,
         "unit": "G",
         "category": "Headwear",
-        "notes":
-          "Materials: Woolen Yarn (Sheep) x1, Warm Dye + Natural Dye (Yellow) x1",
+        "notes": "Materials: Woolen Yarn x1, Warm Dye + Natural Dye x1",
       },
       {
         "name": "Knit Hat (Black)",
         "price": 2000,
         "unit": "G",
         "category": "Headwear",
-        "notes": "Materials: Woolen Yarn (Sheep) x1, Noble Dye (Black) x1",
+        "notes": "Materials: Woolen Yarn x1, Noble Dye x1",
       },
       {
         "name": "Mini-Hat",
@@ -824,8 +832,7 @@ export const bazaarData: BazaarItems = [
         "price": 3000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Ingredients: 1 Alpaca Yarn, 1 Natural Dye, 1 Elegant Dye (white/gray)",
+        "notes": "Ingredients: 1 Alpaca Yarn, 1 Natural Dye, 1 Elegant Dye",
       },
       {
         "name": "Casual Shirt (Orange)",
@@ -833,47 +840,42 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Ingredients: 1 Alpaca Yarn, 1 Warm Dye (red/pink), 1 Natural Dye, 1 Cool Dye",
+          "Ingredients: 1 Alpaca Yarn, 1 Warm Dye, 1 Natural Dye, 1 Cool Dye",
       },
       {
         "name": "Casual Shirt (Black)",
         "price": 3000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Ingredients: 1 Alpaca Yarn, 1 Elegant Dye (white/gray), 1 Noble Dye (purple/black)",
+        "notes": "Ingredients: 1 Alpaca Yarn, 1 Elegant Dye, 1 Noble Dye",
       },
       {
         "name": "Casual Shirt (Yellow)",
         "price": 15000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Ingredients: 2 Alpaca Yarn+, 2 Elegant Dye (white/gray), 2 Noble Dye",
+        "notes": "Ingredients: 2 Alpaca Yarn+, 2 Elegant Dye, 2 Noble Dye",
       },
       {
         "name": "Stylish Casual Shirt",
         "price": 3000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Ingredients: 1 Alpaca Yarn+, 1 Warm Dye (red/pink), 1 Natural Dye",
+        "notes": "Ingredients: 1 Alpaca Yarn+, 1 Warm Dye, 1 Natural Dye",
       },
       {
         "name": "Overalls (Red)",
         "price": 3000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Ingredients: 1 Alpaca Yarn, 1 Noble Dye, 1 Warm Dye (red/pink)",
+        "notes": "Ingredients: 1 Alpaca Yarn, 1 Noble Dye, 1 Warm Dye",
       },
       {
         "name": "Overalls",
         "price": 3000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Ingredients: 1 Alpaca Yarn, 1 Warm Dye (red/pink), 1 Natural Dye",
+        "notes": "Ingredients: 1 Alpaca Yarn, 1 Warm Dye, 1 Natural Dye",
       },
       {
         "name": "Overalls (Yellow)",
@@ -881,15 +883,14 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Ingredients: 2 Alpaca Yarn+, 2 Noble Dye, 2 Elegant Dye (white/gray), 2 Natural Dye",
+          "Ingredients: 2 Alpaca Yarn+, 2 Noble Dye, 2 Elegant Dye, 2 Natural Dye",
       },
       {
         "name": "Stylish Overalls",
         "price": 3000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Ingredients: 1 Alpaca Yarn+, 1 Warm Dye (red/pink), 1 Natural Dye",
+        "notes": "Ingredients: 1 Alpaca Yarn+, 1 Warm Dye, 1 Natural Dye",
       },
       {
         "name": "Apron Dress",
@@ -962,14 +963,14 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothing",
         "notes":
-          "Requires 2 Alpaca Yarn+ and 2 Noble Dye, 2 Warm Dye (red), and 2 Elegant Dye",
+          "Requires 2 Alpaca Yarn+ and 2 Noble Dye, 2 Warm Dye, and 2 Elegant Dye",
       },
       {
         "name": "Casual Sweater (Red)",
         "price": 10000,
         "unit": "G",
         "category": "Clothes",
-        "notes": "Requires 3 Alpaca Yarn and 3 Warm Dye (Red)",
+        "notes": "Requires 3 Alpaca Yarn and 3 Warm Dye",
       },
       {
         "name": "Casual Sweater",
@@ -983,7 +984,7 @@ export const bazaarData: BazaarItems = [
         "price": 10000,
         "unit": "G",
         "category": "Clothes",
-        "notes": "Requires 3 Alpaca Yarn and 3 Noble Dye (Black)",
+        "notes": "Requires 3 Alpaca Yarn and 3 Noble Dye",
       },
       {
         "name": "Casual Sweater",
@@ -998,14 +999,14 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Requires 6 Alpaca Yarn+ (Gold Alpaca) and 6 Elegant Dye and 6 Noble Dye and 6 Cool Dye",
+          "Requires 6 Alpaca Yarn+ and 6 Elegant Dye and 6 Noble Dye and 6 Cool Dye",
       },
       {
         "name": "Festival Attire (Red)",
         "price": 6000,
         "unit": "G",
         "category": "Clothes",
-        "notes": "Requires 2 Alpaca Yarn and 2 Warm Dye (Red)",
+        "notes": "Requires 2 Alpaca Yarn and 2 Warm Dye",
       },
       {
         "name": "Festival Attire (Yellow)",
@@ -1034,7 +1035,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Requires 4 Alpaca Yarn+ (Gold Alpaca), 4 Alpaca Yarn (or Gold Brown variation), 4 Noble Dye and 4 Elegant Dye — four items shown",
+          "Requires 4 Alpaca Yarn+, 4 Alpaca Yarn, 4 Noble Dye and 4 Elegant Dye",
       },
       {
         "name": "Zephyr Town Attire",
@@ -1063,39 +1064,35 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Requires 4 Brown Alpaca Yarn+ (Gold Brown Alpaca), 4 Alpaca Yarn+ (Gold Alpaca), 4 Natural Dye and 4 Noble Dye (four items shown)",
+          "Requires 4 Brown Alpaca Yarn+, 4 Alpaca Yarn+, 4 Natural Dye and 4 Noble Dye",
       },
       {
         "name": "Glossy Jacket (Brown)",
         "price": 10000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Items: Brown Alpaca Yarn x3, Warm Dye (Red/Pink) x3, Natural Dye x3",
+        "notes": "Items: Brown Alpaca Yarn x3, Warm Dye x3, Natural Dye x3",
       },
       {
         "name": "Glossy Jacket",
         "price": 10000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Items: Alpaca Yarn x3, Alpaca Yarn+ (Gold Alpaca) x3, Cool Dye x3",
+        "notes": "Items: Alpaca Yarn x3, Alpaca Yarn+ x3, Cool Dye x3",
       },
       {
         "name": "Glossy Jacket (Red)",
         "price": 10000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Items: Alpaca Yarn x3, Alpaca Yarn+ (Gold Alpaca) x3, Warm Dye (Red/Pink) x3",
+        "notes": "Items: Alpaca Yarn x3, Alpaca Yarn+ x3, Warm Dye x3",
       },
       {
         "name": "Glossy Jacket (Black)",
         "price": 10000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Items: Alpaca Yarn x3, Alpaca Yarn+ (Gold Alpaca) x3, Noble Dye (Purple/Black) x3",
+        "notes": "Items: Alpaca Yarn x3, Alpaca Yarn+ x3, Noble Dye x3",
       },
       {
         "name": "Stylish Glossy Jacket",
@@ -1103,7 +1100,7 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Items: Brown Alpaca Yarn+ (Gold Brown Alpaca) x6, Alpaca Yarn+ (Gold Alpaca) x6, Elegant Dye (White/Gray) x6, Cool Dye x6",
+          "Items: Brown Alpaca Yarn+ x6, Alpaca Yarn+ x6, Elegant Dye x6, Cool Dye x6",
       },
       {
         "name": "Peacoat",
@@ -1124,22 +1121,21 @@ export const bazaarData: BazaarItems = [
         "price": 10000,
         "unit": "G",
         "category": "Clothes",
-        "notes": "Items: Alpaca Yarn x3, Elegant Dye (White/Gray) x3",
+        "notes": "Items: Alpaca Yarn x3, Elegant Dye x3",
       },
       {
         "name": "Stylish Peacoat",
         "price": 50000,
         "unit": "G",
         "category": "Clothes",
-        "notes":
-          "Items: Alpaca Yarn+ (Gold Alpaca) x6, Brown Alpaca Yarn+ (Gold Brown Alpaca) x6, Noble Dye (Purple/Black) x6",
+        "notes": "Items: Alpaca Yarn+ x6, Brown Alpaca Yarn+ x6, Noble Dye x6",
       },
       {
         "name": "Sweater & Tights (Gray)",
         "price": 10000,
         "unit": "G",
         "category": "Clothes",
-        "notes": "Items: Woolen Yarn x3, Elegant Dye (White/Gray) x3",
+        "notes": "Items: Woolen Yarn x3, Elegant Dye x3",
       },
       {
         "name": "Sweater & Tights",
@@ -1153,7 +1149,7 @@ export const bazaarData: BazaarItems = [
         "price": 10000,
         "unit": "G",
         "category": "Clothes",
-        "notes": "Items: Woolen Yarn x3, Warm Dye (Red/Pink) x3",
+        "notes": "Items: Woolen Yarn x3, Warm Dye x3",
       },
       {
         "name": "Sweater & Tights",
@@ -1168,13 +1164,14 @@ export const bazaarData: BazaarItems = [
         "unit": "G",
         "category": "Clothes",
         "notes":
-          "Items: Woolen Yarn+ (Gold Sheep) x6, Alpaca Yarn+ (Gold Alpaca) x6, Elegant Dye (White/Gray) x6, Noble Dye (Purple/Black) x6",
+          "Items: Woolen Yarn+ x6, Alpaca Yarn+ x6, Elegant Dye x6, Noble Dye x6",
       },
     ],
   },
   {
     name: "Joy's Stall",
     description: "Sell giftboxes.",
+    rank: 3,
     items: [
       {
         "name": "Blue Giftbox",
@@ -1199,6 +1196,7 @@ export const bazaarData: BazaarItems = [
   {
     name: "Felipe's Stall",
     description: "Sell Wondestones for Windmill Power-Ups",
+    rank: 5,
     items: [
       {
         "name": "Wind Jewel",
@@ -1269,5 +1267,307 @@ export const bazaarData: BazaarItems = [
         "category": "Tree Seedlings",
       },
     ],
+  },
+  {
+    name: "Rebecca's Stall",
+    description: "Sells stall decorations and decorative items.",
+    rank: 2,
+    items: [
+      {
+        name: "Beehive Lamp",
+        price: 2100,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Beetle Battle Toy",
+        price: 7000,
+        unit: "G",
+        category: "Decoration",
+        notes: "Freshness Lv. 1",
+      },
+      {
+        name: "Bug Cage",
+        price: 2100,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Bug Counter",
+        price: 2800,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 1",
+      },
+      {
+        name: "Bug Tent",
+        price: 4200,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Chef Counter",
+        price: 2800,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 1",
+      },
+      {
+        name: "Chef Tent",
+        price: 4200,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Cooking Utensils",
+        price: 2100,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Crops Cart",
+        price: 7000,
+        unit: "G",
+        category: "Decoration",
+        notes: "Freshness Lv. 1",
+      },
+      {
+        name: "Egg Tower",
+        price: 2100,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Farmer Counter",
+        price: 2800,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 1",
+      },
+      {
+        name: "Farmer Tent",
+        price: 4200,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Fish Counter",
+        price: 2800,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 1",
+      },
+      {
+        name: "Fish Pool",
+        price: 7000,
+        unit: "G",
+        category: "Decoration",
+        notes: "Freshness Lv. 1",
+      },
+      {
+        name: "Fish Tent",
+        price: 4200,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Fishing Set",
+        price: 2100,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Florist Counter",
+        price: 2800,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 1",
+      },
+      {
+        name: "Florist Tent",
+        price: 4200,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Flower Basket",
+        price: 2100,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Flower Display",
+        price: 7000,
+        unit: "G",
+        category: "Decoration",
+        notes: "Freshness Lv. 1",
+      },
+      {
+        name: "Forager Counter",
+        price: 2800,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 1",
+      },
+      {
+        name: "Forager Tent",
+        price: 4200,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Good Bug Counter",
+        price: 22400,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 2",
+      },
+      {
+        name: "Good Chef Counter",
+        price: 22400,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 2",
+      },
+      {
+        name: "Good Farmer Counter",
+        price: 22400,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 2",
+      },
+      {
+        name: "Good Fish Counter",
+        price: 22400,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 2",
+      },
+      {
+        name: "Good Florist Counter",
+        price: 22400,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 2",
+      },
+      {
+        name: "Good Forager Counter",
+        price: 22400,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 2",
+      },
+      {
+        name: "Good Rancher Counter",
+        price: 22400,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 2",
+      },
+      {
+        name: "Good Windmill Counter",
+        price: 22400,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 2",
+      },
+      {
+        name: "Milk Can",
+        price: 7000,
+        unit: "G",
+        category: "Decoration",
+        notes: "Freshness Lv. 1",
+      },
+      {
+        name: "Mushroom Stand",
+        price: 7000,
+        unit: "G",
+        category: "Decoration",
+        notes: "Freshness Lv. 1",
+      },
+      {
+        name: "Outdoor Kitchen",
+        price: 7000,
+        unit: "G",
+        category: "Decoration",
+        notes: "Freshness Lv. 1",
+      },
+      {
+        name: "Rancher Counter",
+        price: 2800,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 1",
+      },
+      {
+        name: "Rancher Tent",
+        price: 4200,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Vegetable Assortment",
+        price: 2100,
+        unit: "G",
+        category: "Decoration",
+        notes: "Bulk Sale Lv. 1",
+      },
+      {
+        name: "Windmill Counter",
+        price: 2800,
+        unit: "G",
+        category: "Decoration",
+        notes: "Price Up Lv. 1",
+      },
+    ],
+  },
+  {
+    name: "Kat's Stall",
+    description: "Sells animal rehoming services and pet care items.",
+    rank: 2,
+    items: [],
+  },
+  {
+    name: "Charles's Stall",
+    description: "Sells recycling services and trash processing items.",
+    rank: 4,
+    items: [],
+  },
+  {
+    name: "Sophie's Stall",
+    description: "Sells tree seeds and forestry items.",
+    rank: 4,
+    items: [],
+  },
+  {
+    name: "Mini Madeleine",
+    description: "Sells prepared meals and food items.",
+    rank: 4,
+    items: [],
+  },
+  {
+    name: "Clara's Dinner",
+    description: "Sells premium meals and gourmet food items.",
+    rank: 5,
+    items: [],
+  },
+  {
+    name: "Rich's Stall",
+    description: "Sells items purchasable with medals and special currency.",
+    rank: 5,
+    items: [],
   },
 ];

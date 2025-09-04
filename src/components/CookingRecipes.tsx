@@ -1,63 +1,55 @@
 import { useMemo, useState } from 'react'
-import { Search, ArrowUp, ArrowDown, Info } from 'lucide-react'
+import { Search, Info } from 'lucide-react'
 import { recipes as allRecipes, type RecipeItem } from '@/data/recipes'
 import { Input } from '@/components/ui/input'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
+import { SortableTable, type SortColumn, type SortDirection } from '@/components/ui/sortable-table'
+import { CategoryFilter } from '@/components/ui/category-filter'
 
-type SortColumn = 'type' | 'name' | 'recipe' | 'utensils' | 'whereToGet' | 'effect' | 'adaptOptions' | 'price'
-type SortDirection = 'asc' | 'desc'
+type RecipeSortColumn = 'type' | 'name' | 'recipe' | 'utensils' | 'whereToGet' | 'effect' | 'adaptOptions' | 'price'
 
 export default function CookingRecipes() {
   const [query, setQuery] = useState('')
-  const [sortColumn, setSortColumn] = useState<SortColumn>('type')
+  const [sortColumn, setSortColumn] = useState<RecipeSortColumn>('type')
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
+  const [selectedCategory, setSelectedCategory] = useState('all')
 
   const handleSort = (column: SortColumn) => {
     if (sortColumn === column) {
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')
     } else {
-      setSortColumn(column)
+      setSortColumn(column as RecipeSortColumn)
       setSortDirection('asc')
     }
   }
 
-  const SortableHeader = ({ column, children, className }: { 
-    column: SortColumn; 
-    children: React.ReactNode; 
-    className?: string 
-  }) => {
-    const isActive = sortColumn === column
-    const isAsc = sortDirection === 'asc'
-    
-    return (
-      <TableHead 
-        className={`cursor-pointer select-none hover:bg-muted/50 transition-colors ${className}`}
-        onClick={() => handleSort(column)}
-      >
-        <div className="flex items-center gap-1">
-          {children}
-          <div className="flex flex-col">
-            <ArrowUp 
-              className={`h-3 w-3 ${isActive && isAsc ? 'text-foreground' : 'text-muted-foreground/30'}`} 
-            />
-            <ArrowDown 
-              className={`h-3 w-3 -mt-1 ${isActive && !isAsc ? 'text-foreground' : 'text-muted-foreground/30'}`} 
-            />
-          </div>
-        </div>
-      </TableHead>
-    )
-  }
+  // Get unique categories from recipes
+  const categories = useMemo(() => {
+    const uniqueCategories = new Set<string>()
+    allRecipes.forEach(recipe => {
+      if (recipe.type) {
+        uniqueCategories.add(recipe.type)
+      }
+    })
+    return Array.from(uniqueCategories).sort()
+  }, [])
 
   const filtered: RecipeItem[] = useMemo(() => {
     const q = query.trim().toLowerCase()
-    const base = !q
-      ? allRecipes
-      : allRecipes.filter((r) => {
-          const haystack = [r.dish, r.recipe.join(', ')].join(' ').toLowerCase()
-          return haystack.includes(q)
-        })
+    let base = allRecipes
+    
+    // Filter by category
+    if (selectedCategory !== 'all') {
+      base = base.filter(r => r.type === selectedCategory)
+    }
+    
+    // Filter by search query
+    if (q) {
+      base = base.filter((r) => {
+        const haystack = [r.dish, r.recipe.join(', ')].join(' ').toLowerCase()
+        return haystack.includes(q)
+      })
+    }
     
     const sorted = [...base]
     const direction = sortDirection === 'asc' ? 1 : -1
@@ -106,12 +98,84 @@ export default function CookingRecipes() {
     })
     
     return sorted
-  }, [query, sortColumn, sortDirection])
+  }, [query, sortColumn, sortDirection, selectedCategory])
+
+  const columns = [
+    {
+      key: 'type',
+      label: 'Type',
+      render: (recipe: RecipeItem) => (
+        <span className="tabular-nums">{recipe.type ?? '?'}</span>
+      )
+    },
+    {
+      key: 'name',
+      label: 'Dish',
+      render: (recipe: RecipeItem) => (
+        <span className="font-medium">{recipe.dish}</span>
+      )
+    },
+    {
+      key: 'recipe',
+      label: 'Recipe',
+      render: (recipe: RecipeItem) => (
+        <div className="flex flex-wrap gap-1">
+          {recipe.recipe.map((ingredient, index) => (
+            <Badge key={index} variant="secondary" className="text-xs">
+              {ingredient}
+            </Badge>
+          ))}
+        </div>
+      )
+    },
+    {
+      key: 'utensils',
+      label: 'Utensils',
+      render: (recipe: RecipeItem) => (
+        <span>
+          {recipe.utensils?.length ? recipe.utensils.join(', ') : <span className="text-muted-foreground">—</span>}
+        </span>
+      )
+    },
+    {
+      key: 'whereToGet',
+      label: 'Where to get',
+      render: (recipe: RecipeItem) => (
+        <span>{recipe.whereToGet ?? <span className="text-muted-foreground">—</span>}</span>
+      )
+    },
+    {
+      key: 'effect',
+      label: 'Effect',
+      render: (recipe: RecipeItem) => (
+        <span>{recipe.effect ?? <span className="text-muted-foreground">—</span>}</span>
+      )
+    },
+    {
+      key: 'adaptOptions',
+      label: 'Adapt options',
+      render: (recipe: RecipeItem) => (
+        <span>
+          {recipe.adaptOptions?.length ? recipe.adaptOptions.join(', ') : <span className="text-muted-foreground">—</span>}
+        </span>
+      )
+    },
+    {
+      key: 'price',
+      label: 'Sales Price',
+      className: 'text-right',
+      render: (recipe: RecipeItem) => (
+        <span className="text-right tabular-nums">
+          {recipe.salesPrice != null ? `${recipe.salesPrice} G` : '—'}
+        </span>
+      )
+    }
+  ]
 
   return (
     <div className="px-1 md:px-6">
-      {/* Toolbar: search only (header moved to layout) */}
-      <div className="mb-4 flex items-center gap-3">
+      {/* Toolbar */}
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="relative w-full sm:w-[340px]">
           <Input
             value={query}
@@ -123,51 +187,28 @@ export default function CookingRecipes() {
         </div>
       </div>
 
+      {/* Category Filter */}
+      <div className="mb-4">
+        <CategoryFilter
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+        />
+      </div>
+
       <div className="mb-4 inline-flex items-center gap-2 rounded-lg border bg-secondary/60 px-3 py-2 text-sm text-muted-foreground">
         <Info className="h-4 w-4" />
         <span>Content under construction — utensils, source, and adaptation options will be added as we progress.</span>
       </div>
 
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <SortableHeader column="type">Type</SortableHeader>
-            <SortableHeader column="name">Dish</SortableHeader>
-            <SortableHeader column="recipe">Recipe</SortableHeader>
-            <SortableHeader column="utensils">Utensils</SortableHeader>
-            <SortableHeader column="whereToGet">Where to get</SortableHeader>
-            <SortableHeader column="effect">Effect</SortableHeader>
-            <SortableHeader column="adaptOptions">Adapt options</SortableHeader>
-            <SortableHeader column="price" className="text-right">Sales Price</SortableHeader>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {filtered.map((r) => (
-            <TableRow key={r.dish}>
-              <TableCell className="tabular-nums">{r.type ?? '?'}</TableCell>
-              <TableCell className="font-medium">{r.dish}</TableCell>
-              <TableCell>
-                <div className="flex flex-wrap gap-1">
-                  {r.recipe.map((ingredient, index) => (
-                    <Badge key={index} variant="secondary" className="text-xs">
-                      {ingredient}
-                    </Badge>
-                  ))}
-                </div>
-              </TableCell>
-              <TableCell>
-                {r.utensils?.length ? r.utensils.join(', ') : <span className="text-muted-foreground">—</span>}
-              </TableCell>
-              <TableCell>{r.whereToGet ?? <span className="text-muted-foreground">—</span>}</TableCell>
-              <TableCell>{r.effect ?? <span className="text-muted-foreground">—</span>}</TableCell>
-              <TableCell>
-                {r.adaptOptions?.length ? r.adaptOptions.join(', ') : <span className="text-muted-foreground">—</span>}
-              </TableCell>
-              <TableCell className="text-right tabular-nums">{r.salesPrice != null ? `${r.salesPrice} G` : '—'}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <SortableTable
+        data={filtered}
+        columns={columns}
+        sortColumn={sortColumn}
+        sortDirection={sortDirection}
+        onSort={handleSort}
+        getRowKey={(recipe) => recipe.dish}
+      />
     </div>
   )
 }

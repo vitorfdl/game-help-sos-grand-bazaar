@@ -1,11 +1,13 @@
 import { useMemo, useState } from 'react'
-import { Search, ChevronDown, Gem, Package, Hammer, Leaf, GiftIcon, CircleFadingArrowUp, HopIcon, ShirtIcon } from 'lucide-react'
+import { Search, ChevronDown, Gem, Package, Hammer, Leaf, GiftIcon, CircleFadingArrowUp, HopIcon, ShirtIcon, Star, Info, Clock, Construction } from 'lucide-react'
 import { bazaarData, type BazaarItem } from '@/data/stalls'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { Input } from './ui/input'
 import { WindmillIcon } from './Windmills'
+import { SortableTable, type SortColumn, type SortDirection } from '@/components/ui/sortable-table'
+import { CategoryFilter } from '@/components/ui/category-filter'
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerTrigger } from '@/components/ui/drawer'
 
 type FilterId = 'all' | string
 
@@ -68,20 +70,6 @@ function toNumber(price: number | string | undefined): number {
   return Number.isNaN(num) ? NaN : num
 }
 
-function sortedItems(items: BazaarItem[], key: 'default' | 'priceAsc' | 'priceDesc'): BazaarItem[] {
-  if (key === 'default') return items
-  const withIndex = items.map((it, idx) => ({ it, idx, price: toNumber(it.price) }))
-  withIndex.sort((a, b) => {
-    const aMissing = Number.isNaN(a.price)
-    const bMissing = Number.isNaN(b.price)
-    if (aMissing && bMissing) return a.idx - b.idx
-    if (aMissing) return 1
-    if (bMissing) return -1
-    if (key === 'priceAsc') return (a.price as number) - (b.price as number)
-    return (b.price as number) - (a.price as number)
-  })
-  return withIndex.map((x) => x.it)
-}
 
 function formatPrice(item: BazaarItem): string {
   const num = toNumber(item.price)
@@ -92,27 +80,197 @@ function formatPrice(item: BazaarItem): string {
   return `${formatted} ${unit}`
 }
 
+function truncateText(text: string, maxLength: number = 50): string {
+  if (text.length <= maxLength) return text
+  return text.substring(0, maxLength) + '...'
+}
 
+function RankBadge({ rank }: { rank: number }) {
+  const getRankColors = (rank: number) => {
+    switch (rank) {
+      case 1:
+        return "bg-gradient-to-r from-slate-200 to-slate-300 text-slate-700"
+      case 2:
+        return "bg-gradient-to-r from-gray-300 to-gray-400 text-gray-800"
+      case 3:
+        return "bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800"
+      case 4:
+        return "bg-gradient-to-r from-indigo-100 to-indigo-200 text-indigo-800"
+      case 5:
+        return "bg-gradient-to-r from-violet-100 to-violet-200 text-violet-800"
+      default:
+        return "bg-gradient-to-r from-slate-200 to-slate-300 text-slate-700"
+    }
+  }
+
+  return (
+    <Badge 
+      variant="default" 
+      className={cn(
+        "flex items-center gap-1 border-0 shadow-md",
+        getRankColors(rank)
+      )}
+    >
+      <Star className="h-3 w-3 fill-current" />
+      <span className="font-semibold">Rank {rank}</span>
+    </Badge>
+  )
+}
+
+function EmptyStallCard({ stall }: { stall: { name: string; description: string; rank: number; id: string } }) {
+  return (
+    <section className="rounded-2xl border bg-card/70 backdrop-blur p-3 sm:p-4 md:p-6 opacity-75">
+      <div className="flex items-start gap-2 sm:gap-3">
+        <div className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 rounded-xl bg-muted/60 text-muted-foreground flex items-center justify-center ring-1 ring-border">
+          <Construction className="h-4 w-4 sm:h-5 sm:w-5" />
+        </div>
+        <div className="flex-1">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            <h2 className="text-lg sm:text-xl font-semibold tracking-tight text-muted-foreground">{stall.name}</h2>
+            <RankBadge rank={stall.rank} />
+            <Badge 
+              variant="outline" 
+              className="flex items-center gap-1 text-xs border-amber-200 text-amber-700 bg-amber-50"
+            >
+              <Clock className="h-3 w-3" />
+              Coming Soon
+            </Badge>
+          </div>
+          {stall.description && (
+            <p className="text-[13px] sm:text-sm text-muted-foreground/70 mt-1 max-w-2xl">{stall.description}</p>
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ItemDetailsDrawer({ item, stallName, children }: { 
+  item: BazaarItem; 
+  stallName: string; 
+  children: React.ReactNode 
+}) {
+  return (
+    <Drawer>
+      <DrawerTrigger asChild>
+        {children}
+      </DrawerTrigger>
+      <DrawerContent className="max-h-[80vh]">
+        <DrawerHeader>
+          <DrawerTitle className="flex items-center gap-2">
+            {item.name}
+            {item.category && (
+              <Badge variant="secondary" className="text-xs">
+                {item.category}
+              </Badge>
+            )}
+          </DrawerTitle>
+          <DrawerDescription>
+            From {stallName}
+          </DrawerDescription>
+        </DrawerHeader>
+        <div className="px-4 pb-4 space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <h4 className="font-medium text-sm text-muted-foreground mb-1">Price</h4>
+              <p className="text-lg font-semibold">{formatPrice(item)}</p>
+            </div>
+            {item.unit && (
+              <div>
+                <h4 className="font-medium text-sm text-muted-foreground mb-1">Unit</h4>
+                <p className="text-lg">{item.unit}</p>
+              </div>
+            )}
+          </div>
+          
+          {item.unlockWhen && (
+            <div>
+              <h4 className="font-medium text-sm text-muted-foreground mb-1">Unlock Condition</h4>
+              <p className="text-sm">{item.unlockWhen}</p>
+            </div>
+          )}
+          
+          {item.notes && (
+            <div>
+              <h4 className="font-medium text-sm text-muted-foreground mb-1">Notes</h4>
+              <p className="text-sm leading-relaxed">{item.notes}</p>
+            </div>
+          )}
+        </div>
+      </DrawerContent>
+    </Drawer>
+  )
+}
+
+
+
+type ItemSortColumn = 'name' | 'category' | 'price'
 
 export default function BazaarStalls() {
   const [filter, _setFilter] = useState<FilterId>('all')
   const [query, setQuery] = useState('')
-  const [sortKey, setSortKey] = useState<'default' | 'priceAsc' | 'priceDesc'>('default')
+  const [sortColumn, setSortColumn] = useState<ItemSortColumn>('name')
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
   const [expanded, setExpanded] = useState<Set<string>>(() => new Set())
+  const [stallCategories, setStallCategories] = useState<Record<string, string>>({})
 
-  const stalls = useMemo(() => bazaarData.map((s) => ({ ...s, id: slugify(s.name) })), [])
+  const stalls = useMemo(() => 
+    bazaarData
+      .map((s) => ({ ...s, id: slugify(s.name) }))
+      .sort((a, b) => a.rank - b.rank), 
+    []
+  )
 
-  const visible = useMemo(() => {
+  // Get unique categories for a specific stall
+  const getStallCategories = (stallId: string) => {
+    const stall = stalls.find(s => s.id === stallId)
+    if (!stall) return []
+    
+    const uniqueCategories = new Set<string>()
+    stall.items.forEach(item => {
+      if (item.category) {
+        uniqueCategories.add(item.category)
+      }
+    })
+    return Array.from(uniqueCategories).sort()
+  }
+
+  const handleSort = (column: SortColumn) => {
+    if (sortColumn === column) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')
+    } else {
+      setSortColumn(column as ItemSortColumn)
+      setSortDirection('asc')
+    }
+  }
+
+  const { visibleStalls, emptyStalls } = useMemo(() => {
     const q = query.trim().toLowerCase()
     const base = filter === 'all' ? stalls : stalls.filter((s) => s.id === filter)
-    if (!q) return base
-    return base
-      .map((s) => {
-        const items = s.items.filter((it) => includesQuery(s, it, q))
-        return { ...s, items }
-      })
-      .filter((s) => s.items.length > 0)
-  }, [filter, query, stalls])
+    
+    const processed = base.map((s) => {
+      let items = s.items
+      
+      // Filter by stall-specific category
+      const stallCategory = stallCategories[s.id] || 'all'
+      if (stallCategory !== 'all') {
+        items = items.filter(item => item.category === stallCategory)
+      }
+      
+      // Filter by search query
+      if (q) {
+        items = items.filter((it) => includesQuery(s, it, q))
+      }
+      
+      return { ...s, items }
+    })
+    
+    // Separate empty stalls from stalls with items
+    const emptyStalls = processed.filter((s) => s.items.length === 0)
+    const visibleStalls = processed.filter((s) => s.items.length > 0)
+    
+    return { visibleStalls, emptyStalls }
+  }, [filter, query, stalls, stallCategories])
 
   function toggle(stallId: string) {
     setExpanded((prev) => {
@@ -122,6 +280,95 @@ export default function BazaarStalls() {
       return next
     })
   }
+
+  const handleStallCategoryChange = (stallId: string, category: string) => {
+    setStallCategories(prev => ({
+      ...prev,
+      [stallId]: category
+    }))
+  }
+
+  const sortItems = (items: BazaarItem[]) => {
+    const sorted = [...items]
+    const direction = sortDirection === 'asc' ? 1 : -1
+    
+    sorted.sort((a, b) => {
+      let comparison = 0
+      
+      switch (sortColumn) {
+        case 'name':
+          comparison = a.name.localeCompare(b.name)
+          break
+        case 'category':
+          const aCategory = a.category ?? ''
+          const bCategory = b.category ?? ''
+          comparison = aCategory.localeCompare(bCategory)
+          break
+        case 'price':
+          const aPrice = toNumber(a.price)
+          const bPrice = toNumber(b.price)
+          const aMissing = Number.isNaN(aPrice)
+          const bMissing = Number.isNaN(bPrice)
+          if (aMissing && bMissing) return 0
+          if (aMissing) return 1
+          if (bMissing) return -1
+          comparison = aPrice - bPrice
+          break
+      }
+      
+      return direction * comparison || a.name.localeCompare(b.name)
+    })
+    
+    return sorted
+  }
+
+  const itemColumns = (stallName: string) => [
+    {
+      key: 'name',
+      label: 'Name',
+      render: (item: BazaarItem) => (
+        <ItemDetailsDrawer item={item} stallName={stallName}>
+          <div 
+            className="space-y-1 cursor-pointer hover:bg-muted/50 rounded-md p-2 -m-2 transition-colors"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-2">
+              <span className="font-medium">{item.name}</span>
+              {item.category && (
+                <Badge variant="secondary" className="text-xs">
+                  {item.category}
+                </Badge>
+              )}
+              {(item.notes && item.notes.length > 50) && (
+                <Info className="h-3 w-3 text-muted-foreground" />
+              )}
+            </div>
+            {(item.notes || item.unlockWhen) && (
+              <div className="text-xs text-muted-foreground space-y-1">
+                {item.notes && (
+                  <div className="flex items-center gap-1">
+                    <span>{truncateText(item.notes, 60)}</span>
+                  </div>
+                )}
+                {item.unlockWhen && (
+                  <div>
+                    <span className="text-foreground/70">Unlock:</span> {truncateText(item.unlockWhen, 40)}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </ItemDetailsDrawer>
+      )
+    },
+    {
+      key: 'price',
+      label: 'Price',
+      render: (item: BazaarItem) => (
+        <span className="font-medium">{formatPrice(item)}</span>
+      )
+    }
+  ]
 
   return (
     <div className="px-1 md:px-6">
@@ -138,25 +385,12 @@ export default function BazaarStalls() {
         </div>
 
         <div className="sm:flex-1" />
-
-        <div className="flex items-center gap-3">
-          {/* Sort */}
-          <Select value={sortKey} onValueChange={(v) => setSortKey(v as any)}>
-            <SelectTrigger aria-label="Sort items">
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="default">Default order</SelectItem>
-              <SelectItem value="priceDesc">Price: High → Low</SelectItem>
-              <SelectItem value="priceAsc">Price: Low → High</SelectItem>
-            </SelectContent>
-          </Select>
-
-        </div>
       </div>
 
+
       <div className="space-y-5 sm:space-y-6 md:space-y-8 mt-4">
-        {visible.map((stall) => (
+        {/* Regular stalls with items */}
+        {visibleStalls.map((stall) => (
           <section key={stall.id} className="rounded-2xl border bg-card/70 backdrop-blur p-3 sm:p-4 md:p-6">
             <button
               onClick={() => toggle(stall.id)}
@@ -167,8 +401,11 @@ export default function BazaarStalls() {
                 <div className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 rounded-xl bg-secondary/40 text-secondary-foreground flex items-center justify-center ring-1 ring-border">
                   {getStallIcon(stall.id)}
                 </div>
-                <div>
-                  <h2 className="text-lg sm:text-xl font-semibold tracking-tight">{stall.name}</h2>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                    <h2 className="text-lg sm:text-xl font-semibold tracking-tight">{stall.name}</h2>
+                    <RankBadge rank={stall.rank} />
+                  </div>
                   {stall.description && (
                     <p className="text-[13px] sm:text-sm text-muted-foreground mt-1 max-w-2xl">{stall.description}</p>
                   )}
@@ -184,48 +421,35 @@ export default function BazaarStalls() {
 
             {(expanded.has(stall.id) || !!query) && (
               <div className="mt-3 sm:mt-4">
-                <ul className="grid grid-cols-1 gap-3 sm:gap-4">
-                  {sortedItems(stall.items, sortKey).map((item) => (
-                    <li key={item.name} className="rounded-xl border bg-background/60 p-3 sm:p-4">
-                      <div className="flex flex-wrap items-start justify-between gap-2 sm:gap-3">
-                        <div className="min-w-[200px] text-[13px] sm:text-sm">
-                          <div className="flex items-center gap-2">
-                            <span className="font-medium">{item.name}</span>
-                            {item.category && (
-                              <Badge variant="secondary" className="text-[11px]">
-                                {item.category}
-                              </Badge>
-                            )}
-                          </div>
-                          {(item.notes || item.unlockWhen) && (
-                            <div className="text-[12px] sm:text-xs text-muted-foreground mt-1 max-w-2xl space-y-1">
-                              {item.notes && <div>{item.notes}</div>}
-                              {item.unlockWhen && (
-                                <div>
-                                  <span className="text-foreground/70">Unlock:</span> {item.unlockWhen}
-                                </div>
-                              )}
-                            </div>
-                          )}
-                        </div>
-
-                        <div className="text-right text-xs sm:text-sm grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-1">
-                          <span className="text-muted-foreground">Price</span>
-                          <span className="font-medium">{formatPrice(item)}</span>
-                          {item.unit && (
-                            <>
-                              <span className="text-muted-foreground">Unit</span>
-                              <span className="font-medium">{item.unit}</span>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+                {/* Stall-specific category filter */}
+                {getStallCategories(stall.id).length > 0 && (
+                  <div className="mb-4">
+                    <CategoryFilter
+                      categories={getStallCategories(stall.id)}
+                      selectedCategory={stallCategories[stall.id] || 'all'}
+                      onCategoryChange={(category) => handleStallCategoryChange(stall.id, category)}
+                    />
+                  </div>
+                )}
+                
+                <div className="overflow-x-auto">
+                  <SortableTable
+                    data={sortItems(stall.items)}
+                    columns={itemColumns(stall.name)}
+                    sortColumn={sortColumn}
+                    sortDirection={sortDirection}
+                    onSort={handleSort}
+                    getRowKey={(item) => item.name}
+                  />
+                </div>
               </div>
             )}
           </section>
+        ))}
+
+        {/* Empty stalls - coming soon */}
+        {emptyStalls.map((stall) => (
+          <EmptyStallCard key={stall.id} stall={stall} />
         ))}
       </div>
     </div>
