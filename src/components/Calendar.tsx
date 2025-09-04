@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { CalendarDays, ChevronLeft, ChevronRight, Flag, Bell, Sun, Snowflake, Leaf, Flower2 } from 'lucide-react'
-import { festivalsFor, type Season } from '@/data/calendar'
+import { CalendarDays, ChevronLeft, ChevronRight, Flag, Bell, Sun, Snowflake, Leaf, Flower2, Clock, MapPin, Sparkles } from 'lucide-react'
+import { festivalsFor, type Season, type Festival } from '@/data/calendar'
 import { withBase } from '@/lib/utils'
 import { residents as allResidents, avatarFileOverrides } from '@/data/residents'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 
 const seasons: Season[] = ['Spring', 'Summer', 'Autumn', 'Winter']
 const seasonAccent: Record<Season, string> = {
@@ -22,7 +23,55 @@ function toAvatarFilename(name: string): string {
   return withBase(`/avatars/${base}.webp`)
 }
 
-type CombinedEvent = { day: number; title: string; type: 'festival' | 'birthday'; residentName?: string }
+type CombinedEvent = { day: number; title: string; type: 'festival' | 'birthday'; residentName?: string; festival?: Festival }
+
+function FestivalDetails({ festival }: { festival: Festival }) {
+  return (
+    <div className="space-y-4 w-full">
+      {/* Header */}
+      <div className="flex items-center gap-3">
+        <div className="p-2 rounded-lg bg-gradient-to-br from-green-500/20 via-emerald-500/20 to-teal-500/20 flex-shrink-0">
+          <Flag className="h-5 w-5 text-green-600" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <h3 className="font-semibold text-lg text-foreground">{festival.title}</h3>
+          <div className="text-sm text-muted-foreground">Festival</div>
+        </div>
+      </div>
+
+      {/* Time Information */}
+      <div className="space-y-2">
+        <div className="flex items-center gap-2">
+          <Clock className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+          <span className="font-medium text-sm text-foreground">Time:</span>
+          <span className="text-sm text-foreground">
+            {festival.openAt}
+            {festival.closeAt && ` - ${festival.closeAt}`}
+          </span>
+        </div>
+        
+        {festival.endAt && (
+          <div className="flex items-center gap-2">
+            <Clock className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+            <span className="font-medium text-sm text-foreground">Ends at:</span>
+            <span className="text-sm text-foreground">{festival.endAt}</span>
+          </div>
+        )}
+      </div>
+
+      {/* Notes/Description */}
+      {festival.notes && (
+        <div className="flex items-start gap-2">
+          <Sparkles className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+          <div className="min-w-0 flex-1">
+            <span className="font-medium text-sm text-foreground">Details:</span>
+            <p className="text-sm text-foreground mt-1 leading-relaxed">{festival.notes}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function Calendar() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -80,7 +129,7 @@ export default function Calendar() {
 
   const eventsByDay = useMemo(() => {
     const combined: CombinedEvent[] = [
-      ...model.events.map((e) => ({ ...e, type: 'festival' as const })),
+      ...model.events.map((e) => ({ ...e, type: 'festival' as const, festival: e })),
       ...birthdays,
     ]
     const map: Record<number, CombinedEvent[]> = {}
@@ -280,10 +329,23 @@ export default function Calendar() {
                         {eventsByDay[cell.day]?.map((ev, i) => (
                           <div key={i} className="flex items-center gap-2">
                             {ev.type === 'festival' ? (
-                              <>
-                                <Flag className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
-                                <span className="text-xs sm:text-sm md:text-[15px] leading-tight">{ev.title}</span>
-                              </>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <div className="flex items-center gap-2 cursor-pointer group">
+                                    <Flag className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
+                                    <span className="text-xs sm:text-sm md:text-[15px] leading-tight group-hover:text-foreground group-hover:font-medium transition-all duration-200">{ev.title}</span>
+                                  </div>
+                                </TooltipTrigger>
+                                <TooltipContent 
+                                  side="top" 
+                                  className="max-w-md w-80 p-0 bg-background border shadow-xl"
+                                  sideOffset={8}
+                                >
+                                  <div className="p-4 text-foreground">
+                                    <FestivalDetails festival={ev.festival!} />
+                                  </div>
+                                </TooltipContent>
+                              </Tooltip>
                             ) : (
                               ev.residentName ? (
                                 <Link
@@ -342,15 +404,9 @@ export default function Calendar() {
             {selectedDay && eventsByDay[selectedDay] && eventsByDay[selectedDay].length > 0 ? (
               <div className="space-y-4">
                 {eventsByDay[selectedDay].map((ev, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 rounded-lg border bg-card">
+                  <div key={i} className="p-4 rounded-lg border bg-card">
                     {ev.type === 'festival' ? (
-                      <>
-                        <Flag className="h-8 w-8 text-green-600 flex-shrink-0" />
-                        <div>
-                          <div className="font-semibold text-lg">{ev.title}</div>
-                          <div className="text-sm text-muted-foreground">Festival</div>
-                        </div>
-                      </>
+                      <FestivalDetails festival={ev.festival!} />
                     ) : ev.residentName ? (
                       <Link
                         to={`/?resident=${encodeURIComponent(ev.residentName)}`}
