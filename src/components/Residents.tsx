@@ -127,11 +127,28 @@ export default function Residents() {
     }
   }
 
-  function BirthdayBadge({ resident }: { resident: Resident }) {
+  function BirthdayBadge({ resident, variant = 'default' }: { resident: Resident; variant?: 'default' | 'floating' }) {
     if (!resident.birthday) return null
     
     const { season, day } = resident.birthday
     const SeasonIcon = seasonIcon[season]
+    
+    if (variant === 'floating') {
+      return (
+        <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex items-center justify-center px-2 py-1 rounded-full border-2 border-background shadow-lg backdrop-blur-sm ${
+          season === 'Spring' ? 'bg-rose-500 text-white' :
+          season === 'Summer' ? 'bg-green-500 text-white' :
+          season === 'Autumn' ? 'bg-amber-500 text-white' :
+          'bg-sky-500 text-white'
+        }`}>
+          <div className="flex items-center gap-1 whitespace-nowrap">
+            <Cake className="h-3 w-3" />
+            <SeasonIcon className="h-3 w-3" />
+            <span className="text-[10px] font-bold leading-none">{season.slice(0, 3)} {day}</span>
+          </div>
+        </div>
+      )
+    }
     
     return (
       <div className={`inline-flex items-center gap-2 px-2.5 py-1.5 rounded-lg border ${seasonColors[season]} bg-background/60`}>
@@ -184,7 +201,7 @@ export default function Residents() {
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <div className="flex justify-center">
-                <div className="p-[6px] rounded-2xl bg-gradient-to-br from-[var(--chart-2)] via-[var(--chart-1)] to-[var(--chart-3)]">
+                <div className="relative p-[6px] rounded-2xl bg-gradient-to-br from-[var(--chart-2)] via-[var(--chart-1)] to-[var(--chart-3)]">
                   <img
                     src={toAvatarFilename(current.name)}
                     onError={(e) => {
@@ -193,17 +210,13 @@ export default function Residents() {
                     alt={current.name}
                     className={`${isMobile ? 'h-36 w-36' : 'h-44 w-44'} md:h-64 md:w-64 rounded-xl object-cover border-2 border-background shadow-lg`}
                   />
+                  {isMobile && <BirthdayBadge resident={current} variant="floating" />}
                 </div>
               </div>
               <div className="space-y-4 min-w-0">
-                <div className="flex items-baseline justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">{current.name}</h2>
-                    <div className="md:hidden">
-                      <BirthdayBadge resident={current} />
-                    </div>
-                  </div>
-                  <div className="flex md:hidden gap-2">
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">{current.name}</h2>
+                  <div className="flex md:hidden gap-2 shrink-0">
                     <button
                       className="h-10 w-10 flex items-center justify-center rounded-full border bg-background/80 hover:bg-accent"
                       aria-label="Previous"

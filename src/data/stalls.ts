@@ -467,7 +467,7 @@ export const bazaarData: BaazarStalls = [
       {
         "name": "Happy Box: Bazaar",
         "price": 30000,
-        "unit": "G",
+        "unit": "Energy",
         "category": "Warp",
         "notes":
           "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
@@ -475,7 +475,7 @@ export const bazaarData: BaazarStalls = [
       {
         "name": "Happy Box: Zephyr Town",
         "price": 60000,
-        "unit": "G",
+        "unit": "Energy",
         "category": "Warp",
         "notes":
           "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
@@ -483,7 +483,7 @@ export const bazaarData: BaazarStalls = [
       {
         "name": "Happy Box: Red Windmill",
         "price": 30000,
-        "unit": "G",
+        "unit": "Energy",
         "category": "Warp",
         "notes":
           "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
@@ -491,7 +491,7 @@ export const bazaarData: BaazarStalls = [
       {
         "name": "Happy Box: Blue Windmill",
         "price": 50000,
-        "unit": "G",
+        "unit": "Energy",
         "category": "Warp",
         "notes":
           "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
@@ -499,7 +499,7 @@ export const bazaarData: BaazarStalls = [
       {
         "name": "Happy Box: Yellow Windmill",
         "price": 90000,
-        "unit": "G",
+        "unit": "Energy",
         "category": "Warp",
         "notes":
           "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
@@ -507,7 +507,7 @@ export const bazaarData: BaazarStalls = [
       {
         "name": "Happy Box: Mountains",
         "price": 150000,
-        "unit": "G",
+        "unit": "Energy",
         "category": "Warp",
         "notes":
           "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
@@ -515,7 +515,7 @@ export const bazaarData: BaazarStalls = [
       {
         "name": "Happy Box: Equestrian Park",
         "price": 30000,
-        "unit": "G",
+        "unit": "Energy",
         "category": "Warp",
         "notes":
           "Makes the Sprite Box by your bazaar stall more powerful. If you jump inside, you can warp yourself home.",
