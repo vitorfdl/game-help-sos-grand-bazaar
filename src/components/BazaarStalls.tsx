@@ -248,7 +248,12 @@ export default function BazaarStalls() {
     const q = query.trim().toLowerCase()
     const base = filter === 'all' ? stalls : stalls.filter((s) => s.id === filter)
     
-    const processed = base.map((s) => {
+    // First, identify truly empty stalls (those with no items at all)
+    const trulyEmptyStalls = base.filter((s) => s.items.length === 0)
+    
+    // Process stalls that have items
+    const stallsWithItems = base.filter((s) => s.items.length > 0)
+    const processed = stallsWithItems.map((s) => {
       let items = s.items
       
       // Filter by stall-specific category
@@ -265,9 +270,13 @@ export default function BazaarStalls() {
       return { ...s, items }
     })
     
-    // Separate empty stalls from stalls with items
-    const emptyStalls = processed.filter((s) => s.items.length === 0)
+    // Separate processed stalls: those with remaining items vs those filtered out
     const visibleStalls = processed.filter((s) => s.items.length > 0)
+    const filteredOutStalls = processed.filter((s) => s.items.length === 0)
+    
+    // Only show empty stalls as "coming soon" if there's no search query
+    // If there's a search query, don't show truly empty stalls
+    const emptyStalls = q ? [] : trulyEmptyStalls
     
     return { visibleStalls, emptyStalls }
   }, [filter, query, stalls, stallCategories])
