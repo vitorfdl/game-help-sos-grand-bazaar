@@ -189,7 +189,7 @@ const RedWindmill: Windmill = {
     },
     {
       id: "presents",
-      title: "Presents",
+      title: "Acessories",
       items: [
         {
           name: "Black Necklace",
@@ -730,7 +730,7 @@ const BlueWindmill: Windmill = {
     },
     {
       id: "presents",
-      title: "Presents",
+      title: "Acessories",
       items: [
         {
           name: "Purple Necklace",
@@ -1337,7 +1337,7 @@ const BlueWindmill: Windmill = {
     },
     {
       id: "mushroom_spores",
-      title: "Mushroom Spores",
+      title: "Mushroom",
       items: [
         {
           name: "Shiitake Spores",
@@ -1591,7 +1591,7 @@ const YellowWindmill: Windmill = {
     },
     {
       id: "presents",
-      title: "Presents",
+      title: "Acessories",
       items: [
         {
           name: "Red Necklace",
