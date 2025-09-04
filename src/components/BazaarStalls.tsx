@@ -343,7 +343,7 @@ export default function BazaarStalls() {
             <div className="flex items-center gap-2">
               <span className="font-medium">{item.name}</span>
               {item.category && (
-                <Badge variant="secondary" className="text-xs">
+                <Badge variant="square" className="text-xs">
                   {item.category}
                 </Badge>
               )}

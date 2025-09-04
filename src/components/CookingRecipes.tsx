@@ -152,7 +152,7 @@ export default function CookingRecipes() {
           {/* Recipe ingredients - more compact */}
           <div className="flex flex-wrap gap-1">
             {recipe.recipe.map((ingredient, index) => (
-              <Badge key={index} variant="secondary" className="text-xs">
+              <Badge key={index} variant="square" className="text-xs">
                 {ingredient}
               </Badge>
             ))}
@@ -208,7 +208,7 @@ export default function CookingRecipes() {
       label: 'Type',
       render: (recipe: RecipeItem) => (
         recipe.type ? (
-          <Badge variant="outline" className={`text-xs ${getTypeBadgeVariant(recipe.type)}`}>
+          <Badge variant="square" className={`text-xs ${getTypeBadgeVariant(recipe.type)}`}>
             {recipe.type}
           </Badge>
         ) : (
@@ -229,7 +229,7 @@ export default function CookingRecipes() {
       render: (recipe: RecipeItem) => (
         <div className="flex flex-wrap gap-1">
           {recipe.recipe.map((ingredient, index) => (
-            <Badge key={index} variant="secondary" className="text-xs">
+            <Badge key={index} variant="square" className="text-xs">
               {ingredient}
             </Badge>
           ))}
@@ -297,6 +297,12 @@ export default function CookingRecipes() {
         </div>
       </div>
 
+
+      <div className="mb-4 inline-flex items-center gap-2 rounded-lg border bg-secondary/60 px-3 py-2 text-sm text-muted-foreground">
+        <Info className="h-4 w-4" />
+        <span>Content under construction — utensils, source, and adaptation options will be added as we progress.</span>
+      </div>
+
       {/* Category Filter */}
       <div className="mb-4">
         <CategoryFilter
@@ -305,12 +311,6 @@ export default function CookingRecipes() {
           onCategoryChange={setSelectedCategory}
         />
       </div>
-
-      <div className="mb-4 inline-flex items-center gap-2 rounded-lg border bg-secondary/60 px-3 py-2 text-sm text-muted-foreground">
-        <Info className="h-4 w-4" />
-        <span>Content under construction — utensils, source, and adaptation options will be added as we progress.</span>
-      </div>
-
       <SortableTable
         data={filtered}
         columns={columns}

@@ -317,6 +317,11 @@ export default function Residents() {
                     key={r.name}
                     data-index={idx}
                     onClick={() => {
+                      // Clear all filters when clicking on a resident (mobile only)
+                      if (isMobile) {
+                        setQuery('')
+                        setGroup('All')
+                      }
                       selectByName(r.name)
                       // Auto-collapse footer on mobile after selection
                       if (isMobile) {
