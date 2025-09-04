@@ -53,9 +53,9 @@ export default function CookingRecipes() {
     }
   }
 
-  // For mobile, we only support sorting by name
-  const mobileSortColumn = isMobile ? 'name' : sortColumn
-  const mobileSortDirection = isMobile ? sortDirection : sortDirection
+  // For mobile, we support sorting by name and price
+  const mobileSortColumn = isMobile ? (sortColumn === 'name' || sortColumn === 'price' ? sortColumn : 'name') : sortColumn
+  const mobileSortDirection = sortDirection
 
   // Get unique categories from recipes
   const categories = useMemo(() => {
@@ -140,19 +140,12 @@ export default function CookingRecipes() {
       label: 'Dish',
       render: (recipe: RecipeItem) => (
         <div className="space-y-1.5">
-          <div className="flex items-center justify-between gap-2">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-medium">{recipe.dish}</span>
-              {recipe.type && (
-                <Badge variant="outline" className={`text-xs ${getTypeBadgeVariant(recipe.type)}`}>
-                  {recipe.type}
-                </Badge>
-              )}
-            </div>
-            {recipe.salesPrice != null && (
-              <span className="text-sm font-semibold text-emerald-400 bg-emerald-900/20 px-2 py-0.5 rounded-md shrink-0">
-                {recipe.salesPrice} G
-              </span>
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="font-medium">{recipe.dish}</span>
+            {recipe.type && (
+              <Badge variant="outline" className={`text-xs ${getTypeBadgeVariant(recipe.type)}`}>
+                {recipe.type}
+              </Badge>
             )}
           </div>
           
@@ -188,6 +181,22 @@ export default function CookingRecipes() {
               </div>
             )}
           </div>
+        </div>
+      )
+    },
+    {
+      key: 'price',
+      label: 'Price',
+      className: 'text-right',
+      render: (recipe: RecipeItem) => (
+        <div className="text-right">
+          {recipe.salesPrice != null ? (
+            <span className="text-sm font-semibold text-emerald-400 bg-emerald-900/20 px-2 py-0.5 rounded-md inline-block">
+              {recipe.salesPrice} G
+            </span>
+          ) : (
+            <span className="text-muted-foreground">—</span>
+          )}
         </div>
       )
     }
