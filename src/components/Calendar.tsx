@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { CalendarDays, ChevronLeft, ChevronRight, Flag, Bell, Sun, Snowflake, Leaf, Flower2, Clock, MapPin, Sparkles } from 'lucide-react'
+import { CalendarDays, ChevronLeft, ChevronRight, Flag, Bell, Sun, Snowflake, Leaf, Flower2, Clock, Sparkles } from 'lucide-react'
 import { festivalsFor, type Season, type Festival } from '@/data/calendar'
 import { withBase } from '@/lib/utils'
 import { residents as allResidents, avatarFileOverrides } from '@/data/residents'
