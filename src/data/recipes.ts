@@ -500,7 +500,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Tomato Salad",
-    recipe: ["1x Tomato"],
+    recipe: ["1x Tomato", "1x Any Herb"],
     salesPrice: 128,
     utensils: null,
     whereToGet: "Mini Madeleine",
@@ -1085,10 +1085,15 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Donuts",
-    recipe: [],
+    recipe: [
+      "1x Wheat Flour",
+      "1x Egg (or Silkie Egg)",
+      "1x Any Oil",
+      "1x Sugar",
+    ],
     type: "Dessert",
     salesPrice: 1332,
-    utensils: null,
+    utensils: ["Cooking Pot"],
     whereToGet: "“Me and Mom Baked 'Em!” (Sylvia)",
     adaptOptions: null,
     effect: "Petting Happiness Up Lv. 3",
@@ -1431,7 +1436,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Shumai Dumplings",
     type: "Sides",
-    recipe: ["1x Wheat Flour", "1x Onion", "1x Any Fish"],
+    recipe: ["1x Wheat Flour", "1x Onion", "1x Any Small Fish"],
     salesPrice: 924,
     utensils: null,
     whereToGet: "Sonia's Request",
@@ -1572,7 +1577,7 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Tofu Skin",
     type: "Sides",
-    recipe: [],
+    recipe: ["1x Soybean", "1x Soy Milk"],
     salesPrice: 111,
     utensils: null,
     whereToGet: "Clara's Diner",
@@ -2478,7 +2483,12 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Specialty Juice",
     type: "Other (Juice)",
-    recipe: [],
+    recipe: [
+      "1x Spring Juice",
+      "1x Summer Juice",
+      "1x Autumn Juice",
+      "1x Royal Honey",
+    ],
     salesPrice: 9511,
     utensils: null,
     whereToGet: "Best Juice at the Juice Festival",

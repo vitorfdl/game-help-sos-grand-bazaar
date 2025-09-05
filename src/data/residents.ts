@@ -35,7 +35,7 @@ export const residents: Resident[] = [
       "Elephant Beetle",
       "Hercules Beetle",
     ],
-    likes: ["Stag Beetles", "Curries", "Ricebowl Dishes"],
+    likes: ["Stag Beetles", "Curries", "Ricebowl Dishes", "Tea Leaves"],
     birthday: { season: "Summer", day: 12 },
   },
   {
@@ -68,8 +68,8 @@ export const residents: Resident[] = [
   {
     name: "Arata",
     group: "Bachelors",
-    favorite: ["Unadon", "Warm Milk"],
-    likes: ["Warm Milk", "Onigiri", "Omelet", "Fishes", "Curries"],
+    favorite: ["Unadon", "Warm Milk", "Rainbow Curry"],
+    likes: ["Milk", "Sashimi", "Onigiri", "Omelet", "Fishes", "Curries"],
     birthday: { season: "Winter", day: 17 },
   },
 
@@ -91,14 +91,22 @@ export const residents: Resident[] = [
   {
     name: "Freya",
     group: "Bachelorettes",
-    favorite: ["Citrus Perfume", "Moonstone", "Peridot"],
+    favorite: [
+      "Pizza",
+      "Citrus Perfume",
+      "Moonstone",
+      "Peridot",
+      "Topaz",
+      "Sandstone",
+      "Any Gem",
+    ],
     likes: ["Accessories", "Jewels", "Swallowtail Butterfly", "Warm Milk"],
     birthday: { season: "Autumn", day: 25 },
   },
   {
     name: "Maple",
     group: "Bachelorettes",
-    favorite: ["Engadiner Nusstorte", "Cookies"],
+    favorite: ["Engadiner Nusstorte", "Cookies", "Pancakes", "Churros"],
     likes: ["Sweets", "Flowers", "Butterflies", "Honey Juice", "Walnut Juice"],
     birthday: { season: "Autumn", day: 14 },
   },
@@ -128,7 +136,7 @@ export const residents: Resident[] = [
   {
     name: "Felix",
     group: "Villagers",
-    favorite: ["Spicy Curry"],
+    favorite: ["Spicy Curry", "Bouillabaisse", "Rainbow Curry", "Rice Gratin"],
     likes: ["Curries", "Stag Beetles", "Magic Red Grass", "Cheese", "Risotto"],
     birthday: { season: "Summer", day: 1 },
   },
@@ -150,14 +158,20 @@ export const residents: Resident[] = [
   {
     name: "Stuart",
     group: "Villagers",
-    favorite: ["Mont Blanc Cake", "Pasta"],
+    favorite: ["Mont Blanc Cake", "Pasta", "Spring Tea"],
     likes: ["Noodles", "Teas", "Pickles", "Honey Juice", "Fried Egg"],
     birthday: { season: "Autumn", day: 11 },
   },
   {
     name: "Sonia",
     group: "Villagers",
-    favorite: ["Strawberry Juice", "Tomato Juice", "Any fruit juice"],
+    favorite: [
+      "Strawberry Juice",
+      "Tomato Juice",
+      "Any fruit juice",
+      "Strawberry Pie",
+      "Cherry Tea",
+    ],
     likes: ["Juices", "Teas", "Wild Herbs", "Poached Egg", "Toy Flower"],
     birthday: { season: "Spring", day: 25 },
   },
@@ -185,7 +199,7 @@ export const residents: Resident[] = [
   {
     name: "Clara",
     group: "Villagers",
-    favorite: ["Pickled Broccoli", "Pickled Onion"],
+    favorite: ["Pickled Broccoli", "Pickled Onion", "Any Pickles"],
     likes: ["Pickles", "Homemade Dishes", "Mushrooms", "Soy Milk", "Chamomile"],
     birthday: { season: "Autumn", day: 29 },
   },
@@ -220,7 +234,7 @@ export const residents: Resident[] = [
   {
     name: "Nadine",
     group: "Villagers",
-    favorite: ["Milk+", "Floral Perfume"],
+    favorite: ["Milk+", "Floral Perfume", "Milk Rice Porridge", "Herb Soup"],
     likes: ["Soups", "Warm Milk", "Pickles", "Pale Chub"],
     birthday: { season: "Summer", day: 30 },
   },
@@ -259,6 +273,7 @@ export const residents: Resident[] = [
       "Black Necklace",
       "Chartreuse Brooch",
       "Black Firefly",
+      "French Fries",
     ],
     likes: ["Accessories", "Fireflies", "Magic Red Grass", "Medal", "Bread"],
     birthday: { season: "Summer", day: 21 },
