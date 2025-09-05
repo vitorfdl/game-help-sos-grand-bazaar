@@ -1110,7 +1110,7 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Croquettes",
-    recipe: ["Sides"],
+    recipe: ["1x Potato", "1x Breadcrumbs/White Breadcrumbs", "1x Any Oil"],
     type: "Sides",
     salesPrice: 709,
     utensils: null,
@@ -1476,9 +1476,9 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Vegetable Curry",
-    recipe: [],
+    recipe: ["1x Cooked Rice", "1x Curry Powder", "1x Any Vegetable"],
     salesPrice: 911,
-    utensils: null,
+    utensils: ["Cooking Pot"],
     whereToGet: "Diana Request",
     adaptOptions: null,
     type: "Main Dish",
@@ -1907,11 +1907,11 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Castella",
     type: "Dessert",
-    recipe: [],
+    recipe: ["1x Wheat Flour", "1x Silkie Egg", "1x Any Honey"],
     salesPrice: 801,
     utensils: null,
     whereToGet: "Clara's Diner",
-    adaptOptions: null,
+    adaptOptions: ["Milk", "Pudding"],
     effect: "Petting Happiness Up Lv. 2",
   },
   {
