@@ -221,14 +221,14 @@ export const bazaarData: BaazarStalls = [
         "unit": "G",
         "category": "Field Expansion",
         "notes":
-          "Builds a cellar to keep a fourth field; set sun stones to grow crops from any season. Completion time: 3 days.",
+          "Builds a cellar to keep a fourth field; set sun stones to grow crops from any season. Takes: 3 days.",
       },
       {
         "name": "Grand Storage Expansion",
         "price": 300000,
         "unit": "G",
         "category": "Storage Expansion",
-        "notes": "Expands storage to 216 items. Completion time: 1 day.",
+        "notes": "Expands storage to 216 items. Takes: 1 day.",
       },
     ],
   },
@@ -266,6 +266,13 @@ export const bazaarData: BaazarStalls = [
         unit: "G",
         category: "Storage Power-up",
         notes: "Keeps items fresher for significantly longer. Takes 1 day.",
+      },
+      {
+        "name": "Good Storage Power-Up",
+        "price": 500000,
+        "unit": "G",
+        "category": "Storage Power-up",
+        "notes": "Keeps items in storage fresh much longer; Takes: 1 day",
       },
       {
         name: "Frying Pan",
