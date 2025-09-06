@@ -105,7 +105,7 @@ const FESTIVAL_DEFINITIONS: { [key: string]: Omit<Festival, "day"> } = {
   "Hearth Day": {
     title: "Hearth Day",
     openAt: "9:00 AM",
-    closeAt: "4:00 PM",
+    closeAt: "10:00 PM",
     notes:
       "Give warm recipes to any person in town. Acts as special gift allowing additional normal gifts. Herb Soup recommended.",
   },
