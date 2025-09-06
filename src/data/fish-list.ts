@@ -109,6 +109,14 @@ export const fishList: FishEntry[] = [
     baseValue: 100,
   },
   {
+    fish: "Pond Smelt",
+    size: FishSize.Small,
+    season: [Season.Winter],
+    weather: [Weather.Any],
+    locations: ["North Pond east of Mayor's House"],
+    baseValue: 120,
+  },
+  {
     fish: "Dark Chub",
     size: FishSize.Small,
     season: [Season.Spring, Season.Summer],

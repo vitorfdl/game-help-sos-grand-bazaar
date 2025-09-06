@@ -705,7 +705,7 @@ export const recipes: RecipeItem[] = [
     effect: "Pet Training Up Lv. 3",
   },
   {
-    dish: "Hwns",
+    dish: "Hash Browns",
     recipe: [
       "1x Potato",
       "1x Wheat Flour",
@@ -1204,16 +1204,6 @@ export const recipes: RecipeItem[] = [
     effect: "Max Stamina Up Lv. 2",
   },
   {
-    dish: "Hash Browns",
-    type: "Sides",
-    recipe: [],
-    salesPrice: 632,
-    utensils: null,
-    whereToGet: "Mini Madeleine",
-    adaptOptions: null,
-    effect: "Max Stamina Up Lv. 2",
-  },
-  {
     dish: "Baguettes",
     type: "Sides",
     recipe: ["1x Wheat Flour", "1x Salt"],
@@ -1476,10 +1466,10 @@ export const recipes: RecipeItem[] = [
 
   {
     dish: "Stuffed Cabbage",
-    type: undefined,
-    recipe: [],
+    type: "Sides",
+    recipe: ["1x Cabbage", "1x Carrot"],
     salesPrice: 1213,
-    utensils: null,
+    utensils: ["Cooking Pot"],
     whereToGet: "Madeleine Request (Famed Foodie) / Diana's Gift on Hearth Day",
     adaptOptions: null,
     effect: "Max Stamina Up Lv. 3",
@@ -2155,9 +2145,13 @@ export const recipes: RecipeItem[] = [
   },
   {
     dish: "Burgundy Fondue",
-    recipe: [],
+    recipe: [
+      "1x Olive Oil",
+      "1x Any Bread",
+      "1x Vegetable (Brocolli/Asparagus/Carrot/Pumpkin/C.Mushroom/Potato) ",
+    ],
     salesPrice: 1325,
-    utensils: null,
+    utensils: ["Cooking Pot"],
     whereToGet: "Nadine's Bistro",
     adaptOptions: null,
     type: "Main Dish",
