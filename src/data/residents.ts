@@ -34,6 +34,7 @@ export const residents: Resident[] = [
       "Rhinoceros Beetle",
       "Elephant Beetle",
       "Hercules Beetle",
+      "Hot Pot",
     ],
     likes: ["Stag Beetles", "Curries", "Ricebowl Dishes", "Tea Leaves"],
     birthday: { season: "Summer", day: 12 },

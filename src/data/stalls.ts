@@ -1646,7 +1646,7 @@ export const bazaarData: BaazarStalls = [
     ],
   },
   {
-    name: "Destiny's Furtune Teller",
+    name: "Destiny's Fortune Teller",
     description: "Tell your fortune and provides a buff.",
     rank: 6,
     items: [],

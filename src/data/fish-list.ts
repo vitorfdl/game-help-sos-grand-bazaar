@@ -257,10 +257,10 @@ export const fishList: FishEntry[] = [
   },
   {
     fish: "Koi",
-    size: FishSize.Unknown,
+    size: FishSize.Guardian,
     season: [Season.Winter],
     weather: [Weather.Sunny, Weather.LightSnow],
-    locations: ["Zephyr Town"],
+    locations: ["Zephyr Town, pond by the Yellow Windmill"],
     baseValue: null,
   },
   {
