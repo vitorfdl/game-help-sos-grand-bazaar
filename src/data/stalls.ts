@@ -215,6 +215,21 @@ export const bazaarData: BaazarStalls = [
         category: "Upgrade",
         notes: "Upgrades to a bed for two; required to propose. Takes 1 day.",
       },
+      {
+        "name": "Cellar Construction",
+        "price": 1000000,
+        "unit": "G",
+        "category": "Field Expansion",
+        "notes":
+          "Builds a cellar to keep a fourth field; set sun stones to grow crops from any season. Completion time: 3 days.",
+      },
+      {
+        "name": "Grand Storage Expansion",
+        "price": 300000,
+        "unit": "G",
+        "category": "Storage Expansion",
+        "notes": "Expands storage to 216 items. Completion time: 1 day.",
+      },
     ],
   },
   {
@@ -1601,9 +1616,32 @@ export const bazaarData: BaazarStalls = [
     items: [],
   },
   {
-    name: "Rich's Stall",
-    description: "Sells items purchasable with medals and special currency.",
+    name: "Prize Palooza",
+    description:
+      "Exchange medals for draws at the prize stall. Winning can score you a very valuable item.",
     rank: 5,
+    items: [
+      {
+        name: "Gold Medal",
+        price: "1",
+        category: "Medal",
+      },
+      {
+        name: "Silver Medal",
+        price: "3",
+        category: "Medal",
+      },
+      {
+        name: "Bronze Medal",
+        price: "5",
+        category: "Medal",
+      },
+    ],
+  },
+  {
+    name: "Destiny's Furtune Teller",
+    description: "Tell your fortune and provides a buff.",
+    rank: 6,
     items: [],
   },
 ];
