@@ -8,6 +8,7 @@ export interface Resident {
   favorite: string[];
   likes: string[];
   birthday?: { season: Season; day: number };
+  external_doc: string;
 }
 
 export const residents: Resident[] = [
@@ -25,6 +26,8 @@ export const residents: Resident[] = [
       "Floral Perfume",
     ],
     birthday: { season: "Autumn", day: 20 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543450",
   },
   {
     name: "Derek",
@@ -38,6 +41,8 @@ export const residents: Resident[] = [
     ],
     likes: ["Stag Beetles", "Curries", "Ricebowl Dishes", "Tea Leaves"],
     birthday: { season: "Summer", day: 12 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543500",
   },
   {
     name: "Lloyd",
@@ -51,13 +56,17 @@ export const residents: Resident[] = [
       "Smallheaded Locusts",
     ],
     birthday: { season: "Autumn", day: 3 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543501",
   },
   {
     name: "Gabriel",
     group: "Bachelors",
-    favorite: ["Omelet Rice", "Sashimi", "Tofu"],
+    favorite: ["Omelet Rice", "Tofu"],
     likes: ["Gratin", "Fruit Dishes", "Ice Cream", "Pizza", "Sweets"],
     birthday: { season: "Winter", day: 28 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543502",
   },
   {
     name: "Samir",
@@ -65,6 +74,8 @@ export const residents: Resident[] = [
     favorite: ["Cooked Rice", "Chocolate-Covered Banana", "Cookies", "Stew"],
     likes: ["Rice", "Rice Dishes", "Grilled Fish", "Stag Beetles"],
     birthday: { season: "Winter", day: 26 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543503",
   },
   {
     name: "Arata",
@@ -72,6 +83,8 @@ export const residents: Resident[] = [
     favorite: ["Unadon", "Warm Milk", "Rainbow Curry"],
     likes: ["Milk", "Sashimi", "Onigiri", "Omelet", "Fishes", "Curries"],
     birthday: { season: "Winter", day: 17 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543504",
   },
 
   // Bachelorettes
@@ -81,6 +94,8 @@ export const residents: Resident[] = [
     favorite: ["Herb Salad"],
     likes: ["Pickles", "Salads", "Moondrop Flower", "Rice Porridge"],
     birthday: { season: "Spring", day: 16 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543485",
   },
   {
     name: "June",
@@ -88,6 +103,8 @@ export const residents: Resident[] = [
     favorite: ["Cherry Tea"],
     likes: ["Accessories", "Teas", "Frogs"],
     birthday: { season: "Winter", day: 12 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543486",
   },
   {
     name: "Freya",
@@ -103,6 +120,8 @@ export const residents: Resident[] = [
     ],
     likes: ["Accessories", "Jewels", "Swallowtail Butterfly", "Warm Milk"],
     birthday: { season: "Autumn", day: 25 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543487",
   },
   {
     name: "Maple",
@@ -110,6 +129,8 @@ export const residents: Resident[] = [
     favorite: ["Engadiner Nusstorte", "Cookies", "Pancakes", "Churros"],
     likes: ["Sweets", "Flowers", "Butterflies", "Honey Juice", "Walnut Juice"],
     birthday: { season: "Autumn", day: 14 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543488",
   },
   {
     name: "Kagetsu",
@@ -117,6 +138,8 @@ export const residents: Resident[] = [
     favorite: ["Soy Milk Pudding"],
     likes: ["Soy Milk", "Tofu Dishes", "Vegetable Dishes", "Crops"],
     birthday: { season: "Spring", day: 5 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543489",
   },
   {
     name: "Diana",
@@ -131,6 +154,8 @@ export const residents: Resident[] = [
       "Ice Cream",
     ],
     birthday: { season: "Autumn", day: 22 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543490",
   },
 
   // Villagers (page 1)
@@ -140,6 +165,8 @@ export const residents: Resident[] = [
     favorite: ["Spicy Curry", "Bouillabaisse", "Rainbow Curry", "Rice Gratin"],
     likes: ["Curries", "Stag Beetles", "Magic Red Grass", "Cheese", "Risotto"],
     birthday: { season: "Summer", day: 1 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543871",
   },
   {
     name: "Erik",
@@ -155,6 +182,8 @@ export const residents: Resident[] = [
       "Green Tea",
     ],
     birthday: { season: "Spring", day: 20 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543873",
   },
   {
     name: "Stuart",
@@ -162,6 +191,8 @@ export const residents: Resident[] = [
     favorite: ["Mont Blanc Cake", "Pasta", "Spring Tea"],
     likes: ["Noodles", "Teas", "Pickles", "Honey Juice", "Fried Egg"],
     birthday: { season: "Autumn", day: 11 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543874",
   },
   {
     name: "Sonia",
@@ -175,6 +206,8 @@ export const residents: Resident[] = [
     ],
     likes: ["Juices", "Teas", "Wild Herbs", "Poached Egg", "Toy Flower"],
     birthday: { season: "Spring", day: 25 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543875",
   },
   {
     name: "Madeleine",
@@ -182,6 +215,8 @@ export const residents: Resident[] = [
     favorite: ["Fruit Sandwich", "Strawberry Pie"],
     likes: ["Pies", "Wild Herbs", "Fruits Dishes", "Strawberry", "Rice Flour"],
     birthday: { season: "Spring", day: 18 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543876",
   },
   {
     name: "Mina",
@@ -189,6 +224,8 @@ export const residents: Resident[] = [
     favorite: ["Herb Pasta", "Mushroom Pasta"],
     likes: ["Herbs", "Herbs Dishes", "Wild Herbs", "Cookies", "Pansy"],
     birthday: { season: "Winter", day: 4 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543877",
   },
   {
     name: "Wilbur",
@@ -196,6 +233,8 @@ export const residents: Resident[] = [
     favorite: ["Steamed Mushroom"],
     likes: ["Eggplant Dishes", "Fishes", "Beetles", "Cooked Rice"],
     birthday: { season: "Summer", day: 3 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543878",
   },
   {
     name: "Clara",
@@ -203,6 +242,8 @@ export const residents: Resident[] = [
     favorite: ["Pickled Broccoli", "Pickled Onion", "Any Pickles"],
     likes: ["Pickles", "Homemade Dishes", "Mushrooms", "Soy Milk", "Chamomile"],
     birthday: { season: "Autumn", day: 29 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543879",
   },
   {
     name: "Kevin",
@@ -224,6 +265,8 @@ export const residents: Resident[] = [
       "Butterfly Sticker",
     ],
     birthday: { season: "Summer", day: 25 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543880",
   },
   {
     name: "Isaac",
@@ -231,6 +274,8 @@ export const residents: Resident[] = [
     favorite: ["Jam-Filled Bun", "Sandwich"],
     likes: ["Sandwiches", "Sweets", "Cicadas"],
     birthday: { season: "Autumn", day: 6 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543881",
   },
   {
     name: "Nadine",
@@ -238,6 +283,8 @@ export const residents: Resident[] = [
     favorite: ["Milk+", "Floral Perfume", "Milk Rice Porridge", "Herb Soup"],
     likes: ["Soups", "Warm Milk", "Pickles", "Pale Chub"],
     birthday: { season: "Summer", day: 30 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543882",
   },
   {
     name: "Sylvia",
@@ -245,6 +292,8 @@ export const residents: Resident[] = [
     favorite: ["Donuts", "Baked Sweet Potato", "Omelet"],
     likes: ["Sweets", "Egg Dishes", "Fishes", "Pasta"],
     birthday: { season: "Autumn", day: 18 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543883",
   },
   {
     name: "Laurie",
@@ -252,6 +301,8 @@ export const residents: Resident[] = [
     favorite: ["Sweet Potato Cakes", "Baked Sweet Potato", "Omelet"],
     likes: ["Sweets", "Herbs", "Fireflies", "Popcorn"],
     birthday: { season: "Autumn", day: 18 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543884",
   },
   {
     name: "Harold",
@@ -259,12 +310,16 @@ export const residents: Resident[] = [
     favorite: ["Supreme Curry", "Soy Milk Pudding"],
     likes: ["Puddings", "Teas", "Beetles"],
     birthday: { season: "Summer", day: 7 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/547034",
   },
   {
     name: "Sherene",
     group: "Villagers",
     favorite: ["Seaweed Curry"],
     likes: ["Chocolate Dishes", "Marigold", "Wild Herbs"],
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/547035",
   },
   {
     name: "Miguel",
@@ -278,6 +333,8 @@ export const residents: Resident[] = [
     ],
     likes: ["Accessories", "Fireflies", "Magic Red Grass", "Medal", "Bread"],
     birthday: { season: "Summer", day: 21 },
+    external_doc:
+      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543872",
   },
 ];
 
