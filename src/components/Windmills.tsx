@@ -153,8 +153,8 @@ function RecipeIngredients(
                     {choice}
                   </Badge>
                   {choiceIndex < ingredient.oneOf.length - 1 && (
-                    <span className="mx-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-600/80 dark:text-amber-300/70">
-                      or
+                    <span className="mx-0 text-[10px] font-semibold uppercase tracking-wide text-amber-600/80 dark:text-amber-300/70">
+                      /
                     </span>
                   )}
                 </div>
