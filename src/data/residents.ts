@@ -62,7 +62,7 @@ export const residents: Resident[] = [
   {
     name: "Gabriel",
     group: "Bachelors",
-    favorite: ["Omelet Rice", "Tofu"],
+    favorite: ["Omelet Rice"],
     likes: ["Gratin", "Fruit Dishes", "Ice Cream", "Pizza", "Sweets"],
     birthday: { season: "Winter", day: 28 },
     external_doc:
