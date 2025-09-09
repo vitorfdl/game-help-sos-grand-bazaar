@@ -3,175 +3,163 @@ export type ResidentGroup = "Bachelors" | "Bachelorettes" | "Villagers";
 import type { Season } from "@/data/types";
 
 export interface Resident {
-  name: string;
-  group: ResidentGroup;
-  favorite: string[];
-  likes: string[];
-  birthday?: { season: Season; day: number };
-  external_doc: string;
-}
+	name: string;
+	group: ResidentGroup;
+	favorite?: string;
+	loves: string[];
+	likes: string[];
+	dislikes?: string;
+	favorite_color?: string;
+	birthday?: { season: Season; day: number };
 
 export const residents: Resident[] = [
-  // Bachelors
-  {
-    name: "Jules",
-    group: "Bachelors",
-    favorite: ["Herbal Perfume"],
-    likes: [
-      "Herbs",
-      "Perfumes",
-      "Salads",
-      "Chamomile",
-      "Mint",
-      "Floral Perfume",
-    ],
-    birthday: { season: "Autumn", day: 20 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543450",
-  },
-  {
-    name: "Derek",
-    group: "Bachelors",
-    favorite: [
-      "Cream Croquettes",
-      "Rhinoceros Beetle",
-      "Elephant Beetle",
-      "Hercules Beetle",
-      "Hot Pot",
-    ],
-    likes: ["Stag Beetles", "Curries", "Ricebowl Dishes", "Tea Leaves"],
-    birthday: { season: "Summer", day: 12 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543500",
-  },
-  {
-    name: "Lloyd",
-    group: "Bachelors",
-    favorite: ["Gold Medal", "Diamond", "Boullabaisse", "Paella"],
-    likes: [
-      "Fondues",
-      "Bugs",
-      "Juices",
-      "Magic Blue Flower",
-      "Smallheaded Locusts",
-    ],
-    birthday: { season: "Autumn", day: 3 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543501",
-  },
-  {
-    name: "Gabriel",
-    group: "Bachelors",
-    favorite: ["Omelet Rice"],
-    likes: ["Gratin", "Fruit Dishes", "Ice Cream", "Pizza", "Sweets"],
-    birthday: { season: "Winter", day: 28 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543502",
-  },
-  {
-    name: "Samir",
-    group: "Bachelors",
-    favorite: ["Cooked Rice", "Chocolate-Covered Banana", "Cookies", "Stew"],
-    likes: ["Rice", "Rice Dishes", "Grilled Fish", "Stag Beetles"],
-    birthday: { season: "Winter", day: 26 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543503",
-  },
-  {
-    name: "Arata",
-    group: "Bachelors",
-    favorite: ["Unadon", "Warm Milk", "Rainbow Curry"],
-    likes: ["Milk", "Sashimi", "Onigiri", "Omelet", "Fishes", "Curries"],
-    birthday: { season: "Winter", day: 17 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543504",
-  },
-
-  // Bachelorettes
-  {
-    name: "Sophie",
-    group: "Bachelorettes",
-    favorite: ["Herb Salad"],
-    likes: ["Pickles", "Salads", "Moondrop Flower", "Rice Porridge"],
-    birthday: { season: "Spring", day: 16 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543485",
-  },
-  {
-    name: "June",
-    group: "Bachelorettes",
-    favorite: ["Cherry Tea"],
-    likes: ["Accessories", "Teas", "Frogs"],
-    birthday: { season: "Winter", day: 12 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543486",
-  },
-  {
-    name: "Freya",
-    group: "Bachelorettes",
-    favorite: [
-      "Pizza",
-      "Citrus Perfume",
-      "Moonstone",
-      "Peridot",
-      "Topaz",
-      "Sandstone",
-      "Any Gem",
-    ],
-    likes: ["Accessories", "Jewels", "Swallowtail Butterfly", "Warm Milk"],
-    birthday: { season: "Autumn", day: 25 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543487",
-  },
-  {
-    name: "Maple",
-    group: "Bachelorettes",
-    favorite: ["Engadiner Nusstorte", "Cookies", "Pancakes", "Churros"],
-    likes: ["Sweets", "Flowers", "Butterflies", "Honey Juice", "Walnut Juice"],
-    birthday: { season: "Autumn", day: 14 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543488",
-  },
-  {
-    name: "Kagetsu",
-    group: "Bachelorettes",
-    favorite: ["Soy Milk Pudding"],
-    likes: ["Soy Milk", "Tofu Dishes", "Vegetable Dishes", "Crops"],
-    birthday: { season: "Spring", day: 5 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543489",
-  },
-  {
-    name: "Diana",
-    group: "Bachelorettes",
-    favorite: ["Apple Pie", "Apple Jam", "Apple Juice"],
-    likes: [
-      "Apples",
-      "Teas",
-      "Butterflies",
-      "Cookies",
-      "Pancakes",
-      "Ice Cream",
-    ],
-    birthday: { season: "Autumn", day: 22 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543490",
-  },
-
-  // Villagers (page 1)
-  {
+	{
+		name: "Jules",
+		group: "Bachelors",
+		favorite: "Herbal perfume",
+		favorite_color: "Blue",
+		loves: ["Chamomile", "Mint", "Tomato salad", "Floral perfume"],
+		likes: ["Tomato", "Pumpkin", "Fragrances"],
+		dislikes: "Sweets",
+		birthday: { season: "Autumn", day: 20 },
+	},
+	{
+		name: "Derek",
+		group: "Bachelors",
+		favorite: "Cream croquettes",
+		favorite_color: "Red",
+		loves: ["Donburi Rice Bowl", "Any beetle"],
+		likes: ["Curry Rice", "Gold medal", "Bugs"],
+		dislikes: "Salads",
+		birthday: { season: "Summer", day: 12 },
+	},
+	{
+		name: "Lloyd",
+		group: "Bachelors",
+		favorite: "Paella",
+		favorite_color: "Blue",
+		loves: ["Diamond", "Rainbow curry", "Sushi", "Gold medal"],
+		likes: [
+			"Stag beetle",
+			"Walnut Juice",
+			"Strawberry Juice",
+			"Elaborate meals",
+		],
+		dislikes: "Quick bites",
+		birthday: { season: "Autumn", day: 3 },
+	},
+	{
+		name: "Gabriel",
+		group: "Bachelors",
+		favorite: "Omelet Rice",
+		favorite_color: "Yellow",
+		loves: ["Curry Rice"],
+		likes: ["Fruit dumplings", "Mont Blanc Cake", "Soy milk pudding", "Sweets"],
+		dislikes: "Pickled food",
+		birthday: { season: "Winter", day: 28 },
+	},
+	{
+		name: "Samir",
+		group: "Bachelors",
+		favorite: "Stew",
+		favorite_color: "Yellow",
+		loves: ["Chocolate Cake", "Cooked Rice"],
+		likes: ["Egg Drop Soup", "Chocolate", "Beetles", "Home cooking"],
+		dislikes: "Fancy meals",
+		birthday: { season: "Winter", day: 26 },
+	},
+	{
+		name: "Arata",
+		group: "Bachelors",
+		favorite: "Unadon",
+		favorite_color: "Blue",
+		loves: ["Warm milk"],
+		likes: ["Fish", "Curry Rice", "Hearty meals"],
+		dislikes: "Sour flavour",
+		birthday: { season: "Winter", day: 17 },
+	},
+	{
+		name: "Sophie",
+		group: "Bachelorettes",
+		favorite: "Herb Salad",
+		favorite_color: "Yellow",
+		loves: ["Tomato Salad", "Onion Salad", "Pickled crops"],
+		likes: ["Egg Drop Soup", "Light, Refreshing Meals"],
+		dislikes: "Spicy food",
+		birthday: { season: "Spring", day: 16 },
+	},
+	{
+		name: "June",
+		group: "Bachelorettes",
+		favorite: "Cherry Tea",
+		favorite_color: "Blue",
+		loves: ["Any Accessories"],
+		likes: ["Cookies", "Chocolate", "Black Tea", "Tea and Desserts"],
+		dislikes: "Fish",
+		birthday: { season: "Winter", day: 12 },
+	},
+	{
+		name: "Freya",
+		group: "Bachelorettes",
+		favorite: "Citrus Perfume",
+		favorite_color: "Red",
+		loves: ["Moonstone", "Diamond", "Amythest", "Any Accessories"],
+		likes: ["Warm Milk", "Chocolate", "Beautiful things"],
+		dislikes: "Tempura",
+		birthday: { season: "Autumn", day: 25 },
+	},
+	{
+		name: "Maple",
+		group: "Bachelorettes",
+		favorite: "Engadiner Nusstorte",
+		favorite_color: "Red",
+		loves: ["Cookies", "Chocolate Cake", "Honey Cake", "Pancake"],
+		likes: ["Ice cream", "Soy Milk Pudding", "Egg Tart", "Castella", "Sweets"],
+		dislikes: "Spicy food",
+		birthday: { season: "Autumn", day: 14 },
+	},
+	{
+		name: "Kagetsu",
+		group: "Bachelorettes",
+		favorite: "Soy Milk Pudding",
+		favorite_color: "Blue",
+		loves: ["Tofu", "Soy Milk"],
+		likes: ["Crops from your farm", "Simple Foods"],
+		dislikes: "Intricate meals",
+		birthday: { season: "Spring", day: 5 },
+	},
+	{
+		name: "Diana",
+		group: "Bachelorettes",
+		favorite: "Apple Pie",
+		favorite_color: "Red",
+		loves: ["Apple Jam", "Apple Juice"],
+		likes: [
+			"Soy Milk Pudding",
+			"Pancake",
+			"Chocolate Cake",
+			"Tea Leaves",
+			"Cookies",
+			"Sweets",
+		],
+		dislikes: "Greasy foods",
+		birthday: { season: "Autumn", day: 22 },
+	},
+	// Villagers
+	{
     name: "Felix",
     group: "Villagers",
-    favorite: ["Spicy Curry", "Bouillabaisse", "Rainbow Curry", "Rice Gratin"],
+    loves: ["Spicy Curry", "Bouillabaisse", "Rainbow Curry", "Rice Gratin"],
     likes: ["Curries", "Stag Beetles", "Magic Red Grass", "Cheese", "Risotto"],
     birthday: { season: "Summer", day: 1 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543871",
+    favorite_color: "Red",
+    dislikes: "Sweets"
   },
   {
     name: "Erik",
     group: "Villagers",
-    favorite: ["Black Tea", "Chamomile Tea", "Any Spring Blend Tea"],
+    favorite: "Spring Blend Tea",
+    loves: ["Black Tea", "Chamomile Tea", "Cherry Tea", "Banana Tea"],
     likes: [
       "Teas",
       "Juices",
@@ -179,163 +167,175 @@ export const residents: Resident[] = [
       "Pancakes",
       "Onion Salad",
       "Cafe au Lait",
-      "Green Tea",
+      "Green Tea"
     ],
     birthday: { season: "Spring", day: 20 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543873",
+    favorite_color: "Blue",
+    dislikes: "Home Cooking"
   },
   {
     name: "Stuart",
     group: "Villagers",
-    favorite: ["Mont Blanc Cake", "Pasta", "Spring Tea"],
+    favorite: "Mont Blanc Cake",
+    loves: ["Pasta", "Spring Tea"],
     likes: ["Noodles", "Teas", "Pickles", "Honey Juice", "Fried Egg"],
     birthday: { season: "Autumn", day: 11 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543874",
+    favorite_color: "Yellow",
+    dislikes: "Fish"
   },
   {
     name: "Sonia",
     group: "Villagers",
-    favorite: [
+    favorite: "Fruit Dumplings",
+    loves: [
       "Strawberry Juice",
       "Tomato Juice",
-      "Any fruit juice",
+      "Any fruit Juice",
       "Strawberry Pie",
-      "Cherry Tea",
+      "Cherry Tea"
     ],
     likes: ["Juices", "Teas", "Wild Herbs", "Poached Egg", "Toy Flower"],
     birthday: { season: "Spring", day: 25 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543875",
+    favorite_color: "Red",
+    dislikes: "Greasy Foods"
   },
   {
     name: "Madeleine",
     group: "Villagers",
-    favorite: ["Fruit Sandwich", "Strawberry Pie"],
+    favorite: "Fruit Sandwich",
+    loves: ["Strawberry Pie", "Apple Pie", "Pineapple Pie", "Blueberry Pie"],
     likes: ["Pies", "Wild Herbs", "Fruits Dishes", "Strawberry", "Rice Flour"],
     birthday: { season: "Spring", day: 18 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543876",
+    favorite_color: "Yellow",
+    dislikes: "Simple Dishes"
   },
   {
     name: "Mina",
     group: "Villagers",
-    favorite: ["Herb Pasta", "Mushroom Pasta"],
-    likes: ["Herbs", "Herbs Dishes", "Wild Herbs", "Cookies", "Pansy"],
+    favorite: "Herb Pasta",
+    loves: ["Mushroom Pasta", "Herb Salad", "Chamomile Tea"],
+    likes: ["Herbs", "Herbs Dishes", "Cookies", "Pansy"],
     birthday: { season: "Winter", day: 4 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543877",
+    favorite_color: "Yellow",
+    dislikes: "Bugs, Fish"
   },
   {
     name: "Wilbur",
     group: "Villagers",
-    favorite: ["Steamed Mushroom"],
-    likes: ["Eggplant Dishes", "Fishes", "Beetles", "Cooked Rice"],
+    favorite: "Steamed Mushroom",
+    loves: ["Mushroom Dishes"],
+    likes: ["Fishes", "Beetles", "Cooked Rice"],
     birthday: { season: "Summer", day: 3 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543878",
+    favorite_color: "Red",
+    dislikes: "Sweets"
   },
   {
     name: "Clara",
     group: "Villagers",
-    favorite: ["Pickled Broccoli", "Pickled Onion", "Any Pickles"],
+    favorite: "Pickled Broccoli",
+    loves: ["Any Pickles"],
     likes: ["Pickles", "Homemade Dishes", "Mushrooms", "Soy Milk", "Chamomile"],
     birthday: { season: "Autumn", day: 29 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543879",
+    favorite_color: "Blue",
+    dislikes: "Bugs"
   },
   {
     name: "Kevin",
     group: "Villagers",
-    favorite: [
-      "Giant Stag Beetle",
+    favorite: "Giant Stag Beetle",
+    loves: [
       "Smallheaded Locust",
       "Ruby Ladybug",
       "Swallowtail Butterfly",
       "Tree Frog",
       "Opal Cicada",
-      "Seven-Spotted Ladybug",
+      "Seven-Spotted Ladybug"
     ],
     likes: [
       "Bugs",
       "Sweets",
       "Curries",
       "Dumplings (Stone, Wood)",
-      "Butterfly Sticker",
+      "Butterfly Sticker"
     ],
     birthday: { season: "Summer", day: 25 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543880",
+    favorite_color: "Red",
+    dislikes: "Healthy Stuff"
   },
   {
     name: "Isaac",
     group: "Villagers",
-    favorite: ["Jam-Filled Bun", "Sandwich"],
-    likes: ["Sandwiches", "Sweets", "Cicadas"],
+    favorite: "Jam-Filled Bun",
+    loves: ["Toast", "Herb Sandwich", "Fruit Sandwich", "Sandwich"],
+    likes: ["Sweets", "Cicadas"],
     birthday: { season: "Autumn", day: 6 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543881",
+    favorite_color: "Red",
+    dislikes: "Milk"
   },
   {
     name: "Nadine",
     group: "Villagers",
-    favorite: ["Milk+", "Floral Perfume", "Milk Rice Porridge", "Herb Soup"],
+    favorite: "Milk+",
+    loves: [ "Floral Perfume", "Milk Rice Porridge", "Herb Soup", "Any Soup"],
     likes: ["Soups", "Warm Milk", "Pickles", "Pale Chub"],
     birthday: { season: "Summer", day: 30 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543882",
+    favorite_color: "Yellow",
+    dislikes: "Fondues"
   },
   {
     name: "Sylvia",
     group: "Villagers",
-    favorite: ["Donuts", "Baked Sweet Potato", "Omelet"],
+    favorite: "Donuts",
+    loves: ["Baked Sweet Potato", "Omelet"],
     likes: ["Sweets", "Egg Dishes", "Fishes", "Pasta"],
     birthday: { season: "Autumn", day: 18 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543883",
+    favorite_color: "Blue",
+    dislikes: "Bitter Stuff"
   },
   {
     name: "Laurie",
     group: "Villagers",
-    favorite: ["Sweet Potato Cakes", "Baked Sweet Potato", "Omelet"],
+    favorite: "Baked Sweet Potato",
+    loves: ["Sweet Potato Cakes", "Omelet"],
     likes: ["Sweets", "Herbs", "Fireflies", "Popcorn"],
     birthday: { season: "Autumn", day: 18 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543884",
+    favorite_color: "Blue",
+    dislikes: "Tofu And Veggies"
   },
   {
     name: "Harold",
     group: "Villagers",
-    favorite: ["Supreme Curry", "Soy Milk Pudding"],
-    likes: ["Puddings", "Teas", "Beetles"],
+    favorite: "Supreme Curry",
+    loves: ["Soy Milk Pudding"],
+    likes: ["Pudding", "Teas", "Beetles"],
     birthday: { season: "Summer", day: 7 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/547034",
+    favorite_color: "Blue",
+    dislikes: "Tomatoes"
   },
   {
     name: "Sherene",
     group: "Villagers",
-    favorite: ["Seaweed Curry"],
+    favorite: "Seaweed Curry",
+    loves: ["Chocolate Cookies", "Chocolate Cake", "Marigold"],
     likes: ["Chocolate Dishes", "Marigold", "Wild Herbs"],
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/547035",
+    favorite_color: "Yellow",
+    dislikes: "Greasy Foods"
   },
   {
     name: "Miguel",
     group: "Villagers",
-    favorite: [
-      "Croquettes",
+    favorite: "Croquettes",
+    loves: [
       "Black Necklace",
       "Chartreuse Brooch",
       "Black Firefly",
-      "French Fries",
+      "French Fries"
     ],
     likes: ["Accessories", "Fireflies", "Magic Red Grass", "Medal", "Bread"],
     birthday: { season: "Summer", day: 21 },
-    external_doc:
-      "https://game8.co/games/Story-of-Seasons-Grand-Bazaar/archives/543872",
-  },
+    favorite_color: "Red",
+    dislikes: "Sweets"
+  }
 ];
 
 // Some avatar filenames differ from their names. Provide overrides here.
