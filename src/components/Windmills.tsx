@@ -129,21 +129,32 @@ function RecipeIngredients(
       {recipe.map((ingredient, index) => {
         if (isRecipeOneOf(ingredient)) {
           return (
-            <div key={index} className="flex flex-wrap items-center gap-1">
+            <div
+              key={index}
+              className={cn(
+                "group relative mt-1 flex flex-wrap items-center gap-1 rounded-xl border",
+                "border-amber-300/50 dark:border-amber-700/50 bg-amber-500/5",
+                "px-2 py-1",
+              )}
+            >
+              <span className="pointer-events-none absolute -top-2 left-2 select-none rounded-full bg-amber-500/90 px-2 py-0.5 text-[10px] font-semibold leading-none text-amber-50 shadow-sm">
+                one of
+              </span>
               {ingredient.oneOf.map((choice, choiceIndex) => (
-                <div key={choiceIndex} className="flex items-center gap-1 mt-1">
+                <div key={choiceIndex} className="flex items-center gap-1">
                   <Badge
                     variant="square"
                     className={cn(
                       "text-xs",
-                      "border border-amber-200/50 dark:border-amber-800/50",
+                      "bg-amber-500/10 text-amber-900 dark:text-amber-200",
+                      "border border-amber-300/60 dark:border-amber-700/60",
                     )}
                   >
                     {choice}
                   </Badge>
                   {choiceIndex < ingredient.oneOf.length - 1 && (
-                    <span className="text-[10px] text-muted-foreground/60 font-medium px-0 italic">
-                      /
+                    <span className="mx-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-600/80 dark:text-amber-300/70">
+                      or
                     </span>
                   )}
                 </div>

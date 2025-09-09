@@ -268,7 +268,7 @@ export const fishList: FishEntry[] = [
     size: FishSize.Guardian,
     season: [Season.Winter],
     weather: [Weather.Sunny, Weather.LightSnow],
-    locations: ["Zephyr Town, pond by the Yellow Windmill"],
+    locations: ["Zephyr Town, highest pond by the Yellow Windmill"],
     baseValue: null,
   },
   {

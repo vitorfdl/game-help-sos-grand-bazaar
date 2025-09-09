@@ -5,7 +5,7 @@ export type BazaarItem = {
   price: number | string; // Some stalls use currency (G), others use Energy
   unlockWhen?: string; // Optional: not all items list an explicit unlock
   notes?: string; // Optional: extra info like time to complete or requirements
-  unit?: "G" | "Energy"; // Optional: clarify the unit
+  unit?: "G" | "Energy" | "Trash"; // Optional: clarify the unit
   category?: string; // Optional: e.g., "Ore", "Expansion", "Upgrade", "Animal", "Warp", "Decoration", etc.
 };
 
@@ -1566,7 +1566,102 @@ export const bazaarData: BaazarStalls = [
     name: "Charles's Stall",
     description: "Sells recycling services and trash processing items.",
     rank: 4,
-    items: [],
+    items: [
+      {
+        "name": "Feather Jewel",
+        "price": 50,
+        "unit": "Trash",
+        "category": "Gemstones",
+        "notes": "Combine with two similar gems to create a Travel Stone.",
+      },
+      {
+        "name": "Power Berry",
+        "price": 30,
+        "unit": "Trash",
+        "category": "Power Berries",
+        "notes": "Increases maximum stamina and restores it when eaten.",
+      },
+      {
+        "name": "Medal",
+        "price": 1,
+        "unit": "Trash",
+        "category": "Currency",
+      },
+      {
+        "name": "Sturdy Stone",
+        "price": 1,
+        "unit": "Trash",
+        "category": "Stone",
+        "notes": "Processed rock; wide variety of uses.",
+      },
+      {
+        "name": "Sturdy Lumber",
+        "price": 1,
+        "unit": "Trash",
+        "category": "Lumber",
+      },
+      {
+        "name": "Small Fish Bait",
+        "price": 1,
+        "unit": "Trash",
+        "category": "Fish Bait",
+      },
+      {
+        "name": "Medium Fish Bait",
+        "price": 1,
+        "unit": "Trash",
+        "category": "Fish Bait",
+        "notes": "Makes it easier to hook medium-sized fish.",
+      },
+      {
+        "name": "Large Fish Bait",
+        "price": 2,
+        "unit": "Trash",
+        "category": "Fish Bait",
+      },
+      {
+        "name": "Guardian Bait",
+        "price": 5,
+        "unit": "Trash",
+        "category": "Fish Bait",
+      },
+      {
+        "name": "Amethyst",
+        "price": 3,
+        "unit": "Trash",
+        "category": "Gemstones",
+      },
+      {
+        "name": "Topaz",
+        "price": 4,
+        "unit": "Trash",
+        "category": "Gemstones",
+      },
+      {
+        "name": "Emerald",
+        "price": 4,
+        "unit": "Trash",
+        "category": "Gemstones",
+      },
+      {
+        "name": "Ruby",
+        "price": 5,
+        "unit": "Trash",
+        "category": "Gemstones",
+      },
+      {
+        "name": "Diamond",
+        "price": 10,
+        "unit": "Trash",
+        "category": "Gemstones",
+      },
+      {
+        "name": "Pink Diamond",
+        "price": 20,
+        "unit": "Trash",
+        "category": "Gemstones",
+      },
+    ],
   },
   {
     name: "Sophie's Stall",
@@ -1625,23 +1720,23 @@ export const bazaarData: BaazarStalls = [
   {
     name: "Prize Palooza",
     description:
-      "Exchange medals for draws at the prize stall. Winning can score you a very valuable item.",
+      "Exchange medals for draws at the prize stall. Winning can score you a very valuable item such as Power Berry, Sky Jewel and Pink Diamond. 2nd place can give you Accessories and Rare Seeds such as Matsutake Seeds.",
     rank: 5,
     items: [
       {
-        name: "Gold Medal",
+        name: "Use Gold Medal",
         price: "1",
-        category: "Medal",
+        category: "Gold Medal",
       },
       {
-        name: "Silver Medal",
+        name: "Use Silver Medal",
         price: "3",
-        category: "Medal",
+        category: "Silver Medal",
       },
       {
-        name: "Bronze Medal",
+        name: "Use Bronze Medal",
         price: "5",
-        category: "Medal",
+        category: "Bronze Medal",
       },
     ],
   },
@@ -1649,6 +1744,15 @@ export const bazaarData: BaazarStalls = [
     name: "Destiny's Fortune Teller",
     description: "Tell your fortune and provides a buff.",
     rank: 6,
-    items: [],
+    items: [
+      {
+        name: "Tell your Fortune",
+        price: "3000",
+        unit: "G",
+        category: "Service",
+        notes:
+          "Tell your fortune and provides a buff for the Bazaar — such as selling faster, upgrade quality, or better prices.",
+      },
+    ],
   },
 ];
