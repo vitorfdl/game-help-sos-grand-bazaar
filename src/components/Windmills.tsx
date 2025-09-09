@@ -174,8 +174,6 @@ function RecipeIngredients(
 }
 
 function includesQuery(
-  windmill: { name: string; description?: string },
-  section: { title: string },
   item: WindmillItem,
   q: string,
 ): boolean {
@@ -188,14 +186,9 @@ function includesQuery(
   }) ?? [];
 
   const haystack = [
-    windmill.name,
-    windmill.description,
-    section.title,
     item.name,
     item.info,
     item.sellPrice,
-    item.processTime,
-    item.harvestTime,
     ...recipeTerms,
   ]
     .filter(Boolean)
@@ -277,8 +270,7 @@ export default function Windmills() {
       // Filter by search query
       const filteredItems = q
         ? allItems.filter((item) => {
-          const section = { title: item.sectionTitle };
-          return includesQuery(wm, section, item, q);
+          return includesQuery(item, q);
         })
         : allItems;
 
