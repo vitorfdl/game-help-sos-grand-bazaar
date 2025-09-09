@@ -1529,14 +1529,14 @@ export const recipes: RecipeItem[] = [
     effect: "Happy Energy Gain Lv. 4",
   },
   {
-    dish: "Chestnut Juice (Bistro)",
-    type: "Other (Juice)",
-    recipe: [],
+    dish: "Chestnut Paste",
+    type: "Dessert",
+    recipe: ["1x Bottled Chestnuts"],
     salesPrice: 390,
     utensils: null,
     whereToGet: "Nadine's Bistro",
-    adaptOptions: ["Milk"],
-    effect: "Chat Friendship Boost Lv. 1",
+    adaptOptions: ["Sweet Potato", "Salt", "Sugar"],
+    effect: "Petting Happiness Up Lv. 1",
   },
   {
     dish: "Lavender Tea",
@@ -2468,11 +2468,16 @@ export const recipes: RecipeItem[] = [
   {
     dish: "Whole Cake",
     type: "Dessert",
-    recipe: [],
+    recipe: [
+      "1x Wheat Flour",
+      "1x Egg+ (or Silkie Egg+)",
+      "1x Milk+ (or Buffalo Milk+)",
+      "1x Strawberry",
+    ],
     salesPrice: 1350,
     utensils: null,
     whereToGet: "Nadine's Bistro",
-    adaptOptions: null,
+    adaptOptions: ["Any Butter", "Sugar", "Chocolate"],
     effect: "Petting Rare Item % Lv. 3",
   },
   {
