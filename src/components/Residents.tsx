@@ -130,14 +130,15 @@ function TagList({
 	return (
 		<div className="flex flex-col gap-1">
 			<span className="font-medium">{label}:</span>
-			<div className="flex flex-wrap gap-2">
+			<div className="flex flex-wrap gap-2 items-start">
 				{ordered.map((text) => (
-					<ItemDisplay
-						key={text}
-						itemName={text}
-						variant={text === favorite ? "favorite" : variant}
-						chipLabel={text === favorite ? "Favorite" : undefined}
-					/>
+					<div key={text} className="flex-shrink-0">
+						<ItemDisplay
+							itemName={text}
+							variant={text === favorite ? "favorite" : variant}
+							chipLabel={text === favorite ? "Favorite" : undefined}
+						/>
+					</div>
 				))}
 			</div>
 		</div>

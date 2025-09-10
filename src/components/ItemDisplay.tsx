@@ -316,7 +316,7 @@ export default function ItemDisplay({
 		// Fallback for items not found in data
 		if (chipLabel) {
 			return (
-				<div className="group relative mt-1 flex items-center gap-2 rounded-md border border-emerald-300/50 dark:border-emerald-700/50 bg-emerald-500/10 px-3 py-2">
+				<div className="group relative mt-1 flex items-center gap-2 rounded-md border border-emerald-300/50 dark:border-emerald-700/50 bg-emerald-500/10 px-2 py-1">
 					<span className="pointer-events-none absolute -top-2 left-2 select-none rounded-full bg-emerald-500/90 px-2 py-0.5 text-[10px] font-semibold leading-none text-emerald-50 shadow-sm uppercase tracking-wide">
 						{chipLabel}
 					</span>
@@ -344,7 +344,7 @@ export default function ItemDisplay({
 					{chipLabel ? (
 						<button
 							type="button"
-							className="group relative mt-1 flex items-center gap-2 rounded-md border border-emerald-300/50 dark:border-emerald-700/50 bg-emerald-500/10 px-3 py-2 hover:bg-emerald-500/15 transition-colors"
+							className="group relative mt-1 flex items-center gap-2 rounded-md border border-emerald-300/50 dark:border-emerald-700/50 bg-emerald-500/10 px-2 py-1 hover:bg-emerald-500/15 transition-colors"
 						>
 							<span className="pointer-events-none absolute -top-2 left-2 select-none rounded-full bg-emerald-500/90 px-2 py-0.5 text-[10px] font-semibold leading-none text-emerald-50 shadow-sm uppercase tracking-wide">
 								{chipLabel}
@@ -395,7 +395,7 @@ export default function ItemDisplay({
 				{chipLabel ? (
 					<button
 						type="button"
-						className="group relative mt-1 flex items-center gap-2 rounded-md border border-emerald-300/50 dark:border-emerald-700/50 bg-emerald-500/10 px-3 py-2 hover:bg-emerald-500/15 transition-colors"
+						className="group relative mt-1 flex items-center gap-2 rounded-md border border-emerald-300/50 dark:border-emerald-700/50 bg-emerald-500/10 px-2 py-1 hover:bg-emerald-500/15 transition-colors"
 					>
 						<span className="pointer-events-none absolute -top-2 left-2 select-none rounded-full bg-emerald-500/90 px-2 py-0.5 text-[10px] font-semibold leading-none text-emerald-50 shadow-sm uppercase tracking-wide">
 							{chipLabel}

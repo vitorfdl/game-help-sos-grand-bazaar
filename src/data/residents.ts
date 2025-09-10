@@ -19,7 +19,7 @@ export const residents: Resident[] = [
 		group: "Bachelors",
 		favorite: "Herbal perfume",
 		favorite_color: "Blue",
-		loves: ["Chamomile", "Mint", "Tomato salad", "Floral perfume"],
+		loves: ["Chamomile", "Mint", "Tomato Salad", "Floral perfume"],
 		likes: ["Tomato", "Pumpkin", "Fragrances"],
 		dislikes: "Sweets",
 		birthday: { season: "Autumn", day: 20 },
