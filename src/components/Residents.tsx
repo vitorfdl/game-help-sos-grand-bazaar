@@ -13,7 +13,7 @@ import {
 	Snowflake,
 	Sun,
 	Users,
-	X,
+	ThumbsDown,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -168,9 +168,9 @@ function FavoriteColorBadge({ color }: { color?: string }) {
 function DislikesBadge({ dislikes }: { dislikes?: string }) {
 	if (!dislikes) return null;
 	return (
-		<span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-xs border text-xs text-muted-foreground">
-			<X className="h-3.5 w-3.5" />
-			<span className="font-semibold text-foreground/80">{dislikes}</span>
+		<span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-xs border text-xs text-red-500/70 border-red-200/30 bg-red-50/30 dark:bg-red-950/20">
+			<ThumbsDown className="h-3.5 w-3.5" />
+			<span className="font-semibold text-red-600/80 dark:text-red-400/80">{dislikes}</span>
 		</span>
 	);
 }
