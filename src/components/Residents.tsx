@@ -128,8 +128,8 @@ function TagList({
 		: items;
 
 	return (
-		<div className="flex flex-col sm:flex-row sm:items-start gap-2">
-			<span className="font-medium shrink-0">{label}:</span>
+		<div className="flex flex-col gap-1">
+			<span className="font-medium">{label}:</span>
 			<div className="flex flex-wrap gap-2">
 				{ordered.map((text) => (
 					<ItemDisplay
