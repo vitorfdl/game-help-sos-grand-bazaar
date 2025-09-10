@@ -1,4 +1,4 @@
-import { type RecipeItem } from "@/data/types";
+import type { RecipeItem } from "@/data/types";
 
 export type { RecipeItem };
 
@@ -684,11 +684,11 @@ export const recipes: RecipeItem[] = [
 	},
 	{
 		dish: "Fruit Dumplings",
-		recipe: ["1x Refined Rice Flour", "1x Any Fruit"],
+		recipe: ["1x Refined Rice Flour", "2x Any Fruit"],
 		salesPrice: 1089,
 		utensils: null,
 		whereToGet: "Mini Madeleine",
-		adaptOptions: null,
+		adaptOptions: ["Mint", "Sugar"],
 		type: "Dessert",
 		effect: "Petting Happiness Up Lv. 3",
 	},
@@ -986,11 +986,11 @@ export const recipes: RecipeItem[] = [
 	},
 	{
 		dish: "Engadiner Nusstorte",
-		recipe: [],
+		recipe: ["1x Wheat Flour", "1x Silk Egg", "1x Sugar", "1x Chestnut"],
 		salesPrice: 1206,
 		utensils: null,
 		whereToGet: "Nadine's Bistro",
-		adaptOptions: null,
+		adaptOptions: ["Any Milk", "Any Butter", "Any Honey"],
 		effect: "Petting Happiness Up Lv. 3",
 	},
 	{
@@ -1120,12 +1120,16 @@ export const recipes: RecipeItem[] = [
 	},
 	{
 		dish: "Stew",
-		recipe: [],
+		recipe: [
+			"1x Wheat Flour",
+			"1x Any Milk",
+			"1x Potato (or Carrot/Turnip/Cabbage/Cauliflower/Aspargus)",
+		],
 		type: "Sides",
 		salesPrice: 770,
 		utensils: null,
 		whereToGet: "Nadine's Bistro",
-		adaptOptions: null,
+		adaptOptions: ["Any Cheese", "Any Butter", "Salt", "Pepper"],
 		effect: "Chat Friendship Boost Lv. 2",
 	},
 	{
@@ -1151,11 +1155,11 @@ export const recipes: RecipeItem[] = [
 	{
 		dish: "Onion Soup",
 		type: "Soup",
-		recipe: [],
+		recipe: ["1x Onion", "1x Any Butter"],
 		salesPrice: 1024,
 		utensils: ["Cooking Pot"],
 		whereToGet: "Mini Madeleine",
-		adaptOptions: null,
+		adaptOptions: ["Garlic", "Baguettes", "Pepper", "Salt"],
 		effect: "Rod Durability Lv. 3",
 	},
 	{
@@ -1171,11 +1175,11 @@ export const recipes: RecipeItem[] = [
 	{
 		dish: "Cheese Bun",
 		type: "Sides",
-		recipe: [],
+		recipe: ["1x Wheat Flour", "1x Buffalo Milk", "1x Any Cheese"],
 		salesPrice: 1320,
 		utensils: ["Cooking Pot"],
 		whereToGet: "Mini Madeleine",
-		adaptOptions: null,
+		adaptOptions: ["Garlic", "Sugar", "Pepper", "Milk", "Oil"],
 		effect: "Chat Friendship Boost Lv. 3",
 	},
 	{
@@ -1688,11 +1692,11 @@ export const recipes: RecipeItem[] = [
 	},
 	{
 		dish: "Chestnut Rice",
-		recipe: [],
+		recipe: ["1x Rice", "1x Chestnut"],
 		salesPrice: 329,
 		utensils: null,
 		whereToGet: "Clara's Diner",
-		adaptOptions: null,
+		adaptOptions: ["Sweet Potato", "Salt", "Bottled Chestnuts"],
 		type: "Main Dish",
 		effect: "Extra Stamina Recovered",
 	},
@@ -2353,11 +2357,11 @@ export const recipes: RecipeItem[] = [
 	{
 		dish: "Blueberry Pie",
 		type: "Dessert",
-		recipe: [],
+		recipe: ["1x Wheat Flour", "1x Any Egg", "1x Any Butter", "1x Blueberry"],
 		salesPrice: 1377,
 		utensils: ["Oven"],
 		whereToGet: "Nadine's Bistro",
-		adaptOptions: null,
+		adaptOptions: ["Lemon", "Sugar", "Salt"],
 		effect: "Petting Happiness Up Lv. 3",
 	},
 	{
