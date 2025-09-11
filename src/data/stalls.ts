@@ -209,6 +209,13 @@ export const bazaarData: BaazarStalls = [
 				notes: "Increases storage to 144 items. Takes 1 day.",
 			},
 			{
+				name: "Massive Storage Expansion",
+				price: 500000,
+				unit: "G",
+				category: "Storage Expansion",
+				notes: "Increases storage to 240 items. Takes 1 day.",
+			},
+			{
 				name: "Double Bed Upgrade",
 				price: 10000,
 				unit: "G",
