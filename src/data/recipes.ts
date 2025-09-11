@@ -1325,11 +1325,16 @@ export const recipes: RecipeItem[] = [
 	{
 		dish: "Steamed Cake",
 		type: "Dessert",
-		recipe: [],
+		recipe: [
+			"1x Wheat Flour",
+			"1x Egg (or Silkie Egg)",
+			"1x Any Milk",
+			"1x Pumpkin",
+		],
 		salesPrice: 1422,
 		utensils: ["Oven"],
 		whereToGet: "Mini Madeleine",
-		adaptOptions: null,
+		adaptOptions: ["Any Butter", "Sweet Potato", "Sugar", "Rice Flour"],
 		effect: "Petting Happiness Up Lv. 3",
 	},
 	{
@@ -1819,11 +1824,16 @@ export const recipes: RecipeItem[] = [
 	},
 	{
 		dish: "Seaweed Curry",
-		recipe: [],
+		recipe: [
+			"1x Cooked Rice",
+			"1x Curry Powder",
+			"1x Seaweed",
+			"1x Potato (or Onion/Carrot)",
+		],
 		salesPrice: 1386,
 		utensils: ["Cooking Pot"],
 		whereToGet: "Clara's Diner",
-		adaptOptions: null,
+		adaptOptions: ["Garlic", "Tomato", "Apple"],
 		type: "Main Dish",
 		effect: "Extra Stamina Recovered",
 	},
@@ -1949,7 +1959,7 @@ export const recipes: RecipeItem[] = [
 		salesPrice: 364,
 		utensils: null,
 		whereToGet: "Clara's Diner",
-		adaptOptions: ["Lemon", "Any Milk", "Any Honey", "Sugar"],
+		adaptOptions: ["Any Milk", "Sugar"],
 		effect: "Chat Friendship Boost Lv. 1",
 	},
 	{
@@ -1959,7 +1969,7 @@ export const recipes: RecipeItem[] = [
 		salesPrice: 401,
 		utensils: null,
 		whereToGet: "Clara's Diner",
-		adaptOptions: ["Lemon", "Any Milk", "Any Honey", "Sugar"],
+		adaptOptions: ["Any Milk", "Sugar"],
 		effect: "Chat Friendship Boost Lv. 1",
 	},
 	{
@@ -1969,7 +1979,7 @@ export const recipes: RecipeItem[] = [
 		salesPrice: 401,
 		utensils: null,
 		whereToGet: "Clara's Diner",
-		adaptOptions: ["Lemon", "Any Milk", "Any Honey", "Sugar"],
+		adaptOptions: ["Any Milk", "Sugar"],
 		effect: "Chat Friendship Boost Lv. 1",
 	},
 	{

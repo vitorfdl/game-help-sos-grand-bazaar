@@ -27,7 +27,7 @@ export const residents: Resident[] = [
 	{
 		name: "Derek",
 		group: "Bachelors",
-		favorite: "Cream croquettes",
+		favorite: "Cream Croquettes",
 		favorite_color: "Red",
 		loves: ["Donburi Rice Bowl", "Any beetle"],
 		likes: ["Curry Rice", "Gold Medal", "Bugs"],
