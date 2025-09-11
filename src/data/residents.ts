@@ -326,6 +326,7 @@ export const residents: Resident[] = [
 		loves: ["Chocolate Cookies", "Chocolate Cake", "Marigold"],
 		likes: ["Chocolate Dishes", "Marigold", "Wild Herbs"],
 		favorite_color: "Yellow",
+		birthday: { season: "Summer", day: 16 },
 		dislikes: "Greasy Foods",
 	},
 	{
